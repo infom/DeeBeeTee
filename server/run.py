@@ -14,7 +14,7 @@ my_loader = jinja2.ChoiceLoader([
 
 app.jinja_loader = my_loader
 
-@app.route('/')
+@app.route('/docs/api')
 def index():
     return render_template('api.html')
 
