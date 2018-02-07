@@ -9,7 +9,7 @@ app = Eve(settings='settings.py')
 
 my_loader = jinja2.ChoiceLoader([
     app.jinja_loader,
-    jinja2.FileSystemLoader(os.getcwd()),
+    jinja2.FileSystemLoader(os.getcwd()+'/docs/api'),
 ])
 
 app.jinja_loader = my_loader
