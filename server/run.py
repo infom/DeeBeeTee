@@ -1,5 +1,5 @@
 from eve import Eve
-from flask.ext.bootstrap import Bootstrap
+from  flask_bootstrap import Bootstrap
 from eve_docs import eve_docs
 
 app = Eve(settings='settings.py')
