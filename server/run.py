@@ -4,7 +4,7 @@ from flask import render_template
 
 app = Eve(settings='settings.py')
 
-@app.route('/' methods=['GET'])
+@app.route('/')
 def index():
     path = os.path.abspath('api.html')
     return render_template(path)
