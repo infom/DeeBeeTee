@@ -21,7 +21,7 @@ for cycle in sc:
 
 
 G = nx.MultiDiGraph()
-G.add_weighted_edges_from([('amarshalkin', 'infom', 200),('amarshalkin', 'infom', 100), ('klimov', 'amarshalkin', 300), ('amarshalkin', 'fedorov', 150), ('fedorov', 'klimov', 50)])
+G.add_weighted_edges_from([('amarshalkin', 'infom', 200),('infom', 'amarshalkin', 100), ('klimov', 'amarshalkin', 300), ('amarshalkin', 'fedorov', 150), ('fedorov', 'klimov', 50), ('klimov', 'fedorov', 150)])
 ax1 = plt.subplot(212)
 ax1.set_title("Multi Direct Graph")
 nx.draw_shell(G, with_labels=True, font_weight='bold')
