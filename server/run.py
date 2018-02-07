@@ -1,8 +1,10 @@
 from eve import Eve
+from eve.auth import requires_auth
 app = Eve(settings='settings.py')
 
 @app.route('/docs')
-def root():
+@requires_auth('resource')
+def api_docs():
     return app.send_static_file('api.html')
 
 if __name__ == '__main__':
