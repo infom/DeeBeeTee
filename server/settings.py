@@ -1,4 +1,4 @@
-MONGO_URI = "mongodb://remote:fgfHQ6PFzWNx@194.87.236.140:27017/deebeetee"
+MONGO_URI = "mongodb://remote:fgfHQ6PFzWNx@localhost:27017/deebeetee"
 
 # включаем поддержку методов POST, PUT, PATCH, DELETE.
 RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
@@ -32,9 +32,8 @@ DOMAIN = {
                 'required': True,
             },
             'role': {
-
                 'type': 'list', # тип: список
-                'allowed': ["author", "contributor"], # разрешаем использовать значения: "author", "contributor"
+                'allowed': ["admin", "user"], # разрешаем использовать значения: "author", "contributor"
             },
             'location': {
                 'type': 'dict', # тип: словарь
