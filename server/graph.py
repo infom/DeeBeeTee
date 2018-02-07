@@ -7,4 +7,6 @@ DG.add_weighted_edges_from([('amarshalkin', 'infom', 200), ('klimov', 'amarshalk
 nx.draw(DG, with_labels=True, font_weight='bold')
 plt.savefig("graph.png")
 
-list(nx.simple_cycles(DG))
+simple = list(nx.simple_cycles(DG))
+
+print(simple)
