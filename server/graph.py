@@ -8,7 +8,7 @@ DG.add_weighted_edges_from([('amarshalkin', 'infom', 200), ('klimov', 'amarshalk
 ax = plt.subplot(211)
 ax.set_title("Direct Graph")
 sc = list(nx.simple_cycles(DG))
-ax.text(sc, verticalalignment='bottom', horizontalalignment='center',)
+ax.text(0.95, 0.01, sc, verticalalignment='bottom', horizontalalignment='center',)
 nx.draw_shell(DG, with_labels=True, font_weight='bold')
 
 print(sc)
