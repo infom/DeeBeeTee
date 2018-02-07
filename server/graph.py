@@ -12,8 +12,10 @@ ax = plt.subplot(211)
 ax.set_title("Direct Graph")
 sc = list(nx.simple_cycles(DG))
 nx.draw_shell(DG, with_labels=True, font_weight='bold')
-nx.draw_networkx_nodes(DG,pos,
-                       nodelist=sc,
+
+for cycle in sc:
+    nx.draw_networkx_nodes(DG,pos,
+                       nodelist=cycle,
                        node_color='r',
                        node_size=500,
                        alpha=0.8)
