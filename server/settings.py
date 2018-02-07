@@ -78,4 +78,4 @@ groups = {
     }
 }
 
-DOMAIN = {'users':users, 'group':group}
+DOMAIN = {'users':users, 'groups':groups}
