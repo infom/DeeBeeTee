@@ -22,9 +22,18 @@ for cycle in sc:
 
 G = nx.MultiDiGraph()
 G.add_weighted_edges_from([('amarshalkin', 'infom', 200),('infom', 'amarshalkin', 100), ('klimov', 'amarshalkin', 300), ('amarshalkin', 'fedorov', 150), ('fedorov', 'klimov', 50), ('klimov', 'fedorov', 150)])
+pos=nx.shell_layout(G)
+
 ax1 = plt.subplot(212)
 ax1.set_title("Multi Direct Graph")
+sc = list(nx.simple_cycles(G))
+
 nx.draw_shell(G, with_labels=True, font_weight='bold')
+for cycle in sc:
+    nx.draw_networkx_nodes(G,pos,
+                       nodelist=cycle,
+                       node_color='b',
+                       alpha=1)
 
 plt.savefig("graphs.png")
 
