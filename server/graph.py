@@ -8,6 +8,6 @@ nx.draw(DG, with_labels=True, font_weight='bold')
 plt.savefig("graph.png")
 
 try:
-    print(list(find_cycle(G, orientation='ignore')))
+    print(list(find_cycle(DG, orientation='ignore')))
 except:
     pass
