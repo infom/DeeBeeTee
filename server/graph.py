@@ -5,7 +5,7 @@ import networkx as nx
 
 DG = nx.DiGraph()
 DG.add_weighted_edges_from([('amarshalkin', 'infom', 200), ('klimov', 'amarshalkin', 300), ('amarshalkin', 'fedorov', 150), ('fedorov', 'klimov', 50)])
-pos=nx.spring_layout(DG) # positions for all nodes
+pos=nx.shell_layout(DG) # positions for all nodes
 
 ax = plt.subplot(211)
 ax.set_title("Direct Graph")
@@ -18,7 +18,7 @@ for cycle in sc:
                        node_size=500,
                        alpha=0.8)
 
-nx.draw_shell(DG, pos=nx.spring_layout(DG), with_labels=True, font_weight='bold')
+nx.draw_shell(DG, with_labels=True, font_weight='bold')
 
 
 
