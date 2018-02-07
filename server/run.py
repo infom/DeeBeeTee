@@ -3,7 +3,7 @@ from flask import render_template
 
 app = Eve(settings='settings.py')
 
-@app.route('/docs')
+@app.route('/docs/api')
 def index():
     return render_template('api.html')
 
