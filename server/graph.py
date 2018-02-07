@@ -7,5 +7,7 @@ DG.add_weighted_edges_from([('amarshalkin', 'infom', 200), ('klimov', 'amarshalk
 nx.draw(DG, with_labels=True, font_weight='bold')
 plt.savefig("graph.png")
 
-paths = nx.all_simple_paths(DG, source='klimov', target='fedorov')
-print(list(paths))
+try:
+    print(list(find_cycle(G, orientation='ignore')))
+except:
+    pass
