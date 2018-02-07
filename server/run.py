@@ -5,7 +5,6 @@ app = Eve(settings='settings.py')
 
 @app.route('/docs')
 def index():
-    cfg = get_cfg()
     return render_template('api.html')
 
 if __name__ == '__main__':
