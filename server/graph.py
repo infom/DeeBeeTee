@@ -8,4 +8,7 @@ DG.add_weighted_edges_from([('amarshalkin', 'infom', 200), ('klimov', 'amarshalk
 nx.draw(DG, with_labels=True, font_weight='bold')
 plt.savefig("graph.png")
 
-print(list(find_cycle(DG, orientation='ignore')))
+G = nx.MultiDiGraph()
+G.add_weighted_edges_from([('amarshalkin', 'infom', 200), ('klimov', 'amarshalkin', 300), ('amarshalkin', 'fedorov', 150), ('fedorov', 'klimov', 50)])
+nx.draw(G, with_labels=True, font_weight='bold')
+plt.savefig("multygraph.png")
