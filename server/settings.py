@@ -7,6 +7,8 @@ ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
 PUBLIC_METHODS = ['GET', 'POST']
 PUBLIC_ITEM_METHODS = ['GET', 'POST']
 
+API_VERSION = 'v1'
+
 users = {
     # Здесь мы описываем модель данных. Для валидации используется модуль Cerberus от автора Eve.
     # Вы можете ознакомиться с ним в официальной документации модуля http://docs.python-cerberus.org/en/stable/.
