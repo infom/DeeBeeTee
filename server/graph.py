@@ -18,7 +18,7 @@ for cycle in sc:
                        node_size=500,
                        alpha=0.8)
 
-nx.draw_shell(DG, pos, with_labels=True, font_weight='bold')
+nx.draw_shell(DG, pos=nx.spring_layout(DG), with_labels=True, font_weight='bold')
 
 
 
