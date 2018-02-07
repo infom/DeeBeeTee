@@ -4,6 +4,9 @@ MONGO_URI = "mongodb://remote:fgfHQ6PFzWNx@localhost:27017/deebeetee"
 RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
 ITEM_METHODS = ['GET', 'PATCH', 'PUT', 'DELETE']
 
+PUBLIC_METHODS = ['GET', 'POST']
+PUBLIC_ITEM_METHODS = ['GET', 'POST']
+
 users = {
     # Здесь мы описываем модель данных. Для валидации используется модуль Cerberus от автора Eve.
     # Вы можете ознакомиться с ним в официальной документации модуля http://docs.python-cerberus.org/en/stable/.
