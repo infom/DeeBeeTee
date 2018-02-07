@@ -8,7 +8,8 @@ DG.add_weighted_edges_from([('amarshalkin', 'infom', 200), ('klimov', 'amarshalk
 ax = plt.subplot(211)
 ax.set_title("Direct Graph")
 nx.draw_shell(DG, with_labels=True, font_weight='bold')
-print(list(nx.simple_cycles(DG)))
+x = list(nx.simple_cycles(DG))
+print(x)
 
 G = nx.MultiDiGraph()
 G.add_weighted_edges_from([('amarshalkin', 'infom', 200),('amarshalkin', 'infom', 100), ('klimov', 'amarshalkin', 300), ('amarshalkin', 'fedorov', 150), ('fedorov', 'klimov', 50)])
