@@ -21,10 +21,9 @@ def graph():
     return render_template('graph.html')
 
 @app.route('/files/<path:filename>')
-def files(filename):
-    path = os.getcwd() + '/static/' + filename
-    print(path)
-    return app.send_file(path, attachment_filename=filename)
+def serve_static(filename):
+    root_dir = os.path.dirname(os.getcwd())
+    return send_from_directory(os.path.join(root_dir, 'static', 'img'), filename)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5001, debug=True)
