@@ -11,7 +11,7 @@ loader = jinja2.ChoiceLoader([
 ])
 
 app.jinja_loader = loader
-app.config['STATIC_FOLDER'] = os.getcwd() + '/static'
+print(app.static_url_path)
 
 @app.route('/docs/api')
 def api_docs():
@@ -20,6 +20,11 @@ def api_docs():
 @app.route('/graph')
 def graph():
     return render_template('graph.html')
+
+@app.route('/files/<path:filename>')
+def files(filename):
+    path = os.getcwd() + '/static/' + filename
+    return send_static_file(path)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5001, debug=True)
