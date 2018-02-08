@@ -12,7 +12,7 @@ DG = nx.DiGraph()
 DG.add_weighted_edges_from(array1)
 pos=nx.shell_layout(DG) # positions for all nodes
 
-ax = plt.subplot(111)
+ax = plt.subplot(131)
 ax.set_title("Direct Graph")
 
 # Find simple direct cycle
@@ -33,7 +33,7 @@ MDG = nx.MultiDiGraph()
 MDG.add_weighted_edges_from(array2)
 pos=nx.shell_layout(MDG)
 
-ax1 = plt.subplot(121)
+ax1 = plt.subplot(132)
 ax1.set_title("Multi Direct Graph")
 
 # Find simple multi direct cycle
@@ -52,10 +52,10 @@ for cycle in sc:
 G = nx.Graph()
 G.add_weighted_edges_from(array1)
 
-ax1 = plt.subplot(131)
+ax1 = plt.subplot(133)
 ax1.set_title("Graph")
 
 # Draw Graph
 nx.draw_shell(G, with_labels=True, font_weight='bold')
 
-plt.savefig("static/img/graphs.png", dpi=300)
+plt.savefig("static/img/graphs.png", dpi=200)
