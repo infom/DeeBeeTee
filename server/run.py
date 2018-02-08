@@ -7,7 +7,7 @@ app = Eve(settings='settings.py')
 
 loader = jinja2.ChoiceLoader([
     app.jinja_loader,
-    jinja2.FileSystemLoader(os.getcwd()+'templates'),
+    jinja2.FileSystemLoader(os.getcwd()+'/templates'),
 ])
 
 app.jinja_loader = loader
