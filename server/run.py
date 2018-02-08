@@ -1,6 +1,6 @@
 import os
 from eve import Eve
-from flask import render_template
+from flask import render_template, send_from_directory
 import jinja2
 
 app = Eve(settings='settings.py')
