@@ -52,7 +52,7 @@ for cycle in sc:
 G = nx.Graph()
 G.add_weighted_edges_from(array1)
 
-ax1 = plt.subplot(221)
+ax1 = plt.subplot(222)
 ax1.set_title("Graph")
 
 # Draw Graph
