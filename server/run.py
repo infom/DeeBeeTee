@@ -24,7 +24,7 @@ def graph():
 @app.route('/files/<path:filename>')
 def files(filename):
     path = os.getcwd() + '/static/' + filename
-    return send_from_directory(os.getcwd() + '/static/', filename, as_attachment=True)
+    return app.send_from_directory(os.getcwd() + '/static/', filename, as_attachment=True)
     #return app.send_static_file(path)
 
 if __name__ == '__main__':
