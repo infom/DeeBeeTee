@@ -58,4 +58,4 @@ ax1.set_title("Graph")
 # Draw Graph
 nx.draw_shell(G, with_labels=True, font_weight='bold')
 
-plt.savefig("static/img/graphs.png", dpi=200)
+plt.savefig("static/img/graphs.png", dpi=300)
