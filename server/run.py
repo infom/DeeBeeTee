@@ -11,7 +11,7 @@ loader = jinja2.ChoiceLoader([
 ])
 
 app.jinja_loader = loader
-app.config['STATIC_FOLDER'] = os.getcwd() + '/upload'
+app.config['STATIC_FOLDER'] = os.getcwd() + '/static'
 
 @app.route('/docs/api')
 def api_docs():
