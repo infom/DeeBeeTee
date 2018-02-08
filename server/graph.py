@@ -37,7 +37,7 @@ for cycle in sc:
                        node_color='b',
                        alpha=1)
 
-plt.savefig("graphs.png")
+plt.savefig("static/img/graphs.png")
 
 
 
