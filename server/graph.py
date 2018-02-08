@@ -34,7 +34,7 @@ for cycle in sc:
     print('find simple cycle from multi direct graph:', cycle)
     nx.draw_networkx_nodes(MDG,pos,
                        nodelist=cycle,
-                       node_color='b',
+                       node_color='g',
                        alpha=1)
 
 plt.savefig("static/img/graphs.png")
