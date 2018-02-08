@@ -22,6 +22,8 @@ def graph():
     return render_template('templates/graph.html')
 
 @app.route('/upload')
+def upload():
+    pass
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5001, debug=True)
