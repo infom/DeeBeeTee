@@ -51,21 +51,11 @@ for cycle in sc:
 # Create Graph
 G = nx.Graph()
 G.add_weighted_edges_from(array1)
-pos=nx.shell_layout(G)
 
 ax1 = plt.subplot(221)
 ax1.set_title("Graph")
 
-# Find simple multi direct cycle
-sc = list(nx.simple_cycles(G))
-
-# Draw Direct Graph and simple sycle
+# Draw Graph
 nx.draw_shell(G, with_labels=True, font_weight='bold')
-for cycle in sc:
-    print('find simple cycle from graph:', cycle)
-    nx.draw_networkx_nodes(MDG,pos,
-                       nodelist=cycle,
-                       node_color='y',
-                       alpha=1)
 
 plt.savefig("static/img/graphs.png")
