@@ -1,0 +1,330 @@
+swagger: "2.0"
+info:
+  description: "This is DeeBeeTee API Specification"
+  version: "1.0.0"
+  title: "DeeBeeTee API"
+  termsOfService: "http://swagger.io/terms/"
+  contact:
+    email: "infominfom@gmail.com"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+host: "deebeetee.io"
+basePath: "/v2"
+tags:
+- name: "transactions"
+  description: "all transactions"
+- name: "groups"
+  description: "all groups"
+- name: "users"
+  description: "Operations with users"
+schemes:
+- "http"
+paths:
+  /transaction:
+    post:
+      tags:
+      - "transactions"
+      summary: "Add a new transaction"
+      description: ""
+      operationId: "addTran"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "register a new transaction"
+        required: true
+        schema:
+          $ref: "#/definitions/Transaction"
+      responses:
+        405:
+          description: "Invalid input"
+  /transaction/getByUser:
+    get:
+      tags:
+      - "transactions"
+      summary: "Finds trans by user"
+      operationId: "getByUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "query"
+        description: "Tags to filter by"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "multi"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Transaction"
+        400:
+          description: "Invalid status value"
+  /transaction/{tid}:
+    get:
+      tags:
+      - "transactions"
+      summary: "Find transaction by tid"
+      description: "Returns a single transaction"
+      operationId: "getTranByTid"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "tid"
+        in: "path"
+        description: "TID of transaction to return"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Transaction"
+        400:
+          description: "Invalid tid supplied"
+        404:
+          description: "Transaction not found"
+
+    post:
+      tags:
+      - "transactions"
+      summary: "Updates a transactions in the DeeBeeTee"
+      description: ""
+      operationId: "updateTranWithForm"
+      consumes:
+      - "application/x-www-form-urlencoded"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "tid"
+        in: "path"
+        description: "Transaction tid to update"
+        required: true
+        type: "integer"
+        format: "int64"      
+      - name: "amount"
+        in: "formData"
+        description: "Updated amount of transaction"
+        required: false
+        type: "string"
+      - name: "description"
+        in: "formData"
+        description: "Updated description of transaction"
+        required: false
+        type: "string"
+      responses:
+        405:
+          description: "Invalid input"
+    delete:
+      tags:
+      - "transactions"
+      summary: "Deletes a transaction"
+      description: ""
+      operationId: "deleteTran"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "tid"
+        in: "path"
+        description: "Transaction tid to delete"
+        required: true
+        type: "integer"
+        format: "int64"
+      responses:
+        400:
+          description: "Invalid tid supplied"
+        404:
+          description: "Transaction not found"
+  /user:
+    post:
+      tags:
+      - "users"
+      summary: "Create user"
+      description: "This can only be done by the logged in user."
+      operationId: "createUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Created user object"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        default:
+          description: "successful operation"
+  /user/{username}:
+    get:
+      tags:
+      - "users"
+      summary: "Get user by username"
+      description: ""
+      operationId: "getUserByName"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "path"
+        description: "The name that needs to be fetched. Use user1 for testing. "
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/User"
+        400:
+          description: "Invalid username supplied"
+        404:
+          description: "User not found"
+    put:
+      tags:
+      - "users"
+      summary: "Updated user"
+      description: "This can only be done by the logged in user."
+      operationId: "updateUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "path"
+        description: "name that need to be updated"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "Updated user object"
+        required: true
+        schema:
+          $ref: "#/definitions/User"
+      responses:
+        400:
+          description: "Invalid user supplied"
+        404:
+          description: "User not found"
+    delete:
+      tags:
+      - "users"
+      summary: "Delete user"
+      description: "This can only be done by the logged in user."
+      operationId: "deleteUser"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "path"
+        description: "The name that needs to be deleted"
+        required: true
+        type: "string"
+      responses:
+        400:
+          description: "Invalid username supplied"
+        404:
+          description: "User not found"
+  /user/getBalance:
+    get:
+      tags:
+      - "users"
+      summary: "Get user balance"
+      operationId: "getUserBalance"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "query"
+        description: "Tags to filter by"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "multi"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid status value"
+  /user/getDetails:
+    get:
+      tags:
+      - "users"
+      summary: "Get user details"
+      operationId: "getUserDetails"
+      produces:
+      - "application/xml"
+      - "application/json"
+      parameters:
+      - name: "username"
+        in: "query"
+        description: "Tags to filter by"
+        required: true
+        type: "array"
+        items:
+          type: "string"
+        collectionFormat: "multi"
+      responses:
+        200:
+          description: "successful operation"
+        400:
+          description: "Invalid status value"          
+definitions:
+  Transaction:
+    type: "object"
+    properties:
+      tid:
+        type: "integer"
+        format: "int64"
+      from_uid:
+        type: "integer"
+        format: "int64"
+      amount:
+        type: "number"
+      to_uid:
+        type: "integer"
+        format: "int64"
+      description:
+        type: "string"
+        description: "transaction desc"
+      date:
+        type: "string"
+        format: "date-time"        
+    xml:
+      name: "Order"
+  User:
+    type: "object"
+    properties:
+      uid:
+        type: "integer"
+        format: "int64"
+      username:
+        type: "string"
+      name:
+        type: "string"
+      assing_date:
+        type: "string"
+        format: "date-time"
+      user_id:
+        type: "integer"
+        format: "int64"
+    xml:
+      name: "User"
