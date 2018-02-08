@@ -22,7 +22,7 @@ def graph():
 
 @app.route('/files/<path:filename>')
 def serve_static(filename):
-    root_dir = os.path.dirname(os.getcwd())
+    root_dir = os.path.dirname(os.getcwd()+'/server')
     return send_from_directory(os.path.join(root_dir, 'static', 'img'), filename)
 
 if __name__ == '__main__':
