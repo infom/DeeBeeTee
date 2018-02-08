@@ -7,15 +7,15 @@ import jinja2
 
 app = Eve(settings='settings.py')
 
-my_loader = jinja2.ChoiceLoader([
+loader = jinja2.ChoiceLoader([
     app.jinja_loader,
     jinja2.FileSystemLoader(os.getcwd()+'/docs/api'),
 ])
 
-app.jinja_loader = my_loader
+app.jinja_loader = loader
 
 @app.route('/docs/api')
-def index():
+def api_docs():
     return render_template('api.html')
 
 if __name__ == '__main__':
