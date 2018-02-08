@@ -11,7 +11,7 @@ loader = jinja2.ChoiceLoader([
 ])
 
 app.jinja_loader = loader
-app.config['UPLOAD_FOLDER'] =os.getcwd() + '/upload'
+app.config['STATIC_FOLDER'] = os.getcwd() + '/upload'
 
 @app.route('/docs/api')
 def api_docs():
@@ -19,8 +19,7 @@ def api_docs():
 
 @app.route('/graph')
 def graph():
-    full_filename = os.path.join(app.config['UPLOAD_FOLDER'], 'graphs.png')
-    return render_template('templates/graph.html', image = full_filename)
+    return render_template('templates/graph.html')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5001, debug=True)
