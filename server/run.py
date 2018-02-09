@@ -15,7 +15,7 @@ app.jinja_loader = loader
 @app.route('/v1/users/<path:username>/getBalance')
 def getBalance(username):
     users = app.data.driver.db['users']
-    uid = users.find_one({'username':username}, {'uid': 1, _id: 0})
+    uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
     print(uid)
     return "Test"
 
