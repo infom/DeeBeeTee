@@ -9,6 +9,8 @@ PUBLIC_ITEM_METHODS = ['GET', 'POST']
 
 API_VERSION = 'v1'
 
+DATE_FORMAT = "%m/%d/%y %H:%M:%S"
+
 users = {
     'schema': {
         'uid': {
@@ -29,7 +31,7 @@ users = {
         },
         'assing_date': {
             'type': 'date',
-            #'required': True,
+            'required': True,
             # уникальное поле (индекс не создаётся, просто значение должно быть уникальным)
             #'unique': True,
         },
