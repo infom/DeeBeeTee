@@ -18,8 +18,8 @@ def getBalance(username):
     transactions = app.data.driver.db['transactions']
 
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
-    pipe = [{'$group': {'from_uid': uid, 'total': {'$sum': '$amount'}}}]
-    in_ts = transactions.aggregate(pipeline=pipe)
+
+    in_ts = transactions.aggregate('$group': {'_id': "$uid", 'totalAmount': {'$sum': '$amount'}})
 
     return in_ts
 
