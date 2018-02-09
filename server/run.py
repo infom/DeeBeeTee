@@ -51,7 +51,9 @@ def getTsByUser(username):
     fromUidTs = list(transactions.find({'from_uid':uid['uid']}, {'to_uid':1,'date':1, 'description':1, '_id':False}))
     toUidTs = list(transactions.find({'to_uid':uid['uid']}, {'from_uid':1,'date':1, 'description':1, '_id':False}))
 
-    results = {'from': serializeDatetimeObjJSON(fromUidTs), 'to':serializeDatetimeObjJSON(toUidTs)}
+    results = {}
+    results['from'] = serializeDatetimeObjJSON(fromUidTs)
+    results['to'] = serializeDatetimeObjJSON(toUidTs)
 
     return Response(results, mimetype='application/json')
 
