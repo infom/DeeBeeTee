@@ -39,8 +39,8 @@ def balance(username):
 
     uid = users.find_one({'username':username}, {'_id': 1})
 
-    fromtsDict = list(transactions.aggregate([{ '$match' : { "from_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
-    totsDict = list(transactions.aggregate([{ '$match' : { "to_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
+    fromtsDict = list(transactions.aggregate([{ '$match' : { "from_uid" : uid['_id'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
+    totsDict = list(transactions.aggregate([{ '$match' : { "to_uid" : uid['_id'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
 
     if fromtsDict == []:
         from_ts = 0
