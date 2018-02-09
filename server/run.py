@@ -19,10 +19,10 @@ def getBalance(username):
 
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
 
-    in_ts = transactions.aggregate([{'$group': {'_id': "$to_uid", 'totalAmount': {'$sum': '$amount'}}}])
-    out_ts = transactions.aggregate([{'$group': {'_id': "$from_uid", 'totalAmount': {'$sum': '$amount'}}}])
-    print(list(in_ts)[0].totalAmount)
-    return 'in_ts'
+    in_ts = list(transactions.aggregate([{'$group': {'_id': "$to_uid", 'totalAmount': {'$sum': '$amount'}}}]))
+    out_ts = list(transactions.aggregate([{'$group': {'_id': "$from_uid", 'totalAmount': {'$sum': '$amount'}}}]))
+
+    return in_ts
 
 @app.route('/docs/api')
 def api_docs():
