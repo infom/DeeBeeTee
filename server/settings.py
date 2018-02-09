@@ -76,7 +76,7 @@ transactions = {
 
         },
         'amount': {
-            'type': 'integer'
+            'type': 'integer',
             'required': True
         },
         'description': {
