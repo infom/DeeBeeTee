@@ -41,16 +41,12 @@ users = {
         }
     },
 
-    'additional_lookup': {
-        'url': 'regex("[\w]+")',
-        'field': 'username',
-    },
+    'item_lookup_field':'username',
 
     # We also disable endpoint caching as we don't want client apps to
     # cache account data.
     'cache_control': '',
     'cache_expires': 0,
-    'item_url': 'regex("[\w,.:_-]+")'
 
 }
 
