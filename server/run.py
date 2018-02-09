@@ -1,6 +1,6 @@
 import os
 from eve import Eve
-from flask import render_template, send_from_directory
+from flask import render_template, send_from_directory, Response
 import jinja2
 import json
 
