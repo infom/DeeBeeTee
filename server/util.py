@@ -9,8 +9,7 @@ def serializeDatetimeObjJSON(data):
             if isinstance(val, datetime):
                 d[key] = '{:%m/%d/%y %H:%M:%S}'.format(val) #you can add different formating here
         results.append(d)
-        print(results)
-    return json.dumps(results)
+    return results
 
 def get_file(root_dir, filename):  # pragma: no cover
     try:
