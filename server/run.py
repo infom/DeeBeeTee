@@ -1,6 +1,7 @@
 import os
 from eve import Eve
 from flask import render_template, send_from_directory, Response
+from .util import serializeDatetimeObjJSON
 import jinja2
 import json
 
@@ -46,7 +47,7 @@ def getTsByUser(username):
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
 
     fromUidTs = list(transactions.find({'from_uid':uid['uid']}, {'to_uid':1,'date':1, 'description':1, '_id':False}))
-    print(fromUidTs)
+    print(serializeDatetimeObjJSON(fromUidTs))
 
     return 'test'
     #return Response(json.dumps(fromUidTs), mimetype='application/json')
