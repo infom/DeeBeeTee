@@ -13,6 +13,8 @@ DATE_FORMAT = "%m/%d/%y %H:%M:%S"
 
 IF_MATCH = False
 
+RENDERERS = ['eve.render.JSONRenderer']
+
 users = {
     'schema': {
         'uid': {
@@ -51,4 +53,38 @@ users = {
 
 }
 
-DOMAIN = {'users':users}
+transactions = {
+    'schema': {
+        'from_uid': {
+            'type': 'integer',
+            'data_relation': {
+                'resource': 'users',
+                'field': 'uid',
+                'embeddable': True
+            },
+            'required': True
+        },
+        'to_uid': {
+            'type': 'integer',
+            'data_relation': {
+                'resource': 'users',
+                'field': 'uid',
+                'embeddable': True
+            },
+            'required': True
+        },
+        'amount': {
+            'type': 'integer'
+            'required': True
+        },
+        'description': {
+            'type': 'string',
+        },
+        'date': {
+            'type': 'datetime',
+            'required': True,
+        },
+    }
+}
+
+DOMAIN = {'users':users, 'transactions':transactions}
