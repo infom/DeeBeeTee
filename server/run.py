@@ -1,11 +1,11 @@
 import os
 from eve import Eve
 from flask import render_template, send_from_directory, Response
-from .util import serializeDatetimeObjJSON
+from .server.util import serializeDatetimeObjJSON
 import jinja2
 import json
 
-app = Eve(settings='settings.py', util=util)
+app = Eve(settings='settings.py')
 
 loader = jinja2.ChoiceLoader([
     app.jinja_loader,
