@@ -43,8 +43,8 @@ users = {
         }
     },
 
-    'item_lookup_field':'username',
-
+    #'item_lookup_field':'username',
+    'url': 'users/<regex("[\w,.:_-]+"):username>/',
     'url': 'users/<regex("[\w,.:_-]+"):username>/getBalance',
 
     # We also disable endpoint caching as we don't want client apps to
