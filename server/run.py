@@ -20,9 +20,10 @@ def getBalance(username):
 
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
 
-    in_ts = list(transactions.aggregate([{ '$match' : { "to_uid" : uid }}, {'$group': {'_id': null, 'totalAmount': {'$sum': '$amount'}}}]))
-    out_ts = list(transactions.aggregate([{'$group': {'_id': {"$from_uid":uid}, 'totalAmount': {'$sum': '$amount'}}}]))
+    in_ts = list(transactions.aggregate([{ '$match' : { "to_uid" : uid }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
 
+    out_ts = list(transactions.aggregate([{'$group': {'_id': {"$from_uid":uid}, 'totalAmount': {'$sum': '$amount'}}}]))
+    print(in_ts)
     balance = in_ts[0]['totalAmount'] - out_ts[0]['totalAmount']
     res = {'balance':balance, 'in':in_ts[0]['totalAmount'], 'out':out_ts[0]['totalAmount']}
     return json.dumps(res)
