@@ -1,15 +1,11 @@
 import os
+import json
+import jinja2
+
 from eve import Eve
 from flask import render_template, send_from_directory, Response
+
 from util import serializeDatetimeObjJSON, get_file
-import jinja2
-import json
-
-def pre_get_callback(resource, request, lookup):
-    print('A GET request on the "%s" endpoint has just been received!' % resource)
-
-def pre_getByUser_get_callback(request, lookup):
-    print('A GET request on the contacts endpoint has just been received!')
 
 app = Eve(settings='settings.py')
 
@@ -19,9 +15,6 @@ loader = jinja2.ChoiceLoader([
 ])
 
 app.jinja_loader = loader
-
-app.on_pre_GET += pre_get_callback
-app.on_pre_GET_getByUser += pre_getByUser_get_callback
 
 @app.route('/v1/users/<path:username>/getBalance')
 def getBalance(username):
@@ -47,17 +40,17 @@ def getBalance(username):
     res = {'balance':balance}
     return Response(json.dumps(res), mimetype='application/json')
 
-# @app.route('/v1/transactions/<path:username>')
-# def getTsByUser(username):
+@app.route('/v1/transactions/<path:username>')
+def getTsByUser(username):
 
-#    users = app.data.driver.db['users']
-#    transactions = app.data.driver.db['transactions']
+    users = app.data.driver.db['users']
+    transactions = app.data.driver.db['transactions']
 
-#    uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
+    uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
 
-#    fromUidTs = list(transactions.find({'from_uid':uid['uid']}, {'to_uid':1,'date':1, 'description':1, '_id':False}))
+    fromUidTs = list(transactions.find({'from_uid':uid['uid']}, {'to_uid':1,'date':1, 'description':1, '_id':False}))
 
-#    return Response(serializeDatetimeObjJSON(fromUidTs), mimetype='application/json')
+    return Response(serializeDatetimeObjJSON(fromUidTs), mimetype='application/json')
 
 @app.route('/docs/api')
 def api_docs():
@@ -67,7 +60,7 @@ def api_docs():
 def graph():
     return render_template('graph.html')
 
-@app.route('/files/<path:filename>')
+@app.route('/files/static/<path:filename>')
 def serve_static(filename):
     root_dir = os.path.dirname(os.getcwd()+'/server')
     return send_from_directory(os.path.join(root_dir, 'static', 'img'), filename)
