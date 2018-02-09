@@ -28,7 +28,7 @@ users = {
             #'unique': True,
         },
         'assing_date': {
-            'type': 'datetime',
+            'type': 'date',
             #'required': True,
             # уникальное поле (индекс не создаётся, просто значение должно быть уникальным)
             #'unique': True,
