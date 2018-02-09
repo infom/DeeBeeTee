@@ -2,6 +2,7 @@ import os
 from eve import Eve
 from flask import render_template, send_from_directory
 import jinja2
+import json
 
 app = Eve(settings='settings.py')
 
@@ -22,7 +23,7 @@ def getBalance(username):
     in_ts = list(transactions.aggregate([{'$group': {'_id': "$to_uid", 'totalAmount': {'$sum': '$amount'}}}]))
     out_ts = list(transactions.aggregate([{'$group': {'_id': "$from_uid", 'totalAmount': {'$sum': '$amount'}}}]))
 
-    return dump(in_ts)
+    return json.dumps(in_ts)
 
 @app.route('/docs/api')
 def api_docs():
