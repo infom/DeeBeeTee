@@ -58,15 +58,15 @@ def api_docs():
 def graph():
     return render_template('graph.html')
 
-@app.route('/files/static/<path:filename>')
+@app.route('/files/<path:filename>')
 def serve_static(filename):
     root_dir = os.path.dirname(os.getcwd()+'/server')
     return send_from_directory(os.path.join(root_dir, 'static', 'img'), filename)
 
 @app.route('/files/swagger/<path:filename>')
-def serve_static(filename):
+def serve_files(filename):
     root_dir = os.path.dirname(os.getcwd())
-    return send_from_directory(os.path.join(root_dir), filename)
+    return send_from_directory(os.path.join(root_dir, 'docs', 'api'), filename)
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5001, debug=True)
