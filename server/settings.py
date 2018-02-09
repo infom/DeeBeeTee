@@ -30,7 +30,7 @@ users = {
             #'unique': True,
         },
         'assing_date': {
-            'type': 'string',
+            'type': 'datetime',
             'required': True,
         },
         'user_id': {
