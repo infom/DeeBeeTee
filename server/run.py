@@ -35,7 +35,7 @@ def getBalance(username):
 
     balance = from_ts - to_ts
     res = {'balance':balance}
-    return json.dumps(res)
+    return Response(json.dumps(res), mimetype='application/json')
 
 @app.route('/v1/users/<path:username>/getDetails')
 def getDetails(username):
