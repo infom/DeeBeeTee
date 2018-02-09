@@ -57,6 +57,18 @@ def getBalance(username):
     res = {'balance':balance}
     return Response(json.dumps(res), mimetype='application/json')
 
+@app.route('/v1/users/<path:username>/getDetails')
+def getDeatails(username):
+    users = app.data.driver.db['users']
+    transactions = app.data.driver.db['transactions']
+
+    uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
+
+    balance = getBalance(username)
+    print(balance)
+
+    return Response(json.dumps(res), mimetype='application/json')
+
 @app.route('/v1/transactions/<path:username>')
 def getTsByUser(username):
 
@@ -76,10 +88,6 @@ def getTsByUser(username):
 
     return Response(json.dumps(results), mimetype='application/json')
 
-@app.route('/docs/api')
-def api_docs():
-    return render_template('api.html')
-
 @app.route('/graph')
 def graph():
     return render_template('graph.html')
@@ -88,12 +96,6 @@ def graph():
 def serve_static(filename):
     root_dir = os.path.dirname(os.getcwd()+'/server')
     return send_from_directory(os.path.join(root_dir, 'static', 'img'), filename)
-
-@app.route('/files/swagger/<path:filename>')
-def serve_files(filename):
-    root_dir = os.path.dirname(os.getcwd())
-    yaml = get_file(root_dir, filename)
-    return Response(yaml, mimetype='application/yaml')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5001, debug=True)
