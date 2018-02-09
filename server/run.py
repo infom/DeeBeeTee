@@ -67,7 +67,7 @@ def serve_static(filename):
 def serve_files(filename):
     root_dir = os.path.dirname(os.getcwd())
     yaml = get_file(root_dir, filename)
-    return Response(yaml, mimetype='application/x-yaml')
+    return Response(yaml, mimetype='application/yaml')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5001, debug=True)
