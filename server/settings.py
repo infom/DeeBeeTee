@@ -9,8 +9,6 @@ PUBLIC_ITEM_METHODS = ['GET', 'POST']
 
 API_VERSION = 'v1'
 
-DATE_FORMAT = "%m/%d/%y %H:%M:%S"
-
 users = {
     'schema': {
         'uid': {
@@ -21,7 +19,7 @@ users = {
             'type': 'string',
             'required': True,
             # уникальное поле (индекс не создаётся, просто значение должно быть уникальным)
-            #'unique': True,
+            'unique': True,
         },
         'name':  {
             'type': 'string',
