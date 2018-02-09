@@ -81,10 +81,10 @@ def getTsByUser(username):
     users = app.data.driver.db['users']
     transactions = app.data.driver.db['transactions']
 
-    uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
+    uid = users.find_one({'username':username}, {'_id': 1})
 
-    fromUidTs = list(transactions.find({'from_uid':uid['uid']}, {'to_uid':1, 'amount':1,'date':1, 'description':1, '_id':False}))
-    toUidTs = list(transactions.find({'to_uid':uid['uid']}, {'from_uid':1,'amount':1, 'date':1, 'description':1, '_id':False}))
+    fromUidTs = list(transactions.find({'from_uid':uid['_id']}, {'to_uid':1, 'amount':1,'date':1, 'description':1, '_id':False}))
+    toUidTs = list(transactions.find({'to_uid':uid['_id']}, {'from_uid':1,'amount':1, 'date':1, 'description':1, '_id':False}))
 
     results = {}
     results['from'] = serializeDatetimeObjJSON(fromUidTs)
