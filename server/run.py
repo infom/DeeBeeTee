@@ -20,13 +20,22 @@ def getBalance(username):
 
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
 
-    in_ts = list(transactions.aggregate([{ '$match' : { "from_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
+    intsDict = list(transactions.aggregate([{ '$match' : { "from_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
+    outtsDict = list(transactions.aggregate([{ '$match' : { "to_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
 
-    #out_ts = list(transactions.aggregate([{'$group': {'_id': {"$from_uid":uid}, 'totalAmount': {'$sum': '$amount'}}}]))
-    print(in_ts)
-    #balance = in_ts[0]['totalAmount'] - out_ts[0]['totalAmount']
-    #res = {'balance':balance, 'in':in_ts[0]['totalAmount'], 'out':out_ts[0]['totalAmount']}
-    return json.dumps(in_ts)
+    if intsDict == []:
+        in_ts = 0
+    else:
+        in_ts = intsDict[0]['totalAmount']
+
+    if outtsDict == []:
+        out_ts = 0
+    else:
+        out_ts = outtsDict[0]['totalAmount']
+
+    balance = in_ts - out_ts
+    res = {'balance':balance}
+    return json.dumps(res)
 
 @app.route('/docs/api')
 def api_docs():
