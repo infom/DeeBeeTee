@@ -44,13 +44,14 @@ users = {
     'additional_lookup': {
         'url': 'regex("[\w]+")',
         'field': 'username',
+        'item_url': 'regex("[\w,.:_-]+")'
     },
 
     # We also disable endpoint caching as we don't want client apps to
     # cache account data.
     'cache_control': '',
     'cache_expires': 0,
-    'allowed_write_roles': ['PUT'],
+
 }
 
 DOMAIN = {'users':users}
