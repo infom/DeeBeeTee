@@ -47,6 +47,8 @@ def getTsByUser(username):
 
     fromUidTs = list(transactions.find({'from_uid':uid['uid']}, {'to_uid':1,'date':1, 'description':1, '_id':False}))
     print(fromUidTs)
+
+    return 'test'
     #return Response(json.dumps(fromUidTs), mimetype='application/json')
 
 @app.route('/docs/api')
