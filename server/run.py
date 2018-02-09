@@ -22,11 +22,11 @@ def getBalance(username):
 
     in_ts = list(transactions.aggregate([{ '$match' : { "to_uid" : uid }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
 
-    out_ts = list(transactions.aggregate([{'$group': {'_id': {"$from_uid":uid}, 'totalAmount': {'$sum': '$amount'}}}]))
+    #out_ts = list(transactions.aggregate([{'$group': {'_id': {"$from_uid":uid}, 'totalAmount': {'$sum': '$amount'}}}]))
     print(in_ts)
-    balance = in_ts[0]['totalAmount'] - out_ts[0]['totalAmount']
-    res = {'balance':balance, 'in':in_ts[0]['totalAmount'], 'out':out_ts[0]['totalAmount']}
-    return json.dumps(res)
+    #balance = in_ts[0]['totalAmount'] - out_ts[0]['totalAmount']
+    #res = {'balance':balance, 'in':in_ts[0]['totalAmount'], 'out':out_ts[0]['totalAmount']}
+    return json.dumps(in_ts)
 
 @app.route('/docs/api')
 def api_docs():
