@@ -15,9 +15,13 @@ app.jinja_loader = loader
 @app.route('/v1/users/<path:username>/getBalance')
 def getBalance(username):
     users = app.data.driver.db['users']
+    transactions = app.data.driver.db['transactions']
+
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
-    print(uid)
-    return "Test"
+    #pipe = [{'$group': {'from_uid': uid, 'total': {'$sum': '$amount'}}}]
+    in_ts = transactions.aggregate([{'$group': {'from_uid': uid, 'total': {'$sum': '$amount'}}}])
+
+    return in_ts
 
 @app.route('/docs/api')
 def api_docs():
