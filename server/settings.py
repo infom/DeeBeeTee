@@ -43,9 +43,7 @@ users = {
         }
     },
 
-    #'item_lookup_field':'username',
-    'url': 'users/<regex("[\w,.:_-]+"):username>/',
-    'url': 'users/<regex("[\w,.:_-]+"):username>/getBalance',
+    'item_lookup_field':'username',
 
     # We also disable endpoint caching as we don't want client apps to
     # cache account data.
@@ -53,6 +51,10 @@ users = {
     'cache_expires': 0,
     'item_url': 'regex("[\w,.:_-]+")'
 
+}
+
+getBalance = {
+    'url': 'users/regex("[\w,.:_-]+"):username>/getBalance'
 }
 
 transactions = {
@@ -91,4 +93,4 @@ transactions = {
     }
 }
 
-DOMAIN = {'users':users, 'transactions':transactions}
+DOMAIN = {'users':users, 'transactions':transactions, 'getBalance':getBalance}
