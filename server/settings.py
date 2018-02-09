@@ -50,7 +50,7 @@ users = {
     # cache account data.
     'cache_control': '',
     'cache_expires': 0,
-    'resource_methods': ['GET', 'POST', 'PUT'],
+    'allowed_item_write_roles': ['PUT'],
 }
 
 DOMAIN = {'users':users}
