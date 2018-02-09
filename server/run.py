@@ -46,7 +46,8 @@ def getTsByUser(username):
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
 
     fromUidTs = list(transactions.find({'from_uid':uid['uid']}, {'to_uid':1,'date':1, 'description':1, '_id':False}))
-    return Response(json.dumps(fromUidTs), mimetype='application/json')
+    print(fromUidTs)
+    #return Response(json.dumps(fromUidTs), mimetype='application/json')
 
 @app.route('/docs/api')
 def api_docs():
