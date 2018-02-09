@@ -5,6 +5,9 @@ from util import serializeDatetimeObjJSON, get_file
 import jinja2
 import json
 
+def pre_getByUser_get_callback(resource, request, lookup):
+    print('A GET request on the "%s" endpoint has just been received!' % resource)
+
 app = Eve(settings='settings.py')
 
 loader = jinja2.ChoiceLoader([
@@ -13,6 +16,9 @@ loader = jinja2.ChoiceLoader([
 ])
 
 app.jinja_loader = loader
+
+app.on_pre_GET += pre_get_callback
+app.on_pre_GET_getByUser += pre_getByUser_get_callback
 
 @app.route('/v1/users/<path:username>/getBalance')
 def getBalance(username):
