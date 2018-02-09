@@ -56,8 +56,8 @@ def getTsByUser(username):
     results['to'] = serializeDatetimeObjJSON(toUidTs)
 
     print(results)
-    
-    return Response(results, mimetype='application/json')
+
+    return Response(json.dumps(results), mimetype='application/json')
 
 @app.route('/docs/api')
 def api_docs():
