@@ -9,8 +9,6 @@ PUBLIC_ITEM_METHODS = ['GET', 'POST']
 
 API_VERSION = 'v1'
 
-DATE_FORMAT = "%m/%d/%y %H:%M:%S"
-
 users = {
     'schema': {
         'uid': {
