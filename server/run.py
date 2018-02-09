@@ -33,8 +33,7 @@ loader = jinja2.ChoiceLoader([
 
 app.jinja_loader = loader
 
-@app.route('/v1/users/<path:username>/getBalance')
-def getBalance(username):
+def balance(username):
     users = app.data.driver.db['users']
     transactions = app.data.driver.db['transactions']
 
@@ -54,7 +53,11 @@ def getBalance(username):
         to_ts = totsDict[0]['totalAmount']
 
     balance = from_ts - to_ts
-    res = {'balance':balance}
+
+@app.route('/v1/users/<path:username>/getBalance')
+def getBalance(username):
+
+    res = {'balance':balance(user)}
     return Response(json.dumps(res), mimetype='application/json')
 
 @app.route('/v1/users/<path:username>/getDetails')
@@ -64,10 +67,10 @@ def getDeatails(username):
 
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
 
-    balance = getBalance(username)
+    balance = balance(username)
     print(balance)
 
-    return Response(json.dumps(res), mimetype='application/json')
+    return Response(json.dumps(balance), mimetype='application/json')
 
 @app.route('/v1/transactions/<path:username>')
 def getTsByUser(username):
