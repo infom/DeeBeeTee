@@ -25,7 +25,7 @@ def getBalance(username):
 
     balance = in_ts[0]['totalAmount'] - out_ts[0]['totalAmount']
     res = {'balance':balance}
-    return res
+    return json.dumps(res)
 
 @app.route('/docs/api')
 def api_docs():
