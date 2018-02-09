@@ -86,7 +86,8 @@ transactions = {
             'type': 'datetime',
             'required': True,
         },
-    }
+    },
+    'item_url': 'regex("[\w,.:_-]+")'
 }
 
 DOMAIN = {'users':users, 'transactions':transactions}
