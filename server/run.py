@@ -1,7 +1,7 @@
 import os
 from eve import Eve
 from flask import render_template, send_from_directory, Response
-from DeeBeeTee.server.util import serializeDatetimeObjJSON
+from util import serializeDatetimeObjJSON
 import jinja2
 import json
 
