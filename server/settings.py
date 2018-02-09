@@ -45,7 +45,7 @@ users = {
 
     'item_lookup_field':'username',
 
-    'url': 'users/<regex("[\w,.:_-]:username>/getBalance'
+    'url': 'users/<regex("[\w,.:_-]:username>/getBalance',
 
     # We also disable endpoint caching as we don't want client apps to
     # cache account data.
