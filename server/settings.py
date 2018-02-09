@@ -53,13 +53,6 @@ users = {
 
 }
 
-getBalance = {
-    'url': 'users/<regex("[\w,.:_-]+"):username>/getBalance',
-    'datasource': {
-        'source': 'users',
-    }
-}
-
 transactions = {
     'schema': {
         'from_uid': {
@@ -96,4 +89,4 @@ transactions = {
     }
 }
 
-DOMAIN = {'users':users, 'transactions':transactions, 'getBalance':getBalance}
+DOMAIN = {'users':users, 'transactions':transactions}
