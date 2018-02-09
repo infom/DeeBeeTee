@@ -12,7 +12,7 @@ loader = jinja2.ChoiceLoader([
 
 app.jinja_loader = loader
 
-@app.route('/v1/users/<username>/getBalance')
+@app.route('/v1/users/<path:username>/getBalance')
 def getBalance(username):
     user_uid = app.data.driver.db['users']
     a = users.find_one({'username':username}, {'uid': 1, _id: 0})
