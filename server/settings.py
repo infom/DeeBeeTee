@@ -11,6 +11,8 @@ API_VERSION = 'v1'
 
 DATE_FORMAT = "%m/%d/%y %H:%M:%S"
 
+DOMAIN = {}
+
 users = {
     'schema': {
         'uid': {
