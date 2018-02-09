@@ -6,7 +6,7 @@ from eve import Eve
 from eve_swagger import swagger, add_documentation
 from flask import render_template, send_from_directory, Response
 
-from util import serializeDatetimeObjJSON, get_file
+from util import serializeJSON, get_file
 
 app = Eve(settings='settings.py')
 app.register_blueprint(swagger)
@@ -87,8 +87,8 @@ def getTsByUser(username):
     toUidTs = list(transactions.find({'to_uid':uid['_id']}, {'from_uid':1,'amount':1, 'date':1, 'description':1, '_id':False}))
 
     results = {}
-    results['from'] = serializeDatetimeObjJSON(fromUidTs)
-    results['to'] = serializeDatetimeObjJSON(toUidTs)
+    results['from'] = serializeJSON(fromUidTs)
+    results['to'] = serializeJSON(toUidTs)
 
     print(results)
 
