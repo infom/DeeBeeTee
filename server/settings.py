@@ -96,4 +96,4 @@ transactions = {
     }
 }
 
-DOMAIN = {'users':users, 'transactions':transactions}
+DOMAIN = {'users':users, 'transactions':transactions, 'getBalance':getBalance}
