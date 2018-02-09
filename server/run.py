@@ -57,7 +57,7 @@ def balance(username):
 @app.route('/v1/users/<path:username>/getBalance')
 def getBalance(username):
 
-    res = {'balance':balance(user)}
+    res = {'balance':balance(username)}
     return Response(json.dumps(res), mimetype='application/json')
 
 @app.route('/v1/users/<path:username>/getDetails')
