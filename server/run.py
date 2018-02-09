@@ -20,27 +20,27 @@ def getBalance(username):
 
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
 
-    intsDict = list(transactions.aggregate([{ '$match' : { "from_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
-    outtsDict = list(transactions.aggregate([{ '$match' : { "to_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
+    fromtsDict = list(transactions.aggregate([{ '$match' : { "from_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
+    totsDict = list(transactions.aggregate([{ '$match' : { "to_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
 
-    if intsDict == []:
-        in_ts = 0
+    if fromtsDict == []:
+        from_ts = 0
     else:
-        in_ts = intsDict[0]['totalAmount']
+        from_ts = fromtsDict[0]['totalAmount']
 
-    if outtsDict == []:
-        out_ts = 0
+    if totsDict == []:
+        to_ts = 0
     else:
-        out_ts = outtsDict[0]['totalAmount']
+        to_ts = totsDict[0]['totalAmount']
 
-    balance = in_ts - out_ts
+    balance = from_ts - to_ts
     res = {'balance':balance}
     return json.dumps(res)
 
 @app.route('/v1/users/<path:username>/getDetails')
 def getDetails(username):
     balance = getBalance(username)
-    
+
 @app.route('/docs/api')
 def api_docs():
     return render_template('api.html')
