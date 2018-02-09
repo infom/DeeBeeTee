@@ -37,6 +37,10 @@ def getBalance(username):
     res = {'balance':balance}
     return json.dumps(res)
 
+@app.route('/v1/users/<path:username>/getDetails')
+def getDetails(username):
+    balance = getBalance(username)
+    
 @app.route('/docs/api')
 def api_docs():
     return render_template('api.html')
