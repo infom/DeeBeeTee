@@ -19,8 +19,8 @@ def getBalance(username):
     transactions = app.data.driver.db['transactions']
 
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
-    
-    in_ts = list(transactions.aggregate([{ '$match' : { "to_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
+
+    in_ts = list(transactions.aggregate([{ '$match' : { "from_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
 
     #out_ts = list(transactions.aggregate([{'$group': {'_id': {"$from_uid":uid}, 'totalAmount': {'$sum': '$amount'}}}]))
     print(in_ts)
