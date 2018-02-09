@@ -52,7 +52,7 @@ def balance(username):
     else:
         to_ts = totsDict[0]['totalAmount']
 
-    balance = from_ts - to_ts
+    return balance = from_ts - to_ts
 
 @app.route('/v1/users/<path:username>/getBalance')
 def getBalance(username):
