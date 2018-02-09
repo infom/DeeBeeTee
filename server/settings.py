@@ -11,8 +11,6 @@ API_VERSION = 'v1'
 
 DATE_FORMAT = "%m/%d/%y %H:%M:%S"
 
-DOMAIN = {}
-
 users = {
     'schema': {
         'uid': {
@@ -60,5 +58,4 @@ accounts = {
     'schema': users,
 }
 
-DOMAIN['users'] = users
-DOMAIN['accounts'] = accounts
+DOMAIN = {'users':users, 'accounts':accounts}
