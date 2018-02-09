@@ -10,7 +10,7 @@ def serializeJSON(data):
             if isinstance(val, datetime):
                 d[key] = '{:%m/%d/%y %H:%M:%S}'.format(val) #you can add different formating here
             if isinstance(val, ObjectId):
-                d[kye] = str(val)
+                d[key] = str(val)
         results.append(d)
     return results
 
