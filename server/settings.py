@@ -56,7 +56,7 @@ users = {
 getBalance = {
     'url': 'users/<regex("[\w,.:_-]+"):username>/getBalance',
     'datasource': {
-        'source': 'transactions',
+        'source': 'users',
     }
 }
 
