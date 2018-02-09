@@ -7,11 +7,7 @@ from flask import render_template, send_from_directory, Response
 
 from util import serializeDatetimeObjJSON, get_file
 
-def getTsByUser(request, lookup):
-    print(request, lookup)
-
 app = Eve(settings='settings.py')
-app.on_pre_GET_transactions += getTsByUser
 
 loader = jinja2.ChoiceLoader([
     app.jinja_loader,

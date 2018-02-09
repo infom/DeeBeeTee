@@ -49,6 +49,7 @@ users = {
     # cache account data.
     'cache_control': '',
     'cache_expires': 0,
+    
     'item_url': 'regex("[\w,.:_-]+")'
 
 }
@@ -86,8 +87,7 @@ transactions = {
             'type': 'datetime',
             'required': True,
         },
-    },
-    'item_url': 'regex("[\w,.:_-]+")'
+    }
 }
 
 DOMAIN = {'users':users, 'transactions':transactions}
