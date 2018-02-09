@@ -54,7 +54,7 @@ users = {
 }
 
 getBalance = {
-    'url': 'users/<regex("[\w,.:_-]+"):username>/getBalance',
+    'url': 'users/<regex("[\w,.:_-]+"):username>/getBalance'
 }
 
 transactions = {
@@ -80,7 +80,7 @@ transactions = {
 
         },
         'amount': {
-            'type': 'integer'
+            'type': 'integer',
             'required': True
         },
         'description': {
