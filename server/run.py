@@ -53,6 +53,7 @@ def getTsByUser(username):
 
     results = {}
     results['from'] = serializeDatetimeObjJSON(fromUidTs)
+    print(results)
     results['to'] = serializeDatetimeObjJSON(toUidTs)
 
     return Response(results, mimetype='application/json')
