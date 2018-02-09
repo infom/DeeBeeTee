@@ -17,10 +17,6 @@ RENDERERS = ['eve.render.JSONRenderer']
 
 users = {
     'schema': {
-        'uid': {
-            'type' : 'integer',
-            #S'required': True
-        },
         'username': {
             'type': 'string',
             #'required': True,
@@ -49,7 +45,7 @@ users = {
     # cache account data.
     'cache_control': '',
     'cache_expires': 0,
-    
+
     'item_url': 'regex("[\w,.:_-]+")'
 
 }
@@ -57,23 +53,23 @@ users = {
 transactions = {
     'schema': {
         'from_uid': {
-            'type': 'integer',
-            'required': True,
+            'type': 'objectid',
             'data_relation': {
                 'resource': 'users',
-                'field': 'uid',
+                'field': '_id',
                 'embeddable': True
             },
+            'required': True,
 
         },
         'to_uid': {
-            'type': 'integer',
-            'required': True,
+            'type': 'objectid',
             'data_relation': {
                 'resource': 'users',
-                'field': 'uid',
+                'field': '_id',
                 'embeddable': True
             },
+            'required': True,
 
         },
         'amount': {

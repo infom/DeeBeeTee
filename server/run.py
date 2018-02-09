@@ -48,8 +48,8 @@ def getTsByUser(username):
 
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
 
-    fromUidTs = list(transactions.find({'from_uid':uid['uid']}, {'to_uid':1,'date':1, 'description':1, '_id':False}))
-    toUidTs = list(transactions.find({'to_uid':uid['uid']}, {'from_uid':1,'date':1, 'description':1, '_id':False}))
+    fromUidTs = list(transactions.find({'from_uid':uid['uid']}, {'to_uid':1, 'amount':1,'date':1, 'description':1, '_id':False}))
+    toUidTs = list(transactions.find({'to_uid':uid['uid']}, {'from_uid':1,'amount':1, 'date':1, 'description':1, '_id':False}))
 
     results = {}
     results['from'] = serializeDatetimeObjJSON(fromUidTs)
