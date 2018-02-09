@@ -17,27 +17,27 @@ users = {
     'schema': {
         'uid': {
             'type' : 'integer',
-            'required': True
+            #S'required': True
         },
         'username': {
             'type': 'string',
-            'required': True,
+            #'required': True,
             # уникальное поле (индекс не создаётся, просто значение должно быть уникальным)
             'unique': True,
         },
         'name':  {
             'type': 'string',
-            'required': True,
+            #'required': True,
             # уникальное поле (индекс не создаётся, просто значение должно быть уникальным)
             #'unique': True,
         },
         'assing_date': {
             'type': 'datetime',
-            'required': True,
+            #'required': True,
         },
         'user_id': {
             'type' : 'integer',
-            'required': True,
+            #'required': True,
         }
     },
 
