@@ -57,24 +57,26 @@ transactions = {
     'schema': {
         'from_uid': {
             'type': 'integer',
+            'required': True,
             'data_relation': {
                 'resource': 'users',
                 'field': 'uid',
                 'embeddable': True
             },
-            'required': True
+
         },
         'to_uid': {
             'type': 'integer',
+            'required': True,
             'data_relation': {
                 'resource': 'users',
                 'field': 'uid',
                 'embeddable': True
             },
-            'required': True
+
         },
         'amount': {
-            'type': 'integer'
+            'type': 'integer',
             'required': True
         },
         'description': {
