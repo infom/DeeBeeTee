@@ -67,10 +67,10 @@ def getDeatails(username):
 
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
 
-    balance = balance(username)
-    print(balance)
+    bal = balance(username)
+    print(bal)
 
-    return Response(json.dumps(balance), mimetype='application/json')
+    return Response(json.dumps(bal), mimetype='application/json')
 
 @app.route('/v1/transactions/<path:username>')
 def getTsByUser(username):
