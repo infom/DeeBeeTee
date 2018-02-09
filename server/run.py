@@ -44,17 +44,17 @@ def getBalance(username):
     res = {'balance':balance}
     return Response(json.dumps(res), mimetype='application/json')
 
-@app.route('/v1/transactions/<path:username>')
-def getTsByUser(username):
+# @app.route('/v1/transactions/<path:username>')
+# def getTsByUser(username):
 
-    users = app.data.driver.db['users']
-    transactions = app.data.driver.db['transactions']
+#    users = app.data.driver.db['users']
+#    transactions = app.data.driver.db['transactions']
 
-    uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
+#    uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
 
-    fromUidTs = list(transactions.find({'from_uid':uid['uid']}, {'to_uid':1,'date':1, 'description':1, '_id':False}))
+#    fromUidTs = list(transactions.find({'from_uid':uid['uid']}, {'to_uid':1,'date':1, 'description':1, '_id':False}))
 
-    return Response(serializeDatetimeObjJSON(fromUidTs), mimetype='application/json')
+#    return Response(serializeDatetimeObjJSON(fromUidTs), mimetype='application/json')
 
 @app.route('/docs/api')
 def api_docs():
