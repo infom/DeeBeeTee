@@ -37,10 +37,16 @@ def getBalance(username):
     res = {'balance':balance}
     return Response(json.dumps(res), mimetype='application/json')
 
-@app.route('/v1/users/<path:username>/getDetails')
-def getDetails(username):
-    balance = getBalance(username)
-    return balance
+@app.route('/v1/transactions/<path:username>')
+def getTsByUser(username):
+
+    users = app.data.driver.db['users']
+    transactions = app.data.driver.db['transactions']
+
+    uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
+
+    fromUidTs = transactions.find({'from_uid':uid['uid']}, {'to_uid':1,'date':1, 'description':1, '_id':False})
+    return Response(json.dumps(fromUidTs), mimetype='application/json')
 
 @app.route('/docs/api')
 def api_docs():
