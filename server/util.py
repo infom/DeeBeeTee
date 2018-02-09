@@ -2,7 +2,7 @@ import json
 from datetime import datetime
 
 def serializeDatetimeObjJSON(data):
-    results = {}
+    results = []
     for d in data:
         for key,val in d.items():
             if isinstance(val, datetime):
