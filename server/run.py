@@ -40,7 +40,7 @@ def getBalance(username):
 @app.route('/v1/users/<path:username>/getDetails')
 def getDetails(username):
     balance = getBalance(username)
-    return balances
+    return balance
 
 @app.route('/docs/api')
 def api_docs():
