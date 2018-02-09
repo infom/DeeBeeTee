@@ -37,7 +37,7 @@ def balance(username):
     users = app.data.driver.db['users']
     transactions = app.data.driver.db['transactions']
 
-    uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
+    uid = users.find_one({'username':username}, {'_id': 1, '_id': 0})
 
     fromtsDict = list(transactions.aggregate([{ '$match' : { "from_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
     totsDict = list(transactions.aggregate([{ '$match' : { "to_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
@@ -68,7 +68,10 @@ def getDeatails(username):
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
 
     bal = balance(username)
-    print(bal)
+
+    fromTsDict = list(transactions.find({'from_uid':uid['uid']}, {'to_uid':1, 'amount':1}))
+    toTsDict = fromTsDict = list(transactions.find({'to_uid':uid['uid']}, {'from_uid':1, 'amount':1}))
+
 
     return Response(json.dumps(bal), mimetype='application/json')
 
