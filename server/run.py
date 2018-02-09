@@ -20,7 +20,7 @@ def getBalance(username):
 
     uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
 
-    in_ts = list(transactions.aggregate([{ '$match' : { "to_uid" : uid }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
+    in_ts = list(transactions.aggregate([{ '$match' : { "from_uid" : uid }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
 
     #out_ts = list(transactions.aggregate([{'$group': {'_id': {"$from_uid":uid}, 'totalAmount': {'$sum': '$amount'}}}]))
     print(in_ts)
