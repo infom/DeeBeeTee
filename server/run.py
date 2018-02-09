@@ -5,11 +5,11 @@ from .util import serializeDatetimeObjJSON
 import jinja2
 import json
 
-app = Eve(settings='settings.py')
+app = Eve(settings='settings.py', util=util)
 
 loader = jinja2.ChoiceLoader([
     app.jinja_loader,
-    jinja2.FileSystemLoader(os.getcwd()),
+    jinja2.FileSystemLoader(os.getcwd()+'/templates'),
 ])
 
 app.jinja_loader = loader
@@ -54,11 +54,11 @@ def getTsByUser(username):
 
 @app.route('/docs/api')
 def api_docs():
-    return render_template('template/api.html')
+    return render_template('api.html')
 
 @app.route('/graph')
 def graph():
-    return render_template('template/graph.html')
+    return render_template('graph.html')
 
 @app.route('/files/<path:filename>')
 def serve_static(filename):
