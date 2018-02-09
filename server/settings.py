@@ -37,13 +37,8 @@ users = {
             'type' : 'integer',
             'required': True,
         }
-    }
-}
+    },
 
-accounts = {
-    # the standard account entry point is defined as
-    # '/accounts/<ObjectId>'. We define  an additional read-only entry
-    # point accessible at '/accounts/<username>'.
     'additional_lookup': {
         'url': 'regex("[\w]+")',
         'field': 'username',
@@ -53,9 +48,6 @@ accounts = {
     # cache account data.
     'cache_control': '',
     'cache_expires': 0,
-
-    # Finally, let's add the schema definition for this endpoint.
-    'schema': users,
 }
 
-DOMAIN = {'users':users, 'accounts':accounts}
+DOMAIN = {'users':users}
