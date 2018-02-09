@@ -1,7 +1,7 @@
 import os
 from eve import Eve
 from flask import render_template, send_from_directory, Response
-from util import serializeDatetimeObjJSON
+from util import serializeDatetimeObjJSON, get_file
 import jinja2
 import json
 
@@ -66,7 +66,8 @@ def serve_static(filename):
 @app.route('/files/swagger/<path:filename>')
 def serve_files(filename):
     root_dir = os.path.dirname(os.getcwd())
-    return send_from_directory(os.path.join(root_dir, 'docs', 'api'), filename)
+    yaml = get_file(root_dir, filename)
+    return Response(yaml, mimetype='application/x-yaml')
 
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=5001, debug=True)
