@@ -47,6 +47,7 @@ users = {
     # cache account data.
     'cache_control': '',
     'cache_expires': 0,
+    'item_url': 'regex("[\w,.:_-]+")'
 
 }
 
