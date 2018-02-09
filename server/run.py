@@ -37,7 +37,7 @@ def balance(username):
     users = app.data.driver.db['users']
     transactions = app.data.driver.db['transactions']
 
-    uid = users.find_one({'username':username}, {'_id': 1, '_id': 0})
+    uid = users.find_one({'username':username}, {'_id': 1})
 
     fromtsDict = list(transactions.aggregate([{ '$match' : { "from_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
     totsDict = list(transactions.aggregate([{ '$match' : { "to_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
