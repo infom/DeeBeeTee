@@ -4,6 +4,7 @@ import jinja2
 
 from eve import Eve
 from eve_swagger import swagger, add_documentation
+from router import *
 
 app = Eve(settings='settings.py')
 app.register_blueprint(swagger)
