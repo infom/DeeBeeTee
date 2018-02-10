@@ -8,13 +8,13 @@ from flask import render_template, send_from_directory, Response
 
 from util import serializeJSON, get_file
 
-def before_insert(users, items):
+def after_insert(transactions, items):
     print(items)
 
 app = Eve(settings='settings.py')
 app.register_blueprint(swagger)
 
-app.on_insert += before_insert
+app.on_insert += after_insert
 
 app.config['SWAGGER_INFO'] = {
     'title': 'DeeBeeTee API',
