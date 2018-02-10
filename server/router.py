@@ -4,7 +4,7 @@ import json
 from flask import render_template, send_from_directory, Response
 
 from util import serializeJSON, get_file
-import dbtApiServer.app as app
+from dbtApiServer import app
 
 def balance(username):
     users = app.data.driver.db['users']
