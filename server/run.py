@@ -94,7 +94,7 @@ def getDetails(username):
 
 
 
-    return Response(json.dumps(all_jims_relations))
+    return Response(json.dumps(list(all_jims_relations))
 
 @app.route('/docs/api')
 def api_docs():
