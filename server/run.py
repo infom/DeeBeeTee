@@ -10,7 +10,7 @@ from graphDB import Person
 def after_insert_users(items):
 
     users = app.data.driver.db['users']
-    
+
     for i in items:
 
         uid = users.find_one({'username':i["username"]}, {'_id': 1, 'username':1})
@@ -28,10 +28,10 @@ def after_insert_transactions(items):
         from_uid = i["from_uid"]
         to_uid = i["to_uid"]
 
-        start_node = Person.nodes.get(name=from_uid)
+        start_node = Person.nodes.get(uid=from_uid)
         start_node.balance = start_node.balance - i["amount"]
 
-        end_node = Person.nodes.get(name=to_uid)
+        end_node = Person.nodes.get(uid=to_uid)
         end_node.balance = end_node.balance + i["amount"]
 
         start_node.tx.connect(end_node, {'since': yesterday, 'tx': i["amount"]})
