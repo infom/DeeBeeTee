@@ -18,8 +18,8 @@ def after_insert_users(items):
 
     for i in items:
 
-        #user = Node('Users', name=i["username"])
-        graph.merge('persons', property_key='name', property_value=i['username'])
+        user = Node('Users', name=i["username"])
+        graph.create(user)
 
         print("Create new node "+ i.username)
 
