@@ -43,6 +43,7 @@ def after_insert_transactions(items):
         definition = dict(node_class=Person, direction=OUTGOING, relation_type='tx', model=None)
         relations_traversal = Traversal(start_node, Person.__label__, definition)
         all_relations = relations_traversal.all()
+        print(all_relations)
 
 
 app = Eve(settings='settings.py')
