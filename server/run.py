@@ -88,10 +88,11 @@ def getBalance(username):
 def getDetails(username):
     target_node = Person.nodes.get(name=username)
 
-    for r in target_node.traverse('tx').run():
-        print (r.start_node().name, "------>", r.end_node().name, "------>", r.tx)
+    definition = dict(node_class=Person, direction=OUTGOING, relation_type=None, model=None)
+    relations_traversal = Traversal(target_node, Person.__label__, definition)
+    all_jims_relations = relations_traversal.all()
 
-    rel = target_node.tx.all_relationships()
+
 
     return Response(json.dumps(rel))
 
