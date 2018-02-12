@@ -4,7 +4,26 @@ from flask import render_template, send_from_directory
 import jinja2
 import json
 
+from py2neo import Graph, Node, Relationship
+
+url = os.environ.get('GRAPHENEDB_URL', 'http://0.0.0.0:7474')
+username = os.environ.get('NEO4J_USERNAME')
+password = os.environ.get('NEO4J_PASSWORD')
+
+def create_users(users, items):
+
+    for i in items:
+        user = Node('Users', username=i.username)
+        graph.create(user)
+        print("Create new node "+ i.username)
+
+#def create_transactions(transactions, items):
+
 app = Eve(settings='settings.py')
+
+
+
+app.on_insert_item += create_users
 
 loader = jinja2.ChoiceLoader([
     app.jinja_loader,
