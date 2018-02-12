@@ -90,11 +90,12 @@ def getDetails(username):
 
     definition = dict(node_class=Person, direction=OUTGOING, relation_type=None, model=None)
     relations_traversal = Traversal(target_node, Person.__label__, definition)
-    all_jims_relations = relations_traversal.all()
+    all_relations = relations_traversal.all()
 
+    for node in all_relations:
+        print(node.name)
 
-
-    return Response(json.dumps(list(all_jims_relations)))
+    return Response(json.dumps({'status':'ok'}))
 
 @app.route('/docs/api')
 def api_docs():
