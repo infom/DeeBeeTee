@@ -56,21 +56,21 @@ users = {
 transactions = {
     'schema': {
         'from_uid': {
-            'type': 'integer',
+            'type': 'objectid',
             'required': True,
             'data_relation': {
                 'resource': 'users',
-                'field': 'uid',
+                'field': '_id',
                 'embeddable': True
             },
 
         },
         'to_uid': {
-            'type': 'integer',
+            'type': 'objectid',
             'required': True,
             'data_relation': {
                 'resource': 'users',
-                'field': 'uid',
+                'field': '_id',
                 'embeddable': True
             },
 
