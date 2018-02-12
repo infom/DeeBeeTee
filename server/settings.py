@@ -54,10 +54,6 @@ transactions = {
     'schema': {
         'from_uid': {
             'type': 'objectid',
-<<<<<<< HEAD
-=======
-            'required': True,
->>>>>>> b5b5474d6952b502b30885a8eeca1ec966136cec
             'data_relation': {
                 'resource': 'users',
                 'field': '_id',
@@ -68,10 +64,6 @@ transactions = {
         },
         'to_uid': {
             'type': 'objectid',
-<<<<<<< HEAD
-=======
-            'required': True,
->>>>>>> b5b5474d6952b502b30885a8eeca1ec966136cec
             'data_relation': {
                 'resource': 'users',
                 'field': '_id',
