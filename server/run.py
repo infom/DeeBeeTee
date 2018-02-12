@@ -4,19 +4,22 @@ from flask import render_template, send_from_directory
 import jinja2
 import json
 
+import py2neo
 from py2neo import Graph, Node, Relationship
 
 username = os.environ.get('NEO4J_USERNAME')
 password = os.environ.get('NEO4J_PASSWORD')
 
-graph = Graph("http://neo4j:fgfHQ6PFzWNx@194.87.236.140:7474/db/data/")
+py2neo.authenticate("194.87.236.140:7474/db/data/", "neo4j", "fgfHQ6PFzWNx")
+graph = Graph("http://194.87.236.140:7474/db/data/")
 print(graph)
 
 def after_insert_users(items):
 
     for i in items:
 
-        graph.create(Node(name=i["username"]))
+        user = Node('Users', name=i["username"])
+        graph.create(user)
 
         print("Create new node "+ i.username)
 
