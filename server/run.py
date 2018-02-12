@@ -45,7 +45,6 @@ def after_insert_transactions(items):
 
         rel = start_node.tx.all_relationships(end_node)
 
-        print(list(rel))
         for r in rel:
             print(r.start_node().name, "------>", r.end_node().name, "------>", r.tx)
 
@@ -83,6 +82,15 @@ def getBalance(username):
     balance = in_ts - out_ts
     res = {'balance':balance}
     return json.dumps(res)
+
+@app.route('/v1/users/<path:username>/getDetails')
+def getBalance(username):
+    target_node = Person.nodes.get(username=username)
+
+    for r in target_node.traverse('tx').run():
+        print (r.start_node().name, "------>", r.end_node().name, "------>", r.tx)
+
+    rel = target_node.tx.all_relationships()
 
 @app.route('/docs/api')
 def api_docs():
