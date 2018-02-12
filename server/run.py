@@ -41,9 +41,16 @@ def after_insert_transactions(items):
         to_uid = i["to_uid"]
 
         start_node = Person.nodes.get(name=from_uid)
-        print(start_node)
+        start_node.balance = start_node.balance - i["amount"]
+
         end_node = Person.nodes.get(name=to_uid)
-        start_node.tx.connect(end_node, {'since': yesterday, 'tx': 300})
+        end_node.balance = end_node.balance + i["amount"]
+
+        start_node.tx.connect(end_node, {'since': yesterday, 'tx': i["amount"]})
+
+        start_node.save()
+        end_node.save()
+
 
 app = Eve(settings='settings.py')
 
