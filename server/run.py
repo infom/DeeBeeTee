@@ -59,7 +59,7 @@ loader = jinja2.ChoiceLoader([
 ])
 app.jinja_loader = loader
 
-'''
+
 @app.route('/v1/users/<path:username>/getBalance')
 def getBalance(username):
     users = app.data.driver.db['users']
@@ -83,9 +83,9 @@ def getBalance(username):
     balance = in_ts - out_ts
     res = {'balance':balance}
     return json.dumps(res)
-'''
+
 @app.route('/v1/users/<path:username>/getDetails')
-def getBalance(username):
+def getDetails(username):
     target_node = Person.nodes.get(username=username)
 
     for r in target_node.traverse('tx').run():
