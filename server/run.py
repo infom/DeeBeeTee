@@ -10,6 +10,8 @@ url = os.environ.get('GRAPHENEDB_URL', 'http://0.0.0.0:7474')
 username = os.environ.get('NEO4J_USERNAME')
 password = os.environ.get('NEO4J_PASSWORD')
 
+graph = Graph(url + '/db/data/', username=username, password=password)
+
 def create_users(users, items):
 
     for i in items:
