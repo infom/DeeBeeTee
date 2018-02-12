@@ -86,7 +86,7 @@ def getBalance(username):
 
 @app.route('/v1/users/<path:username>/getDetails')
 def getDetails(username):
-    target_node = Person.nodes.get(username=username)
+    target_node = Person.nodes.get(name=username)
 
     for r in target_node.traverse('tx').run():
         print (r.start_node().name, "------>", r.end_node().name, "------>", r.tx)
