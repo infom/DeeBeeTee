@@ -45,6 +45,7 @@ def after_insert_transactions(items):
 
         rel = start_node.tx.all_relationships(end_node)
 
+        print(list(rel))
         for r in rel:
             print(r.start_node().name)
 
