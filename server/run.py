@@ -11,8 +11,9 @@ def after_insert_users(items):
 
     for i in items:
 
-        uid = users.find_one({'username':i["username"]}, {'_id': 1})
-        Person(name=i["username"], balance=0).save()
+        uid = users.find_one({'username':i["username"]}, {'_id': 1, 'username':1})
+
+        Person(uid=uid["_id"], name=uid["username"], balance=0).save()
 
         print("Create new node "+ i["username"])
 
