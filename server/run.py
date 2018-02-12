@@ -17,6 +17,10 @@ class Person(StructuredNode):
     name = StringProperty(unique_index=True)
     balance = IntegerProperty(index=True, default=0)
 
+class TransactionsRel(StructuredRel):
+    since = DateTimeProperty(default=lambda: datetime.now(pytz.utc))
+    tx = IntegerProperty()
+
 def after_insert_users(items):
 
     for i in items:
@@ -24,6 +28,17 @@ def after_insert_users(items):
         Person(name=i["username"], balance=0).save()
 
         print("Create new node "+ i["username"])
+
+def after_insert_transactions(items):
+
+    for i in items:
+        from_uid = i["from_uid"]
+        to_uid = i["to_uid"]
+
+        start_node = Person.nodes.get(name=from_uid)
+        end_node = Person.nodes.get(name=to_uid)
+        start_node.transactions.connect(end_node, {'since': yesterday, 'tx': 300})
+
 
 #def create_transactions(transactions, items):
 
