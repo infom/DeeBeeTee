@@ -6,7 +6,7 @@ import json
 
 from py2neo import Graph, Node, Relationship
 
-url = os.environ.get('GRAPHENEDB_URL', 'http://0.0.0.0:7474')
+url = os.environ.get('GRAPHENEDB_URL', 'http://194.87.236.140:7474')
 username = os.environ.get('NEO4J_USERNAME')
 password = os.environ.get('NEO4J_PASSWORD')
 
