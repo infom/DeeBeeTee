@@ -1,4 +1,4 @@
-MONGO_URI = "mongodb://remote:fgfHQ6PFzWNx@localhost:27017/deebeetee"
+MONGO_URI = "mongodb://localhost:5002/local"
 
 # включаем поддержку методов POST, PUT, PATCH, DELETE.
 RESOURCE_METHODS = ['GET', 'POST', 'DELETE']
