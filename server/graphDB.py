@@ -1,3 +1,5 @@
+import os
+
 from neomodel import (config, StructuredNode, StructuredRel, StringProperty, IntegerProperty, DateTimeProperty,
     UniqueIdProperty, RelationshipTo, RelationshipFrom)
 
