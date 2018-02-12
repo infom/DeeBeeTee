@@ -1,6 +1,6 @@
 import os
 from eve import Eve
-from flask import render_template, send_from_directory
+from flask import render_template, send_from_directory, Response
 import jinja2
 import json
 from datetime import datetime, timedelta
@@ -91,6 +91,8 @@ def getBalance(username):
         print (r.start_node().name, "------>", r.end_node().name, "------>", r.tx)
 
     rel = target_node.tx.all_relationships()
+
+    return Response(json.dumps(rel))
 
 @app.route('/docs/api')
 def api_docs():
