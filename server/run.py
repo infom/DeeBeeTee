@@ -4,13 +4,47 @@ from flask import render_template, send_from_directory
 import jinja2
 import json
 
+from neomodel import (config, StructuredNode, StructuredRel, StringProperty, IntegerProperty, DateTimeProperty,
+    UniqueIdProperty, RelationshipTo, RelationshipFrom)
+
 app = Eve(settings='settings.py')
+
+username = os.environ.get('NEO4J_USERNAME')
+password = os.environ.get('NEO4J_PASSWORD')
+
+config.DATABASE_URL = 'bolt://'+username+':'+password+'@194.87.236.140:7687'
+
+class Person(StructuredNode):
+    uid = UniqueIdProperty()
+    name = StringProperty(unique_index=True)
+    balance = IntegerProperty(index=True, default=0)
+
+class TransactionsRel(StructuredRel):
+    since = DateTimeProperty(default=lambda: datetime.now(pytz.utc))
+    tx = IntegerProperty()
+
+def after_insert_users(items):
+
+    for i in items:
+
+        Person(name=i["username"], balance=0).save()
+
+        print("Create new node "+ i["username"])
+
+def after_insert_transactions(items):
+
+    for i in items:
+        from_uid = i["from_uid"]
+        to_uid = i["to_uid"]
+
+        start_node = Person.nodes.get(name=from_uid)
+        end_node = Person.nodes.get(name=to_uid)
+        start_node.transactions.connect(end_node, {'since': yesterday, 'tx': 300})
 
 loader = jinja2.ChoiceLoader([
     app.jinja_loader,
     jinja2.FileSystemLoader(os.getcwd()+'/templates'),
 ])
-
 app.jinja_loader = loader
 
 @app.route('/v1/users/<path:username>/getBalance')
