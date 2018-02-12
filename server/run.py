@@ -10,7 +10,7 @@ from py2neo import Graph, Node, Relationship
 username = os.environ.get('NEO4J_USERNAME')
 password = os.environ.get('NEO4J_PASSWORD')
 
-py2neo.authenticate("bolt://194.87.236.140:7474/db/data/", "neo4j", "fgfHQ6PFzWNx")
+py2neo.authenticate("194.87.236.140:7474/db/data/", "neo4j", "fgfHQ6PFzWNx")
 graph = Graph("bolt://194.87.236.140:7687/db/data/")
 print(graph)
 
