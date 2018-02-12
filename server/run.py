@@ -9,6 +9,8 @@ from graphDB import Person
 
 def after_insert_users(items):
 
+    users = app.data.driver.db['users']
+    
     for i in items:
 
         uid = users.find_one({'username':i["username"]}, {'_id': 1, 'username':1})
