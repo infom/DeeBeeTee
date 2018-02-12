@@ -93,7 +93,7 @@ def getDetails(username):
     all_relations = relations_traversal.all()
 
     for node in all_relations:
-        print(node.tx)
+        print(node.name, "------>", node.tx)
 
     return Response(json.dumps({'status':'ok'}))
 
