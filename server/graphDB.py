@@ -23,13 +23,14 @@ class UserMixin(object):
     uid = UniqueIdProperty()
     name = StringProperty(unique_index=True)
     #balance = IntegerProperty(index=True, default=0)
-    in_tx = RelationshipTo('Person', 'TX', model=TransactionsRel)
-    out_tx = RelationshipFrom('Person', 'TX', model=TransactionsRel)
-    
+
+
 class BalanceMixin(object):
     credit_balance = IntegerProperty(index=True, default=0)
     debit_balance = IntegerProperty(index=True, default=0)
     balance = IntegerProperty(index=True, default=0)
+    
+    tx = RelationshipTo('Person', 'TX', model=TransactionsRel)
 
     def credit_account(self, amount):
         self.credit_balance = self.credit_balance + int(amount)
