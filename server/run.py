@@ -17,7 +17,7 @@ def after_insert_users(items):
     print(items)
 
     for i in items:
-        user = Node('Users', username=i.username)
+        user = Node('Users', name=i.username)
         graph.create(user)
         print("Create new node "+ i.username)
 
