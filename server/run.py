@@ -43,6 +43,8 @@ def after_insert_transactions(items):
         start_node.save()
         end_node.save()
 
+        start_node.all_relationships(end_node)
+
 app = Eve(settings='settings.py')
 
 app.on_inserted_users += after_insert_users
