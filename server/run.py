@@ -41,7 +41,7 @@ def after_insert_transactions(items):
         end_node.save()
 
         definition = dict(node_class=Person, direction=OUTGOING, relation_type='tx', model=None)
-        relations_traversal = Traversal(start_node, Person.__lable__, definition)
+        relations_traversal = Traversal(start_node, Person.__label__, definition)
         all_relations = relations_traversal.all()
 
 
