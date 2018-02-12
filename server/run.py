@@ -40,7 +40,7 @@ def after_insert_transactions(items):
         start_node = Person.nodes.get(name=from_uid)
         print(start_node)
         end_node = Person.nodes.get(name=to_uid)
-        start_node.transactions.connect(end_node, {'since': yesterday, 'tx': 300})
+        start_node.tx.connect(end_node, {'since': yesterday, 'tx': 300})
 
 app = Eve(settings='settings.py')
 
