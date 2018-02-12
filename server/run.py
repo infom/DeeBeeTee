@@ -34,10 +34,12 @@ def after_insert_users(items):
 def after_insert_transactions(items):
 
     for i in items:
+
         from_uid = i["from_uid"]
         to_uid = i["to_uid"]
 
         start_node = Person.nodes.get(name=from_uid)
+        print(start_node)
         end_node = Person.nodes.get(name=to_uid)
         start_node.transactions.connect(end_node, {'since': yesterday, 'tx': 300})
 
