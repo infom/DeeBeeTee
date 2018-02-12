@@ -4,10 +4,15 @@ from flask import render_template, send_from_directory, Response
 import jinja2
 import json
 from datetime import datetime, timedelta
-from neomodel import OUTGOING, INCOMING
-from neomodel.match import Traversal
-from graphDB import Person
+#from neomodel import OUTGOING, INCOMING
+#from neomodel.match import Traversal
+#from graphDB import Person
+from py2neo import Node, NodeSelector, Graph
 
+graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
+selector = NodeSelector(graph)
+
+'''
 def after_insert_users(items):
 
     users = app.data.driver.db['users']
@@ -47,11 +52,11 @@ def after_insert_transactions(items):
 
         for r in rel:
             print(r.start_node().name, "------>", r.end_node().name, "------>", r.tx)
-
+'''
 app = Eve(settings='settings.py')
 
-app.on_inserted_users += after_insert_users
-app.on_inserted_transactions += after_insert_transactions
+#app.on_inserted_users += after_insert_users
+#app.on_inserted_transactions += after_insert_transactions
 
 loader = jinja2.ChoiceLoader([
     app.jinja_loader,
@@ -86,16 +91,23 @@ def getBalance(username):
 
 @app.route('/v1/users/<path:username>/getDetails')
 def getDetails(username):
-    target_node = Person.nodes.get(name=username)
+    target = selector.select("Person", name=username).first()
+    out_rels = graph.match(start_node=target, rel_type="TX")
+    in_rels = graph.match(end_node=target, rel_type="TX")
 
-    definition = dict(node_class=Person, direction=INCOMING, relation_type=None, model=None)
-    relations_traversal = Traversal(target_node, Person.__label__, definition)
-    all_relations = relations_traversal.all()
+    details = {}
+    b_out = 0
+    b_in = 0
 
-    for node in all_relations:
-        print(node.name, "------>", node.tx)
+    for tx in out_rels:
+        b_out += tx["tx"]
+        details[tx.end_node()["name"]]["out"] = b_out
 
-    return Response(json.dumps({'status':'ok'}))
+    for tx in in_rels:
+        b_in += tx["tx"]
+        details[tx.start_node()["name"]]["in"] = b_in
+
+    print(details)
 
 @app.route('/docs/api')
 def api_docs():
