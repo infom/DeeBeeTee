@@ -9,14 +9,13 @@ from py2neo import Graph, Node, Relationship
 username = os.environ.get('NEO4J_USERNAME')
 password = os.environ.get('NEO4J_PASSWORD')
 
-graph = Graph("http://"+username+":"+password+"@194.87.236.140:7474/db/data/")
+graph = Graph("http://neo4j:fgfHQ6PFzWNx@194.87.236.140:7474/db/data/")
+print(graph)
 
 def after_insert_users(items):
 
-    print(items)
-
     for i in items:
-        print(i)
+
         user = Node('Users', name=i['username'])
         graph.create(user)
         print("Create new node "+ i.username)
