@@ -4,7 +4,7 @@ from flask import render_template, send_from_directory, Response
 import jinja2
 import json
 from datetime import datetime, timedelta
-from neomodel import OUTGOING
+from neomodel import OUTGOING, INCOMING
 from neomodel.match import Traversal
 from graphDB import Person
 
@@ -88,7 +88,7 @@ def getBalance(username):
 def getDetails(username):
     target_node = Person.nodes.get(name=username)
 
-    definition = dict(node_class=Person, direction=OUTGOING, relation_type=None, model=None)
+    definition = dict(node_class=Person, direction=INCOMING, relation_type=None, model=None)
     relations_traversal = Traversal(target_node, Person.__label__, definition)
     all_relations = relations_traversal.all()
 
