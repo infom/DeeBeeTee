@@ -47,7 +47,7 @@ def after_insert_transactions(items):
 
         print(list(rel))
         for r in rel:
-            print(r.start_node().name +"------>"+r.end_node().name+"------>"+r.tx)
+            print(r.start_node().name, "------>", r.end_node().name, "------>", r.tx)
 
 app = Eve(settings='settings.py')
 
