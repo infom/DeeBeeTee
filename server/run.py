@@ -12,14 +12,15 @@ password = os.environ.get('NEO4J_PASSWORD')
 
 py2neo.authenticate("194.87.236.140:7474/db/data/", "neo4j", "fgfHQ6PFzWNx")
 graph = Graph("http://194.87.236.140:7474/db/data/")
+graph.schema.create_uniqueness_constraint('persons', 'name')
 print(graph)
 
 def after_insert_users(items):
 
     for i in items:
 
-        user = Node('Users', name=i["username"])
-        graph.create(user)
+        #user = Node('Users', name=i["username"])
+        graph.merge('persons', property_key='name', property_value=i['username'])
 
         print("Create new node "+ i.username)
 
