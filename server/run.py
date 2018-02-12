@@ -39,9 +39,6 @@ def after_insert_transactions(items):
         end_node = Person.nodes.get(name=to_uid)
         start_node.transactions.connect(end_node, {'since': yesterday, 'tx': 300})
 
-
-#def create_transactions(transactions, items):
-
 app = Eve(settings='settings.py')
 
 app.on_inserted_users += after_insert_users
