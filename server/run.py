@@ -3,6 +3,7 @@ from eve import Eve
 from flask import render_template, send_from_directory
 import jinja2
 import json
+from datetime import datetime, timedelta
 
 from neomodel import (config, StructuredNode, StructuredRel, StringProperty, IntegerProperty, DateTimeProperty,
     UniqueIdProperty, RelationshipTo, RelationshipFrom)
@@ -33,6 +34,8 @@ def after_insert_users(items):
 def after_insert_transactions(items):
 
     for i in items:
+
+        yesterday = datetime.now() - timedelta(days=1)
 
         from_uid = i["from_uid"]
         to_uid = i["to_uid"]
