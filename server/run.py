@@ -10,7 +10,7 @@ from neomodel import (config, StructuredNode, StringProperty, IntegerProperty,
 username = os.environ.get('NEO4J_USERNAME')
 password = os.environ.get('NEO4J_PASSWORD')
 
-config.DATABASE_URL = 'bolt://'+username+':'+password+'@localhost:7687'
+config.DATABASE_URL = 'bolt://'+username+':'+password+'@194.87.236.140:7687'
 
 class Person(StructuredNode):
     uid = UniqueIdProperty()
