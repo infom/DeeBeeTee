@@ -4,24 +4,26 @@ from flask import render_template, send_from_directory
 import jinja2
 import json
 
-import py2neo
-from py2neo import neo4j, Node, Relationship
+from neomodel import (config, StructuredNode, StringProperty, IntegerProperty,
+    UniqueIdProperty, RelationshipTo, RelationshipFrom)
 
 username = os.environ.get('NEO4J_USERNAME')
 password = os.environ.get('NEO4J_PASSWORD')
 
-py2neo.authenticate("194.87.236.140:7474/db/data/", "neo4j", "fgfHQ6PFzWNx")
-graph = neo4j.GraphDatabaseService("bolt://194.87.236.140:7687/db/data/")
-print(graph)
+config.DATABASE_URL = 'bolt:/'+username+':'+password+'@localhost:7687'
+
+class Person(StructuredNode):
+    uid = UniqueIdProperty()
+    name = StringProperty(unique_index=True)
+    balance = IntegerProperty(index=True, default=0)
 
 def after_insert_users(items):
 
     for i in items:
 
-        user = Node('Users', name=i["username"])
-        graph.create(user)
+        Person(name=i["username"], balance=0).save()
 
-        print("Create new node "+ i.username)
+        print("Create new node "+ i["username"])
 
 #def create_transactions(transactions, items):
 
