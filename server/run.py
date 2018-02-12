@@ -46,9 +46,8 @@ def after_insert_transactions(items):
         rel = start_node.tx.all_relationships(end_node)
 
         for r in rel:
-            print(r.start_node().tx)
-            print( r.end_node().tx)
-
+            print(r.tx)
+            
 app = Eve(settings='settings.py')
 
 app.on_inserted_users += after_insert_users
