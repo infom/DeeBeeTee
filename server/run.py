@@ -6,11 +6,10 @@ import json
 
 from py2neo import Graph, Node, Relationship
 
-url = os.environ.get('GRAPHENEDB_URL', 'http://194.87.236.140:7474')
 username = os.environ.get('NEO4J_USERNAME')
 password = os.environ.get('NEO4J_PASSWORD')
 
-graph = Graph(url + '/db/data/', username=username, password=password)
+graph = Graph("http://"+username+":"+password+"@194.87.236.140:7474/db/data/")
 
 def after_insert_users(items):
 
