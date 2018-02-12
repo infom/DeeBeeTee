@@ -39,6 +39,9 @@ def after_insert_transactions(items):
         start_node.save()
         end_node.save()
 
+        rel = start_node.tx.relationship(end_node)
+        print(rel)
+
 
 app = Eve(settings='settings.py')
 
