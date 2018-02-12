@@ -30,21 +30,18 @@ def after_insert_transactions(items):
         to_uid = i["to_uid"]
 
         start_node = Person.nodes.get(uid=from_uid)
-        start_node.balance = start_node.balance - i["amount"]
+
+#        start_node.balance = start_node.balance - i["amount"]
 
         end_node = Person.nodes.get(uid=to_uid)
-        end_node.balance = end_node.balance + i["amount"]
+#        end_node.balance = end_node.balance + i["amount"]
 
         start_node.tx.connect(end_node, {'since': yesterday, 'tx': i["amount"]})
 
+        start_node.debit_account(i["amount"])
+        end_node.credit_account(i["amount"])
         start_node.save()
         end_node.save()
-
-        definition = dict(node_class=Person, direction=OUTGOING, relation_type='tx', model=None)
-        relations_traversal = Traversal(start_node, Person.__label__, definition)
-        all_relations = relations_traversal.all()
-        print(all_relations)
-
 
 app = Eve(settings='settings.py')
 
