@@ -7,8 +7,6 @@ import json
 from neomodel import (config, StructuredNode, StructuredRel, StringProperty, IntegerProperty, DateTimeProperty,
     UniqueIdProperty, RelationshipTo, RelationshipFrom)
 
-app = Eve(settings='settings.py')
-
 username = os.environ.get('NEO4J_USERNAME')
 password = os.environ.get('NEO4J_PASSWORD')
 
@@ -42,6 +40,11 @@ def after_insert_transactions(items):
         print(start_node)
         end_node = Person.nodes.get(name=to_uid)
         start_node.transactions.connect(end_node, {'since': yesterday, 'tx': 300})
+
+app = Eve(settings='settings.py')
+
+app.on_inserted_users += after_insert_users
+app.on_inserted_transactions += after_insert_transactions
 
 loader = jinja2.ChoiceLoader([
     app.jinja_loader,
