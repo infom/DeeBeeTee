@@ -4,7 +4,8 @@ from flask import render_template, send_from_directory
 import jinja2
 import json
 from datetime import datetime, timedelta
-from neomodel import OUTGOING, Traversal
+from neomodel import OUTGOING
+from neomodel.match import Traversal
 from graphDB import Person
 
 def after_insert_users(items):
