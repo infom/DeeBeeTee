@@ -4,7 +4,7 @@ from flask import render_template, send_from_directory
 import jinja2
 import json
 
-from neomodel import (config, StructuredNode, StructuredRel, StringProperty, IntegerProperty,
+from neomodel import (config, StructuredNode, StructuredRel, StringProperty, IntegerProperty, DateTimeProperty,
     UniqueIdProperty, RelationshipTo, RelationshipFrom)
 
 username = os.environ.get('NEO4J_USERNAME')
