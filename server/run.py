@@ -12,7 +12,9 @@ password = os.environ.get('NEO4J_PASSWORD')
 
 graph = Graph(url + '/db/data/', username=username, password=password)
 
-def create_users(users, items):
+def after_insert_users(items):
+
+    print(items)
 
     for i in items:
         user = Node('Users', username=i.username)
@@ -23,9 +25,7 @@ def create_users(users, items):
 
 app = Eve(settings='settings.py')
 
-
-
-app.on_insert_item += create_users
+app.on_inserted_users += after_insert_users
 
 loader = jinja2.ChoiceLoader([
     app.jinja_loader,
