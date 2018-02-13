@@ -66,7 +66,7 @@ def createTransaction(transaction):
     end_node = selector.select("Person", uid=to_uid).first()
 #        end_node.balance = end_node.balance + i["amount"]
 
-    rel = Relationship(start_node, 'TX', end_node, uuid=uuid.uuid4(), since=yesterday, tx=transaction["amount"])
+    rel = Relationship(start_node, 'TX', end_node, uuid=uuid.uuid4().hex, since=yesterday, tx=transaction["amount"])
     print("relation", rel)
     graph.create(rel)
 
