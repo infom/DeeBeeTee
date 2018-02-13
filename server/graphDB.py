@@ -52,7 +52,7 @@ def createNode(uid, username):
 
 def createTransaction(transaction):
 
-    yesterday = '{:%m/%d/%y %H:%M:%S}'.format(datetime.now() - timedelta(days=1))
+    yesterday = str('{:%m/%d/%y %H:%M:%S}'.format(datetime.now() - timedelta(days=1)))
 
     from_uid = str(transaction["from_uid"])
     to_uid = str(transaction["to_uid"])
