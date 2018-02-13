@@ -32,7 +32,7 @@ class BalanceMixin(object):
         self.save()
 
 class Person(GraphObject, UserMixin, BalanceMixin):
-    tx = RelatedTo(Person)
+    tx = RelatedTo(self)
 
 
 graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
