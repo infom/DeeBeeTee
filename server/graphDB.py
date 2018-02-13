@@ -45,7 +45,9 @@ def createNode(uid, username=None):
     user.uid = uid
     user.name = username
 
-    graph.create(user)
+    print(user)
+
+    graph.push(user)
 
 def getUserBalance(nodeName):
     users = app.data.driver.db['users']
