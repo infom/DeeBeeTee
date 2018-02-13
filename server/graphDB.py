@@ -52,8 +52,6 @@ def createNode(uid, username):
 
 def createTransaction(transaction):
 
-    yesterday = str('{:%m/%d/%y %H:%M:%S}'.format(datetime.now() - timedelta(days=1)))
-
     from_uid = str(transaction["from_uid"])
     to_uid = str(transaction["to_uid"])
 
@@ -64,7 +62,7 @@ def createTransaction(transaction):
     end_node = selector.select("Person", uid=to_uid).first()
 #        end_node.balance = end_node.balance + i["amount"]
 
-    rel = graph.run("MATCH (p1:Person {uid:"+from_uid+"}), (p2:Person{name:"+to_uid+"}) CREATE (p1)-[:TX {tx:"+str(transaction["amount"])+", since:"+yesterday+"}]->(p2)")
+    rel = graph.run("MATCH (p1:Person {uid:"+from_uid+"}), (p2:Person{name:"+to_uid+"}) CREATE (p1)-[:TX {tx:"+str(transaction["amount"])+"}]->(p2)")
 
     print("relation", rel.data())
 
