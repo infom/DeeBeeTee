@@ -36,7 +36,7 @@ class Person(GraphObject, BalanceMixin):
 graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
 selector = NodeSelector(graph)
 
-graph.schema.create_uniqueness_constraint('TX', ['tx', 'since'])
+graph.schema.create_uniqueness_constraint('TX', 'tx')
 
 def createNode(uid, username):
 
