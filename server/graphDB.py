@@ -7,11 +7,19 @@ from py2neo import Node, NodeSelector, Graph, Relationship
 from py2neo.ogm import GraphObject, Property
 import collections
 
-class BalanceMixin(object):
+class Person(GraphObject):
+    __primarykey__ = "uid"
+
+    uid = Property()
+    name = Property()
+
     credit_balance = Property()
     debit_balance = Property()
     balance = Property()
 
+    def __init__(self, uid, name):
+        self.uid = uid
+        self.name = name
 
     def credit_account(self, amount):
         self.credit_balance = self.credit_balance + int(amount)
@@ -23,19 +31,10 @@ class BalanceMixin(object):
         self.balance = self.balance - self.debit_balance
         self.save()
 
-class Person(GraphObject, BalanceMixin):
-    __primarykey__ = "uid"
-
-    uid = Property()
-    name = Property()
-
-    def __init__(self, uid, name):
-        self.uid = uid
-        self.name = name
-
 
 graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
 selector = NodeSelector(graph)
+cypher = graph.cypher
 
 try:
     graph.schema.create_uniqueness_constraint('TX', '__id__')
@@ -66,9 +65,8 @@ def createTransaction(transaction):
     end_node = selector.select("Person", uid=to_uid).first()
 #        end_node.balance = end_node.balance + i["amount"]
 
-    rel = Relationship(start_node, 'TX', end_node, since=yesterday, tx=transaction["amount"])
+    cypher.execute("MATCH (p1:Person {name:*«start_node»}), (p2:Person{name:*«end_node»}) CREATE (p1)-[:TX{tx:*«tx», sience:*«since»}]->(p2)", start_node=start_node, end_node=end_node, tx=transaction["amount"], since=yesterday)
 
-    start_node.add(rel)
     print("relation", rel)
     graph.push(rel)
 
