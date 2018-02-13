@@ -1,4 +1,5 @@
 import os
+import uuid
 import json
 from datetime import datetime, timedelta
 
@@ -37,7 +38,7 @@ graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt
 selector = NodeSelector(graph)
 
 try:
-    graph.schema.create_uniqueness_constraint('TX')
+    graph.schema.create_uniqueness_constraint('TX', 'uuid')
 except BaseException:
      print('Constraint already exists: CONSTRAINT ON ( tx:TX ) ASSERT tx.tx IS UNIQUE')
 
@@ -65,7 +66,7 @@ def createTransaction(transaction):
     end_node = selector.select("Person", uid=to_uid).first()
 #        end_node.balance = end_node.balance + i["amount"]
 
-    rel = Relationship(start_node, 'TX', end_node, since=yesterday, tx=transaction["amount"])
+    rel = Relationship(start_node, 'TX', end_node, uuid=uuid.uuid4(), since=yesterday, tx=transaction["amount"])
     print("relation", rel)
     graph.create(rel)
 
