@@ -19,7 +19,7 @@ def after_insert_users(items):
 
         uid = users.find_one({'username':i["username"]}, {'_id': 1, 'username':1})
 
-        user = createNode(uid=str(uid["_id"]), name=uid["username"])
+        user = createNode(uid=str(uid["_id"]), username=uid["username"])
 
 
 #        Person(uid=uid["_id"], name=uid["username"], balance=0).save()
