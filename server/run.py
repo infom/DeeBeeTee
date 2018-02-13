@@ -60,7 +60,7 @@ def after_insert_transactions(items):
 '''
 app = Eve(settings='settings.py')
 
-#app.on_inserted_users += after_insert_users
+app.on_inserted_users += after_insert_users
 #app.on_inserted_transactions += after_insert_transactions
 
 loader = jinja2.ChoiceLoader([
