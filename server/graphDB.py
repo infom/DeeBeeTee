@@ -10,8 +10,6 @@ selector = NodeSelector(graph)
 def getBalanceDetails(nodeName):
 
     target = selector.select("Person", name=nodeName).first()
-    print(target)
-    print(type(target))
     out_rels = graph.match(start_node=target, rel_type="TX")
     in_rels = graph.match(end_node=target, rel_type="TX")
 
@@ -22,10 +20,12 @@ def getBalanceDetails(nodeName):
     for tx in out_rels:
         b_out += tx["tx"]
         details[tx.end_node()["name"]]["out"] = b_out
+        print(nodeName, "-----> ", tx.end_node()["name"], "----->", b_out)
 
     for tx in in_rels:
         b_in += tx["tx"]
         details[tx.start_node()["name"]]["in"] = b_in
+        print(nodeName, "<----- ", tx.start_node()["name"], "----->", b_out)
 
     b_out = 0
     b_in = 0
