@@ -1,7 +1,8 @@
 import os
 import json
 
-from py2neo import Node, NodeSelector, Graph, GraphObject, Propery
+from py2neo import Node, NodeSelector, Graph
+from py2neo.ogm import GraphObject, Property, RelatedTo
 import collections
 
 
@@ -60,7 +61,7 @@ def getUserBalance(nodeName):
     balance = in_ts - out_ts
     res = {'balance':balance}
     return json.dumps(res)
-    
+
 def getBalanceDetails(nodeName):
 
     target = selector.select("Person", name=nodeName).first()

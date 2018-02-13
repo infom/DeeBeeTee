@@ -6,7 +6,7 @@ import json
 from datetime import datetime, timedelta
 #from neomodel import OUTGOING, INCOMING
 #from neomodel.match import Traversal
-from graphDB import getBalanceDetails, getUserBalance, Person
+from graphDB import getBalanceDetails, getUserBalance, Person, graph
 #from py2neo import Node, NodeSelector, Graph
 #import collections
 
@@ -19,7 +19,14 @@ def after_insert_users(items):
 
         uid = users.find_one({'username':i["username"]}, {'_id': 1, 'username':1})
 
-        Person(uid=uid["_id"], name=uid["username"], balance=0).save()
+        user = Person()
+        user.uid = uid["_id"]
+        user.name = uid["username"]
+
+        graph.create(user)
+
+
+#        Person(uid=uid["_id"], name=uid["username"], balance=0).save()
 
         print("Create new node "+ i["username"])
 '''
