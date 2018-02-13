@@ -25,39 +25,17 @@ def after_insert_users(items):
 #        Person(uid=uid["_id"], name=uid["username"], balance=0).save()
 
         print("Create new node "+ i["username"])
-'''
+
 def after_insert_transactions(items):
 
     for i in items:
 
-        yesterday = datetime.now() - timedelta(days=1)
+        createTransaction(i)
 
-        from_uid = i["from_uid"]
-        to_uid = i["to_uid"]
-
-        start_node = Person.nodes.get(uid=from_uid)
-
-#        start_node.balance = start_node.balance - i["amount"]
-
-        end_node = Person.nodes.get(uid=to_uid)
-#        end_node.balance = end_node.balance + i["amount"]
-
-        start_node.tx.connect(end_node, {'since': yesterday, 'tx': i["amount"]})
-
-        start_node.debit_account(i["amount"])
-        end_node.credit_account(i["amount"])
-        start_node.save()
-        end_node.save()
-
-        rel = start_node.tx.all_relationships(end_node)
-
-        for r in rel:
-            print(r.start_node().name, "------>", r.end_node().name, "------>", r.tx)
-'''
 app = Eve(settings='settings.py')
 
 app.on_inserted_users += after_insert_users
-#app.on_inserted_transactions += after_insert_transactions
+app.on_inserted_transactions += after_insert_transactions
 
 loader = jinja2.ChoiceLoader([
     app.jinja_loader,

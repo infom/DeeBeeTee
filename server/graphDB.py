@@ -35,7 +35,7 @@ class Person(GraphObject, BalanceMixin):
 graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
 selector = NodeSelector(graph)
 
-def createNode(uid, username=None):
+def createNode(uid, username):
 
     user = Person(uid=uid, name=username)
 
@@ -43,7 +43,31 @@ def createNode(uid, username=None):
 
     graph.create(user)
 
+def createTransaction(transaction):
+
+    yesterday = datetime.now() - timedelta(days=1)
+
+    from_uid = transaction["from_uid"]
+    to_uid = transaction["to_uid"]
+
+    start_node = selector.select("Person", uid=from_uid).first()
+
+#        start_node.balance = start_node.balance - i["amount"]
+
+    end_node = selector.select("Person", uid=to_uid).first()
+#        end_node.balance = end_node.balance + i["amount"]
+
+    rel = Relationship(start_node, 'TX', end_node, since=yesterday, tx=transaction["amount"])
+    graph.create(rel)
+
+    start_node.debit_account = ransaction["amount"]
+    end_node.credit_account = transaction["amount"]
+    start_node.push()
+    end_node.push()
+
+
 def getUserBalance(nodeName):
+
     users = app.data.driver.db['users']
     transactions = app.data.driver.db['transactions']
 
