@@ -39,6 +39,14 @@ class Person(GraphObject, UserMixin, BalanceMixin):
 graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
 selector = NodeSelector(graph)
 
+def createNode(uid, username=None):
+
+    user = Person()
+    user.uid = uid
+    user.name = username
+
+    graph.create(user)
+
 def getUserBalance(nodeName):
     users = app.data.driver.db['users']
     transactions = app.data.driver.db['transactions']
