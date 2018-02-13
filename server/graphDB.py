@@ -48,8 +48,8 @@ def createTransaction(transaction):
 
     yesterday = datetime.now() - timedelta(days=1)
 
-    from_uid = transaction["from_uid"]
-    to_uid = transaction["to_uid"]
+    from_uid = str(transaction["from_uid"])
+    to_uid = str(transaction["to_uid"])
 
     start_node = selector.select("Person", uid=from_uid).first()
 
