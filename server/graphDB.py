@@ -2,7 +2,7 @@ import os
 import json
 from datetime import datetime, timedelta
 
-from py2neo import Node, NodeSelector, Graph, Relationship
+from py2neo import Node, NodeSelector, Graph, rel
 from py2neo.ogm import GraphObject, Property
 import collections
 
@@ -58,9 +58,8 @@ def createTransaction(transaction):
     end_node = selector.select("Person", uid=to_uid).first()
 #        end_node.balance = end_node.balance + i["amount"]
 
-    rel = Relationship(start_node, 'TX', end_node, since=yesterday, tx=transaction["amount"])
-    print(rel)
-    graph.create(rel)
+    relation = rel(start_node, 'TX', end_node, since=yesterday, tx=transaction["amount"])
+    graph.create(relation)
 
     start_node.debit_account = transaction["amount"]
     end_node.credit_account = transaction["amount"]
