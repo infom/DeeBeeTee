@@ -11,8 +11,6 @@ class TransactionsRel(GraphObject):
     tx = Property()
 
 class UserMixin(object):
-    __primarykey__ = "uid"
-
     uid = Property()
     name = Property()
 
