@@ -64,7 +64,7 @@ def createTransaction(transaction):
     end_node = selector.select("Person", uid=to_uid).first()
 #        end_node.balance = end_node.balance + i["amount"]
 
-    rel = graph.run("CREATE ("+start_node+")-[:TX {tx:"+transaction["amount"]+", since:"+yesterday+"}]->("+end_node+")")
+    rel = graph.run("MATCH (p1:Person {uid:"+from_uid+"}), (p2:Person{name:"+to_uid+"}) CREATE (p1)-[:TX {tx:"+transaction["amount"]+", since:"+yesterday+"}]->(p2)")
 
     print("relation", rel.data())
 
