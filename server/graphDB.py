@@ -2,7 +2,7 @@ import os
 import json
 from datetime import datetime, timedelta
 
-from py2neo import Node, NodeSelector, Graph, rel
+from py2neo import Node, NodeSelector, Graph, Relationship
 from py2neo.ogm import GraphObject, Property
 import collections
 
@@ -36,6 +36,8 @@ class Person(GraphObject, BalanceMixin):
 graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
 selector = NodeSelector(graph)
 
+graph.schema.create_uniqueness_constraint('TX', ['tx', 'since'])
+
 def createNode(uid, username):
 
     user = Person(uid=uid, name=username)
@@ -58,8 +60,8 @@ def createTransaction(transaction):
     end_node = selector.select("Person", uid=to_uid).first()
 #        end_node.balance = end_node.balance + i["amount"]
 
-    relation = rel(start_node, 'TX', end_node, since=yesterday, tx=transaction["amount"])
-    graph.create(relation)
+    rel = Relationship(start_node, 'TX', end_node, since=yesterday, tx=transaction["amount"])
+    graph.create(rel)
 
     start_node.debit_account = transaction["amount"]
     end_node.credit_account = transaction["amount"]
