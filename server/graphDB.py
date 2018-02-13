@@ -5,16 +5,6 @@ from py2neo import Node, NodeSelector, Graph
 from py2neo.ogm import GraphObject, Property, RelatedTo, RelatedObjects
 import collections
 
-class UserMixin(object):
-    __primarykey__ = "uid"
-
-    uid = Property()
-    name = Property()
-
-    def __init__(self, uid, name):
-        self.uid = uid
-        self.name = name
-
 class BalanceMixin(object):
     credit_balance = Property()
     debit_balance = Property()
@@ -31,8 +21,15 @@ class BalanceMixin(object):
         self.balance = self.balance - self.debit_balance
         self.save()
 
-class Person(GraphObject, UserMixin, BalanceMixin):
-    pass
+class Person(GraphObject, BalanceMixin):
+    __primarykey__ = "uid"
+
+    uid = Property()
+    name = Property()
+
+    def __init__(self, uid, name):
+        self.uid = uid
+        self.name = name
 
 
 graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
