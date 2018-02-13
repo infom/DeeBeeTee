@@ -15,6 +15,8 @@ selector = NodeSelector(graph)
 
 def getBalanceDetails(nodeName):
     target = selector.select("Person", name=nodeName).first()
+    print(target)
+    print(type(target))
     out_rels = graph.match(start_node=target, rel_type="TX")
     in_rels = graph.match(end_node=target, rel_type="TX")
 
