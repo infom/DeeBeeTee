@@ -38,7 +38,7 @@ selector = NodeSelector(graph)
 
 try:
     graph.schema.create_uniqueness_constraint('TX', 'tx')
- except BaseException:
+except BaseException:
      print('Constraint already exists: CONSTRAINT ON ( tx:TX ) ASSERT tx.tx IS UNIQUE')
 
 
