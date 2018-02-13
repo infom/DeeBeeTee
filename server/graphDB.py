@@ -40,7 +40,7 @@ selector = NodeSelector(graph)
 
 def createNode(uid, username=None):
 
-    user = Person(uid=uid, username=username)
+    user = Person(uid=uid, name=username)
 
     print(user)
 
