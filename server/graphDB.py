@@ -2,23 +2,24 @@ import os
 import json
 
 from py2neo import Node, NodeSelector, Graph
-from py2neo.ogm import GraphObject, Property, RelatedTo
+from py2neo.ogm import GraphObject, Property, RelatedTo, RelatedObjects
 import collections
 
-
-class TransactionsRel(GraphObject):
-    since = Property()
-    tx = Property()
-
 class UserMixin(object):
+    __primarykey__ = "uid"
+
     uid = Property()
     name = Property()
+
+     def __init__(self, uid, name):
+        self.uid = uid
+        self.name = name
 
 class BalanceMixin(object):
     credit_balance = Property()
     debit_balance = Property()
     balance = Property()
-    tx = RelatedTo(TransactionsRel)
+    tx = RelatedTo(Person)
 
     def credit_account(self, amount):
         self.credit_balance = self.credit_balance + int(amount)
@@ -39,13 +40,11 @@ selector = NodeSelector(graph)
 
 def createNode(uid, username=None):
 
-    user = Person()
-    user.uid = uid
-    user.name = username
+    user = Person(uid=uid, username=username)
 
     print(user)
 
-    graph.push(user)
+    graph.create(user)
 
 def getUserBalance(nodeName):
     users = app.data.driver.db['users']
