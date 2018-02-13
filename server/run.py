@@ -3,7 +3,7 @@ from eve import Eve
 from flask import render_template, send_from_directory, Response
 import jinja2
 import json
-from datetime import datetime, timedelta
+
 #from neomodel import OUTGOING, INCOMING
 #from neomodel.match import Traversal
 from graphDB import getBalanceDetails, getUserBalance, createNode, createTransaction
@@ -12,25 +12,17 @@ from graphDB import getBalanceDetails, getUserBalance, createNode, createTransac
 
 
 def after_insert_users(items):
-
     users = app.data.driver.db['users']
-
     for i in items:
-
         uid = users.find_one({'username':i["username"]}, {'_id': 1, 'username':1})
-
         user = createNode(uid=str(uid["_id"]), username=uid["username"])
 
-
-#        Person(uid=uid["_id"], name=uid["username"], balance=0).save()
-
-        print("Create new node "+ i["username"])
+        print("Create new node ", i["username"])
 
 def after_insert_transactions(items):
-
     for i in items:
-
         createTransaction(i)
+        print("Create new transaction ", i)
 
 app = Eve(settings='settings.py')
 
