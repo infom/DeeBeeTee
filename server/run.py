@@ -13,6 +13,28 @@ import collections
 graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
 selector = NodeSelector(graph)
 
+def getBalanceDetails(nodeName):
+    target = selector.select("Person", name=nodeName).first()
+    out_rels = graph.match(start_node=target, rel_type="TX")
+    in_rels = graph.match(end_node=target, rel_type="TX")
+
+    details = collections.defaultdict(dict)
+    b_out = 0
+    b_in = 0
+
+    for tx in out_rels:
+        b_out += tx["tx"]
+        details[tx.end_node()["name"]]["out"] = b_out
+
+    for tx in in_rels:
+        b_in += tx["tx"]
+        details[tx.start_node()["name"]]["in"] = b_in
+
+    b_out = 0
+    b_in = 0
+
+    return json.dumps(dict(details))
+
 '''
 def after_insert_users(items):
 
@@ -92,28 +114,11 @@ def getBalance(username):
 
 @app.route('/v1/users/<path:username>/getDetails')
 def getDetails(username):
-    print(username)
-    target = selector.select("Person", name=username).first()
-    print(target)
-    out_rels = graph.match(start_node=target, rel_type="TX")
-    in_rels = graph.match(end_node=target, rel_type="TX")
 
-    collections.defaultdict(dict)
-    b_out = 0
-    b_in = 0
+    details = getBalanceDetails(username)
 
-    for tx in out_rels:
-        b_out += tx["tx"]
-        details[tx.end_node()["name"]]["out"] = b_out
 
-    for tx in in_rels:
-        b_in += tx["tx"]
-        details[tx.start_node()["name"]]["in"] = b_in
-
-    b_out = 0
-    b_in = 0
-
-    return Response(json.dumps(details), mimetype='application/json')
+    return Response(details, mimetype='application/json')
 
 @app.route('/docs/api')
 def api_docs():
