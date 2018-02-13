@@ -19,7 +19,7 @@ class BalanceMixin(object):
     credit_balance = Property()
     debit_balance = Property()
     balance = Property()
-    tx = RelatedTo(Person)
+
 
     def credit_account(self, amount):
         self.credit_balance = self.credit_balance + int(amount)
@@ -32,7 +32,7 @@ class BalanceMixin(object):
         self.save()
 
 class Person(GraphObject, UserMixin, BalanceMixin):
-    pass
+    tx = RelatedTo(Person)
 
 
 graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
