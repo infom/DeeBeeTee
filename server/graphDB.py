@@ -68,7 +68,7 @@ def createTransaction(transaction):
 
     rel = Relationship(start_node, 'TX', end_node, since=yesterday, tx=transaction["amount"])
     print("relation", rel)
-    graph.create(rel)
+    graph.create_unique(rel)
 
     start_node.debit_account = transaction["amount"]
     end_node.credit_account = transaction["amount"]
