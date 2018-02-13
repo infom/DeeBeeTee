@@ -65,7 +65,7 @@ def createTransaction(transaction):
     end_node.credit_account = transaction["amount"]
     start_node.push()
     end_node.push()
-    graph.commit
+    graph.commit()
 
 def getUserBalance(nodeName):
 
