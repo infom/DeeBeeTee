@@ -20,7 +20,7 @@ def after_insert_users(items):
         uid = users.find_one({'username':i["username"]}, {'_id': 1, 'username':1})
 
         user = Person()
-        user.uid = uid["_id"]
+        user.uid = uid["_id"].toString()
         user.name = uid["username"]
 
         graph.create(user)
