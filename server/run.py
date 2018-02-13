@@ -6,7 +6,7 @@ import json
 from datetime import datetime, timedelta
 #from neomodel import OUTGOING, INCOMING
 #from neomodel.match import Traversal
-from graphDB import getBalanceDetails, getUserBalance, createUsers
+from graphDB import getBalanceDetails, getUserBalance, createNode
 #from py2neo import Node, NodeSelector, Graph
 #import collections
 
@@ -14,8 +14,6 @@ from graphDB import getBalanceDetails, getUserBalance, createUsers
 def after_insert_users(items):
 
     users = app.data.driver.db['users']
-
-
 
     for i in items:
 
