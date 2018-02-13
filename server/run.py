@@ -92,7 +92,9 @@ def getBalance(username):
 
 @app.route('/v1/users/<path:username>/getDetails')
 def getDetails(username):
+    print(username)
     target = selector.select("Person", name=username).first()
+    print(target)
     out_rels = graph.match(start_node=target, rel_type="TX")
     in_rels = graph.match(end_node=target, rel_type="TX")
 
