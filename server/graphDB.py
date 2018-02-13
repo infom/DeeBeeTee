@@ -78,3 +78,4 @@ class BalanceMixin(object):
 
 class Person(StructuredNode, UserMixin, BalanceMixin):
     pass
+'''
