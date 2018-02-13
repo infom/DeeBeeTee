@@ -8,6 +8,7 @@ from datetime import datetime, timedelta
 #from neomodel.match import Traversal
 #from graphDB import Person
 from py2neo import Node, NodeSelector, Graph
+import collections
 
 graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
 selector = NodeSelector(graph)
@@ -95,7 +96,7 @@ def getDetails(username):
     out_rels = graph.match(start_node=target, rel_type="TX")
     in_rels = graph.match(end_node=target, rel_type="TX")
 
-    details = {}
+    collections.defaultdict(dict)
     b_out = 0
     b_in = 0
 
@@ -107,7 +108,10 @@ def getDetails(username):
         b_in += tx["tx"]
         details[tx.start_node()["name"]]["in"] = b_in
 
-    print(details)
+    b_out = 0
+    b_in = 0
+
+    return Response(json.dumps(details), mimetype='application/json')
 
 @app.route('/docs/api')
 def api_docs():
