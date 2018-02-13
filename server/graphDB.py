@@ -36,7 +36,12 @@ class Person(GraphObject, BalanceMixin):
 graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
 selector = NodeSelector(graph)
 
-graph.schema.create_uniqueness_constraint('TX', 'tx')
+try:
+    graph.schema.create_uniqueness_constraint('TX', 'tx')
+ except:
+     print('Constraint already exists: CONSTRAINT ON ( tx:TX ) ASSERT tx.tx IS UNIQUE')
+
+
 
 def createNode(uid, username):
 
