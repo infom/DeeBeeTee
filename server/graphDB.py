@@ -66,7 +66,7 @@ def createTransaction(transaction):
 
     rel = graph.run("MATCH (p1:Person {name:{start_node}}), (p2:Person{name:{end_node}}) CREATE (p1)-[:TX{tx:{tx}, since:{since}}]->(p2)", start_node=start_node, end_node=end_node, tx=transaction["amount"], since=yesterday)
 
-    print("relation", rel)
+    print("relation", rel.data())
     print("re")
 
     start_node.debit_account = transaction["amount"]
