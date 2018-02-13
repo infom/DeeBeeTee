@@ -37,7 +37,7 @@ graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt
 selector = NodeSelector(graph)
 
 try:
-    graph.schema.create_uniqueness_constraint('TX', 'tx')
+    graph.schema.create_uniqueness_constraint('TX')
 except BaseException:
      print('Constraint already exists: CONSTRAINT ON ( tx:TX ) ASSERT tx.tx IS UNIQUE')
 
