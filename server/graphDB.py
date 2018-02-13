@@ -61,7 +61,7 @@ def createTransaction(transaction):
     rel = Relationship(start_node, 'TX', end_node, since=yesterday, tx=transaction["amount"])
     graph.create(rel)
 
-    start_node.debit_account = ransaction["amount"]
+    start_node.debit_account = transaction["amount"]
     end_node.credit_account = transaction["amount"]
     start_node.push()
     end_node.push()
