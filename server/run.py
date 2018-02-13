@@ -6,11 +6,11 @@ import json
 from datetime import datetime, timedelta
 #from neomodel import OUTGOING, INCOMING
 #from neomodel.match import Traversal
-from graphDB import getBalanceDetails
+from graphDB import getBalanceDetails, getUserBalance, Person
 #from py2neo import Node, NodeSelector, Graph
 #import collections
 
-'''
+
 def after_insert_users(items):
 
     users = app.data.driver.db['users']
@@ -22,7 +22,7 @@ def after_insert_users(items):
         Person(uid=uid["_id"], name=uid["username"], balance=0).save()
 
         print("Create new node "+ i["username"])
-
+'''
 def after_insert_transactions(items):
 
     for i in items:
@@ -65,27 +65,8 @@ app.jinja_loader = loader
 
 @app.route('/v1/users/<path:username>/getBalance')
 def getBalance(username):
-    users = app.data.driver.db['users']
-    transactions = app.data.driver.db['transactions']
 
-    uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
-
-    intsDict = list(transactions.aggregate([{ '$match' : { "from_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
-    outtsDict = list(transactions.aggregate([{ '$match' : { "to_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
-
-    if intsDict == []:
-        in_ts = 0
-    else:
-        in_ts = intsDict[0]['totalAmount']
-
-    if outtsDict == []:
-        out_ts = 0
-    else:
-        out_ts = outtsDict[0]['totalAmount']
-
-    balance = in_ts - out_ts
-    res = {'balance':balance}
-    return json.dumps(res)
+    details = getUserBalance(username)
 
 @app.route('/v1/users/<path:username>/getDetails')
 def getDetails(username):

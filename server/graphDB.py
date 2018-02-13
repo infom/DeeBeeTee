@@ -1,12 +1,66 @@
 import os
 import json
 
-from py2neo import Node, NodeSelector, Graph
+from py2neo import Node, NodeSelector, Graph, GraphObject, Propery
 import collections
+
+
+class TransactionsRel(GraphObject):
+    since = Property()
+    tx = Property()
+
+class UserMixin(object):
+    __primarykey__ = "uid"
+
+    uid = Property()
+    name = Property()
+
+class BalanceMixin(object):
+    credit_balance = Property()
+    debit_balance = Property()
+    balance = Property()
+    tx = RelatedTo(TransactionsRel)
+
+    def credit_account(self, amount):
+        self.credit_balance = self.credit_balance + int(amount)
+        self.balance = self.balance + self.credit_balance
+        self.save()
+
+    def debit_account(self, amount):
+        self.debit_balance = self.debit_balance + int(amount)
+        self.balance = self.balance - self.debit_balance
+        self.save()
+
+class Person(GraphObject, UserMixin, BalanceMixin):
+    pass
+
 
 graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
 selector = NodeSelector(graph)
 
+def getUserBalance(nodeName):
+    users = app.data.driver.db['users']
+    transactions = app.data.driver.db['transactions']
+
+    uid = users.find_one({'username':username}, {'uid': 1, '_id': 0})
+
+    intsDict = list(transactions.aggregate([{ '$match' : { "from_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
+    outtsDict = list(transactions.aggregate([{ '$match' : { "to_uid" : uid['uid'] }}, {'$group': {'_id': None, 'totalAmount': {'$sum': '$amount'}}}]))
+
+    if intsDict == []:
+        in_ts = 0
+    else:
+        in_ts = intsDict[0]['totalAmount']
+
+    if outtsDict == []:
+        out_ts = 0
+    else:
+        out_ts = outtsDict[0]['totalAmount']
+
+    balance = in_ts - out_ts
+    res = {'balance':balance}
+    return json.dumps(res)
+    
 def getBalanceDetails(nodeName):
 
     target = selector.select("Person", name=nodeName).first()
