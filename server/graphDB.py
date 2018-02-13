@@ -34,7 +34,6 @@ class Person(GraphObject):
 
 graph = Graph(user="neo4j", password="fgfHQ6PFzWNx", host="194.87.236.140", bolt=True)
 selector = NodeSelector(graph)
-cypher = graph.cypher
 
 try:
     graph.schema.create_uniqueness_constraint('TX', '__id__')
@@ -65,10 +64,9 @@ def createTransaction(transaction):
     end_node = selector.select("Person", uid=to_uid).first()
 #        end_node.balance = end_node.balance + i["amount"]
 
-    cypher.execute("MATCH (p1:Person {name:*«start_node»}), (p2:Person{name:*«end_node»}) CREATE (p1)-[:TX{tx:*«tx», sience:*«since»}]->(p2)", start_node=start_node, end_node=end_node, tx=transaction["amount"], since=yesterday)
+    rel = graph.run("MATCH (p1:Person {name:*«start_node»}), (p2:Person{name:*«end_node»}) CREATE (p1)-[:TX{tx:*«tx», sience:*«since»}]->(p2)", start_node=start_node, end_node=end_node, tx=transaction["amount"], since=yesterday)
 
-    print("relation", rel)
-    graph.push(rel)
+    print("relation", rel.data())
 
     start_node.debit_account = transaction["amount"]
     end_node.credit_account = transaction["amount"]
