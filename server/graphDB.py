@@ -1,5 +1,5 @@
 from pyorient.ogm import Graph, Config
-from pyorient.ogm.property import String, Float, DateTime, PropertyEncoder
+from pyorient.ogm.property import String, Float, DateTime
 from pyorient.ogm.declarative import declarative_node, declarative_relationship
 # Initialize Graph Database
 graph = Graph(Config.from_url('localhost:2424/DeeBeeTee', 'deebeetee', 'deebeetee'))
@@ -24,11 +24,13 @@ class BalanceMixin(object):
 
     def credit_account(self, amount):
         print(amount)
-        self.credit_balance = PropertyEncoder.encode_value(self.credit_balance) + amount
+        self.credit_balance = self.credit_balance + amount
         self.balance = self.balance + self.credit_balance
 
     def debit_account(self, amount):
-        self.debit_balance = PropertyEncoder.encode_value(self.debit_balance) + amount
+        print(self.debit_balance)
+        print(type(self.debit_balance))
+        self.debit_balance = self.debit_balance + amount
         self.balance = self.balance - self.debit_balance
 
 class Person(Node, UserMixin, BalanceMixin):
