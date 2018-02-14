@@ -7,10 +7,6 @@ graph = Graph(Config.from_url('localhost:2424/DeeBeeTee', 'deebeetee', 'deebeete
 Node = declarative_node()
 Relationship = declarative_relationship()
 
-# Bind Schema
-graph.include(Node.registry)
-graph.include(Relationship.registry)
-
 class TransactionsRel(Relationship):
     element_type = 'tx'
     since = DateTime()
@@ -38,6 +34,10 @@ class BalanceMixin(object):
 class Person(Node, UserMixin, BalanceMixin):
     element_type = 'person'
 
+# Bind Schema
+graph.include(Node.registry)
+graph.include(Relationship.registry)
+
 def createNewNode(uid, username):
     graph.create_vertex(Person, name=username, uid=uid)
 
@@ -50,7 +50,7 @@ def createNewTransaction(data):
     since=data['date']
     tx=data['amount']
 
-    start_node = Person.objects.query(uid=from_uid)
+    start_node = graph.person.query(uid=from_uid)
     start_node = graph.command("select from Person where uid="+from_uid)
     end_node = graph.command("select from Person where uid="+to_uid)
 
