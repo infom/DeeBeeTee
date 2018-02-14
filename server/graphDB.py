@@ -50,9 +50,9 @@ def createNewTransaction(data):
     since=data['date']
     tx=data['amount']
 
-    start_node = Person.objects.query(uid=from_uid).one()
+    start_node = Person.objects.query('_id', uid=from_uid).one()
     #SPerson.objects.query(uid=from_uid).one
-    end_node = Person.objects.query(uid=to_uid, _id).one()
+    end_node = Person.objects.query(uid=to_uid).one()
     TransactionsRel.create(start_node, end_node, since=since, tx=tx)
     graph.create_edge(TransactionsRel, start_node, end_node, since=since, tx=tx)
 
