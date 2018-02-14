@@ -36,9 +36,12 @@ def createNewTransaction(data):
     debitb = float(start_node.debit_balance) + tx
     startb = float(start_node.debit_balance) - float(start_node.credit_balance)
 
+    print('start node', debitb, startb)
+
     creditb = float(end_node.credit_balance) + tx
     endb = float(end_node.debit_balance) - float(end_node.credit_balance)
 
+    print('end node', creditb, endb)
     client.command('update Person set debit_balance='+repr(debitb)+', balance='+repr(startb)+' where uid='+repr(from_uid))
     client.command('update Person set credit_balance='+repr(creditb)+', balance='+repr(endb)+' where uid='+repr(to_uid))
 
