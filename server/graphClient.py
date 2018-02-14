@@ -40,7 +40,7 @@ def createNewTransaction(data):
         }
     }
 
-    client.record_update(start_node._rid, data, start_node._version)
+    client.record_update(start_node.rid, data, start_node._version)
 
     data = {
         "@Person": {
