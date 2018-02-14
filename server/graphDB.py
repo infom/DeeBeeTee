@@ -28,7 +28,7 @@ class BalanceMixin(object):
         self.balance = self.balance + self.credit_balance
 
     def debit_account(self, amount):
-        self.debit_balance = encode_value(self.debit_balance) + amount
+        self.debit_balance = PropertyEncoder.encode_value(self.debit_balance) + amount
         self.balance = self.balance - self.debit_balance
 
 class Person(Node, UserMixin, BalanceMixin):
