@@ -6,7 +6,7 @@ import json
 
 #from neomodel import OUTGOING, INCOMING
 #from neomodel.match import Traversal
-from graphDB import getBalanceDetails, getUserBalance, createNode, createTransaction
+from graphDB import getBalanceDetails, getUserBalance, createNewNode, createTransaction
 #from py2neo import Node, NodeSelector, Graph
 #import collections
 
@@ -15,9 +15,7 @@ def after_insert_users(items):
     users = app.data.driver.db['users']
     for i in items:
         uid = users.find_one({'username':i["username"]}, {'_id': 1, 'username':1})
-        user = createNode(uid=str(uid["_id"]), username=uid["username"])
-
-        print("Create new node ", i["username"])
+        createNewNode(uid=str(uid["_id"]), username=uid["username"])
 
 def after_insert_transactions(items):
     for i in items:
