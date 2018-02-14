@@ -51,6 +51,7 @@ def createNewTransaction(data):
     start_node.balance = float(start_node.debit_balance) - float(start_node.credit_balance)
 
     end_node.credit_balance == float(end_node.credit_balance) + tx
+    print(end_node.credit_balance)
     end_node.balance = float(end_node.debit_balance) - float(end_node.credit_balance)
 
     graph.commit()
