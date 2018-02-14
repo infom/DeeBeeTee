@@ -47,10 +47,10 @@ def createNewTransaction(data):
     end_node = Person.objects.query(uid=to_uid).one()
     graph.create_edge(TransactionsRel, start_node, end_node, since=since, tx=tx)
 
-    start_node.debit_balance == float(start_node.debit_balance) + tx
+    start_node.debit_balance = float(start_node.debit_balance) + tx
     start_node.balance = float(start_node.debit_balance) - float(start_node.credit_balance)
 
-    end_node.credit_balance == float(end_node.credit_balance) + tx
+    end_node.credit_balance = float(end_node.credit_balance) + tx
     print(end_node.credit_balance)
     end_node.balance = float(end_node.debit_balance) - float(end_node.credit_balance)
 
