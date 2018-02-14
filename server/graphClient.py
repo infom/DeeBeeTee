@@ -39,7 +39,7 @@ def createNewTransaction(data):
     creditb = float(end_node.credit_balance) + tx
     endb = float(end_node.debit_balance) - float(end_node.credit_balance)
 
-    client.command('INSERT INTO Person SET (debit_balance, balance) VALUE ('+repr(debitb)+','+repr(startb)+') UPSERT WHERE uid='+repr(from_uid))
+    client.command('insert into Person set debit_balance='+repr(debitb)+', balance='+repr(startb)+' upsert where uid='+repr(from_uid))
     client.command('INSERT INTO Person SET (credit_balance, balance) VALUE ('+repr(creditb)+','+repr(endb)+') UPSERT WHERE uid='+repr(to_uid))
 
     print('Create new transaction')
