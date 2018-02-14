@@ -1,5 +1,6 @@
 import json
 import pyorient
+import collections
 from ogm import graph, Person, TransactionsRel
 
 client = pyorient.OrientDB("localhost", 2424)  # host, port
@@ -57,6 +58,31 @@ def getBalanceDetails(username):
 
     node = Person.objects.query(name=username).one()
     out_tx = graph.outE(node, 'transactionsrel')
+    in_tx = graph.inE(node, 'transactionsrel')
+
+    details = collections.defaultdict(dict)
+    b_out = 0
+    b_in = 0
 
     for tx in out_tx:
+        b_out += tx.tx
+        details[tx.inV().name]]["out"] = b_out
+        print(node.name, "-----> ", tx.inV().name, "----->", b_out)
+
+    for tx in in_tx:
+        b_in += tx.tx
+        details[ttx.outV().name]["in"] = b_in
+        print(node.name, "-----> ", tx.outV().name, "----->", b_in)
+
+    b_out = 0
+    b_in = 0
+
+    return json.dumps(dict(details))
+
+    details = {}
+    for tx in out_tx:
+        details[tx.inV().name] = {'in':tx.tx}
         print(tx.outV().name)
+
+
+    for tx in in_tx:
