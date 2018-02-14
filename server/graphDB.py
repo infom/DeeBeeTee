@@ -18,18 +18,15 @@ class UserMixin(object):
     name = String(indexed=True)
 
 class BalanceMixin(object):
-    credit_balance = Float(default=0.0, indexed=True)
-    debit_balance = Float(default=0.0, indexed=True)
-    balance = Float(default=0.0, indexed=True)
+    credit_balance = Float(default=0, indexed=True)
+    debit_balance = Float(default=0, indexed=True)
+    balance = Float(default=0, indexed=True)
 
     def credit_account(self, amount):
-        print(amount)
         self.credit_balance = self.credit_balance + amount
         self.balance = self.balance + self.credit_balance
 
     def debit_account(self, amount):
-        print(self.debit_balance)
-        print(type(self.debit_balance))
         self.debit_balance = self.debit_balance + amount
         self.balance = self.balance - self.debit_balance
 
@@ -41,7 +38,7 @@ graph.include(Node.registry)
 graph.include(Relationship.registry)
 
 def createNewNode(uid, username):
-    graph.create_vertex(Person, name=username, uid=uid)
+    graph.create_vertex(Person, name=username, uid=uid, credit_balance=0.0, debit_balance=0.0, balance=0.0)
 
     print('Create new node')
 
