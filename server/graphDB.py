@@ -1,4 +1,4 @@
-from pyorient.ogm import Graph, Config
+from pyorient.ogm import Graph, Config, String, Decimal, DateTime
 from pyorient.ogm.declarative import declarative_node, declarative_relationship
 # Initialize Graph Database
 graph = Graph(Config.from_url('localhost:2424/DeeBeeTee', 'deebeetee', 'deebeetee'))
@@ -50,4 +50,4 @@ def createNewTransaction(data):
 def getBalanceDetails(username):
     pass
 def getUserBalance(username):
-    pass 
+    pass
