@@ -76,7 +76,7 @@ def getBalanceDetails(username):
 
     b_out = 0
     b_in = 0
-
+    print('fd')
     return json.dumps(dict(details))
 
     details = {}
