@@ -13,25 +13,16 @@ class TransactionsRel(Relationship):
     since = DateTime()
     tx = Float()
 
-class UserMixin(object):
+class Person(Node):
+    element_plural = 'person'
+    element_type = 'person'
+
     uid = String(indexed=True)
     name = String(indexed=True)
 
-class BalanceMixin(object):
-    credit_balance = Float(default=0, indexed=True)
-    debit_balance = Float(default=0, indexed=True)
-    balance = Float(default=0, indexed=True)
-
-    def credit_account(self, amount):
-        self.credit_balance == float(self.credit_balance) + amount
-        self.balance == float(self.balance) + float(self.credit_balance)
-
-    def debit_account(self, amount):
-        self.debit_balance == float(self.credit_balance) + amount
-        self.balance == float(self.balance) - float(self.debit_balance)
-
-class Person(Node, UserMixin, BalanceMixin):
-    element_type = 'person'
+    credit_balance = Float(default=0.0, indexed=True)
+    debit_balance = Float(default=0.0, indexed=True)
+    balance = Float(default=0.0, indexed=True)
 
 # Bind Schema
 graph.include(Node.registry)
@@ -54,8 +45,8 @@ def createNewTransaction(data):
     end_node = Person.objects.query(uid=to_uid).one()
     graph.create_edge(TransactionsRel, start_node, end_node, since=since, tx=tx)
 
-    start_node.debit_account(tx)
-    end_node.credit_account(tx)
+    start_node.credit_balance == start_node.credit_balance + amount    
+
 
     print('Create new transaction')
 
