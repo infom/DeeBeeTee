@@ -51,8 +51,7 @@ def createNewTransaction(data):
     tx=data['amount']
 
     start_node = Person.objects.query(uid=from_uid)
-    start_node = graph.command("select from Person where uid="+from_uid)
-    end_node = graph.command("select from Person where uid="+to_uid)
+    end_node = Person.objects.query(uid=to_uid)
 
     graph.create_edge(TransactionsRel, start_node, end_node, since=since, tx=tx)
 
