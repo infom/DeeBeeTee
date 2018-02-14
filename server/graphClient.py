@@ -56,7 +56,7 @@ def getUserBalance(username):
 def getBalanceDetails(username):
 
     node = Person.objects.query(name=username).one()
-    out_tx = graph.out(node, 'transactionsrel')
+    out_tx = graph.outE(node, 'transactionsrel')
 
     for tx in out_tx:
         print(tx)
