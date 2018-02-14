@@ -16,7 +16,7 @@ client.db_open("DeeBeeTee", "deebeetee", "deebeetee")
 
 def createNewNode(uid, username):
 
-    client.command('insert into Person set name = "%s", uid = "%s"', username, uid)
+    client.command('insert into Person set name='+repr(username)+', uid='+repr(uid))
     #graph.create_vertex(Person, name=username, uid=uid, credit_balance=0.0, debit_balance=0.0, balance=0.0)
 
     print('Create new node')
