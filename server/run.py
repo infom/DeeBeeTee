@@ -6,7 +6,7 @@ import json
 
 #from neomodel import OUTGOING, INCOMING
 #from neomodel.match import Traversal
-from graphDB import getBalanceDetails, getUserBalance, createNewNode, createTransaction
+from graphDB import getBalanceDetails, getUserBalance, createNewNode, createNewTransaction
 #from py2neo import Node, NodeSelector, Graph
 #import collections
 
