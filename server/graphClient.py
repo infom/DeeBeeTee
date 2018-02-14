@@ -62,9 +62,9 @@ def getBalanceDetails(username):
     in_tx = node.inE('transactionsrel')
 
     if out_tx != None:
-        outSum = convertToArrayAndSum(out_tx)
+        outSum = convertToArrayAndSum(out_tx, edgeType='out')
     if in_tx != None:
-        inSum = convertToArrayAndSum(out_tx)
+        inSum = convertToArrayAndSum(in_tx, edgeType='in')
 
     print(outSum)
     return json.dumps({'status':'ok'})
@@ -74,13 +74,13 @@ def convertToArrayAndSum(arrayOfEdge, edgeType):
     counter = Counter()
     array = []
 
-    if edgeType == outE:
+    if edgeType == 'out':
         for edge in arrayOfEdge:
             array.append((edge.inV().name, edge.tx))
         for key, value in array:
             counter[key] += value
 
-    if edgeType == inE:
+    if edgeType == 'in':
         for edge in arrayOfEdge:
             array.append((edge.outV().name, edge.tx))
         for key, value in array:
