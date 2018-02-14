@@ -43,8 +43,8 @@ def createNewTransaction(data):
 
     from_uid=data['from_uid']
     to_uid=data['to_uid']
-    since=data['since']
-    tx=data['tx']
+    since=data['date']
+    tx=data['amount']
 
     start_node = graph.query(Person, uid=from_uid)
     end_node = graph.query(Person, uid=to_uid)
