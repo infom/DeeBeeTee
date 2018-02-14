@@ -45,8 +45,8 @@ def createNewNode(uid, username):
 
 def createNewTransaction(data):
 
-    from_uid=data['from_uid']
-    to_uid=data['to_uid']
+    from_uid=str(data['from_uid'])
+    to_uid=str(data['to_uid'])
     since=data['date']
     tx=data['amount']
 
