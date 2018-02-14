@@ -27,7 +27,7 @@ class BalanceMixin(object):
         self.save()
 
     def debit_account(self, amount):
-        self.debit_balance = self.debit_balance + int(amount)
+        self.debit_balance = self.debit_balance + float(amount)
         self.balance = self.balance - self.debit_balance
         self.save()
 
