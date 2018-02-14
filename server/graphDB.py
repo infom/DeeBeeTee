@@ -23,15 +23,13 @@ class BalanceMixin(object):
     balance = Float(default=0, indexed=True)
 
     def credit_account(self, amount):
-        bc = self.credit_balance + amount
-        self.credit_balance = self.credit_balance + amount
-        self.balance = self.balance + self.credit_balance
-
+        self.credit_balance = float(self.credit_balance) + amount
+        self.balance = float(self.balance) + float(self.credit_balance)
+        self.save()
+        
     def debit_account(self, amount):
-        bd = float(self.credit_balance) + amount
-        self.debit_balance = bd
-        b = float(self.balance) - float(self.debit_balance)
-        self.balance = b
+        self.debit_balance = float(self.credit_balance) + amount
+        self.balance = float(self.balance) - float(self.debit_balance)
         self.save()
 
 class Person(Node, UserMixin, BalanceMixin):
