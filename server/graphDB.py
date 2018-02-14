@@ -50,9 +50,13 @@ def createNewTransaction(data):
     db = float(start_node.debit_balance) + tx
     b = float(start_node.debit_balance) - float(start_node.credit_balance)
 
-    q = "UPDATE Person set debit_balance = %s balance = %s WHERE uid=%s" % (db, b, str(from_uid))
-    print(q)
-    graph.query(Person, q)
+    data = {
+        "@Person": {
+            "debit_balance": db,
+            "balance": b
+    }
+
+    graph.record_update(start_node._rid, data, start_node._version)
 
     end_node.credit_balance = float(end_node.credit_balance) + tx
     end_node.balance = float(end_node.debit_balance) - float(end_node.credit_balance)
