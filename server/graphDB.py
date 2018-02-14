@@ -50,7 +50,7 @@ def createNewTransaction(data):
     since=data['date']
     tx=data['amount']
 
-    start_node = Person.objects.query(uid='"'+from_uid+'"').one()
+    start_node = Person.objects.query(uid=from_uid).one()
     #SPerson.objects.query(uid=from_uid).one
     end_node = Person.objects.query(uid=to_uid)
     print(start_node)
