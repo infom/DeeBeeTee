@@ -19,8 +19,7 @@ def after_insert_users(items):
 
 def after_insert_transactions(items):
     for i in items:
-        createTransaction(i)
-        print("Create new transaction ", i)
+        createNewTransaction(i)
 
 app = Eve(settings='settings.py')
 
