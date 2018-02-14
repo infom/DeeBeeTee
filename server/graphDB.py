@@ -29,7 +29,7 @@ class BalanceMixin(object):
 
     def debit_account(self, amount):
         bd = float(self.credit_balance) + amount
-        self.debit_balance = str(bd)
+        self.debit_balance = bd
         b = self.balance - self.debit_balance
         self.balance = str(b)
 
