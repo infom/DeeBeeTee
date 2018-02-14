@@ -22,12 +22,12 @@ class BalanceMixin(object):
     balance = Float(default=0, indexed=True)
 
     def credit_account(self, amount):
-        self.credit_balance = self.credit_balance + float(amount)
+        self.credit_balance = self.credit_balance + amount
         self.balance = self.balance + self.credit_balance
         self.save()
 
     def debit_account(self, amount):
-        self.debit_balance = self.debit_balance + float(amount)
+        self.debit_balance = self.debit_balance + amount
         self.balance = self.balance - self.debit_balance
         self.save()
 
@@ -48,7 +48,7 @@ def createNewTransaction(data):
     from_uid=str(data['from_uid'])
     to_uid=str(data['to_uid'])
     since=data['date']
-    tx=data['amount']
+    tx=float(data['amount'])
 
     start_node = Person.objects.query(uid=from_uid).one()
     #SPerson.objects.query(uid=from_uid).one
