@@ -54,6 +54,7 @@ def createNewTransaction(data):
         "@Person": {
             "debit_balance": db,
             "balance": b
+        }
     }
 
     graph.record_update(start_node._rid, data, start_node._version)
