@@ -24,6 +24,8 @@ class Person(Node):
     debit_balance = Float(default=0.0, indexed=True)
     balance = Float(default=0.0, indexed=True)
 
+graph.create_all(Node.registry)
+graph.create_all(Relationship.registry)
 # Bind Schema
 graph.include(Node.registry)
 graph.include(Relationship.registry)
@@ -45,7 +47,7 @@ def createNewTransaction(data):
     end_node = Person.objects.query(uid=to_uid).one()
     graph.create_edge(TransactionsRel, start_node, end_node, since=since, tx=tx)
 
-    start_node.credit_balance == float(start_node.credit_balance) + tx    
+    start_node.credit_balance == float(start_node.credit_balance) + tx
 
 
     print('Create new transaction')
