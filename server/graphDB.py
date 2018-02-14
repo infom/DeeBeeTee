@@ -24,7 +24,7 @@ class BalanceMixin(object):
 
     def credit_account(self, amount):
         print(amount)
-        self.credit_balance = self.credit_balance + amount
+        self.credit_balance = self.credit_balance + Float(amount)
         self.balance = self.balance + self.credit_balance
         self.save()
 
