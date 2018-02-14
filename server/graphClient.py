@@ -59,4 +59,4 @@ def getBalanceDetails(username):
     out_tx = graph.out(node, 'transactionsrel')
 
     for tx in out_tx:
-        print(tx.transactionsrel.tx)
+        print(tx)
