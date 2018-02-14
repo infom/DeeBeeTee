@@ -16,19 +16,19 @@ graph.include(classes_from_schema)
 class TransactionsRel(Relationship):
     element_type = 'tx'
     since = DateTime()
-    tx = Decimal()
+    tx = Float()
 
 class UserMixin(object):
     uid = String(indexed=True)
     name = String(indexed=True)
 
 class BalanceMixin(object):
-    credit_balance = Property(default=0, indexed=True)
-    debit_balance = Property(default=0, indexed=True)
-    balance = Property(default=0, indexed=True)
+    credit_balance = Float(default=0, indexed=True)
+    debit_balance = Float(default=0, indexed=True)
+    balance = Float(default=0, indexed=True)
 
     def credit_account(self, amount):
-        self.credit_balance = self.credit_balance + int(amount)
+        self.credit_balance = self.credit_balance + float(amount)
         self.balance = self.balance + self.credit_balance
         self.save()
 
