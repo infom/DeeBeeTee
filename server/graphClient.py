@@ -56,5 +56,5 @@ def getUserBalance(username):
 
     balance = {}
     for data in query:
-        print(data)
+        print(data[0])
     return balance
