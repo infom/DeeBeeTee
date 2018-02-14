@@ -48,10 +48,13 @@ def createNewTransaction(data):
 
     print('Create new transaction')
 
-def getBalanceDetails(username):
-    pass
-
 def getUserBalance(username):
     query = client.query('select balance from Person where name='+repr(username))[0]
 
     return query.balance
+
+def getBalanceDetails(username):
+
+    node = Person.objects.query(name=username).one()
+    out_tx = Graph.out(node, 'transactionsrel')
+    print(out_tx)
