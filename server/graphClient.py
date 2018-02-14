@@ -33,20 +33,23 @@ def createNewTransaction(data):
     end_node = Person.objects.query(uid=to_uid).one()
     graph.create_edge(TransactionsRel, start_node, end_node, since=since, tx=tx)
 
-    db = float(start_node.debit_balance) + tx
-    b = float(start_node.debit_balance) - float(start_node.credit_balance)
-
     data = {
         "@Person": {
-            "debit_balance": db,
-            "balance": b
+            "debit_balance": float(start_node.debit_balance) + tx,
+            "balance": float(start_node.debit_balance) - float(start_node.credit_balance)
         }
     }
 
-    graph.record_update(start_node._rid, data, start_node._version)
+    client.record_update(start_node._rid, data, start_node._version)
 
-    end_node.credit_balance = float(end_node.credit_balance) + tx
-    end_node.balance = float(end_node.debit_balance) - float(end_node.credit_balance)
+    data = {
+        "@Person": {
+            "credit_balance": float(end_node.credit_balance) + tx,
+            "balance": float(end_node.debit_balance) - float(end_node.credit_balance)
+        }
+    }
+
+    client.record_update(end_node._rid, data, end_node._version)
 
     print('Create new transaction')
 
