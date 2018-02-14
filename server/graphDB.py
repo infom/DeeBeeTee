@@ -7,6 +7,14 @@ graph = Graph(Config.from_url('localhost:2424/DeeBeeTee', 'deebeetee', 'deebeete
 Node = declarative_node()
 Relationship = declarative_relationship()
 
+# Initialize Schema
+graph.create_all(Node.registry)
+graph.create_all(Relationship.registry)
+
+# Bind Schema
+graph.include(Node.registry)
+graph.include(Relationship.registry)
+
 class TransactionsRel(Relationship):
     element_type = 'tx'
     since = DateTime()
@@ -46,7 +54,7 @@ def createNewTransaction(data):
     since=data['date']
     tx=data['amount']
 
-    start_node = graph.query(Person.uid=from_uid)
+    start_node = graph.query.one(Person, uid=from_uid)
     end_node = graph.query(uid=to_uid)
 
     graph.create_edge(TransactionsRel, start_node, end_node, since=since, tx=tx)
@@ -60,11 +68,3 @@ def getBalanceDetails(username):
     pass
 def getUserBalance(username):
     pass
-
-# Initialize Schema
-graph.create_all(Node.registry)
-graph.create_all(Relationship.registry)
-
-# Bind Schema
-graph.include(Node.registry)
-graph.include(Relationship.registry)
