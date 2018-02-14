@@ -18,9 +18,9 @@ class UserMixin(object):
     name = String(indexed=True)
 
 class BalanceMixin(object):
-    credit_balance = Float(default=0, indexed=True)
-    debit_balance = Float(default=0, indexed=True)
-    balance = Float(default=0, indexed=True)
+    credit_balance = Float(default=0.0, indexed=True)
+    debit_balance = Float(default=0.0, indexed=True)
+    balance = Float(default=0.0, indexed=True)
 
     def credit_account(self, amount):
         print(amount)
