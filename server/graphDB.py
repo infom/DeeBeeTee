@@ -19,13 +19,13 @@ class TransactionsRel(Relationship):
     tx = Decimal()
 
 class UserMixin(object):
-    uid = String()
-    name = String()
+    uid = String(indexed=True)
+    name = String(indexed=True)
 
 class BalanceMixin(object):
-    credit_balance = IntegerProperty(index=True, default=0)
-    debit_balance = IntegerProperty(index=True, default=0)
-    balance = IntegerProperty(index=True, default=0)
+    credit_balance = Property(default=0, indexed=True)
+    debit_balance = Property(default=0, indexed=True)
+    balance = Property(default=0, indexed=True)
 
     def credit_account(self, amount):
         self.credit_balance = self.credit_balance + int(amount)
