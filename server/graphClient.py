@@ -63,10 +63,14 @@ def getBalanceDetails(username):
 
     if out_tx != None:
         outSum = convertToArrayAndSum(out_tx, edgeType='out')
+    else:
+        outSum = {}
     if in_tx != None:
         inSum = convertToArrayAndSum(in_tx, edgeType='in')
+    else:
+        outSum = {}
 
-    print(outSum)
+    details =
     return json.dumps({'status':'ok'})
 
 def convertToArrayAndSum(arrayOfEdge, edgeType):
