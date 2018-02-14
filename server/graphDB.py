@@ -8,6 +8,7 @@ Node = declarative_node()
 Relationship = declarative_relationship()
 
 class TransactionsRel(Relationship):
+    element_plural = 'tx'
     element_type = 'tx'
     since = DateTime()
     tx = Float()
