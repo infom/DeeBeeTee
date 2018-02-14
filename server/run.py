@@ -36,8 +36,8 @@ app.jinja_loader = loader
 @app.route('/v1/users/<path:username>/getBalance')
 def getBalance(username):
 
-    details = getUserBalance(username)
-    return Response(details, mimetype='application/json')
+    details = {'balance':getUserBalance(username)}
+    return Response(json.dumps(details), mimetype='application/json')
 
 @app.route('/v1/users/<path:username>/getDetails')
 def getDetails(username):
