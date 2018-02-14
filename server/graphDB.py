@@ -50,7 +50,7 @@ def createNewTransaction(data):
     since=data['date']
     tx=data['amount']
 
-    start_node = graph.person.query(uid=from_uid)
+    start_node = Person.objects.query(uid=from_uid)
     start_node = graph.command("select from Person where uid="+from_uid)
     end_node = graph.command("select from Person where uid="+to_uid)
 
