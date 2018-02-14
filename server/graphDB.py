@@ -54,7 +54,6 @@ def createNewTransaction(data):
     graph.query(Person.name).filter(Person.uid == from_uid).one()
     #SPerson.objects.query(uid=from_uid).one
     end_node = Person.objects.query(uid=to_uid).one()
-    print(start_node.objects._id)
     graph.create_edge(TransactionsRel, start_node, end_node, since=since, tx=tx)
 
     start_node.debit_account(tx)
