@@ -54,6 +54,6 @@ def getBalanceDetails(username):
 def getUserBalance(username):
     balance = client.query('select balance from Person where name='+repr(username))
 
-    print(balance)
-    print(balance[0][0])
-    return balance
+    for b in balance:
+        print(balance[0])
+        return balance
