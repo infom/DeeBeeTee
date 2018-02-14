@@ -30,8 +30,9 @@ class BalanceMixin(object):
     def debit_account(self, amount):
         bd = float(self.credit_balance) + amount
         self.debit_balance = bd
-        b = self.balance - self.debit_balance
-        self.balance = str(b)
+        b = float(self.balance) - float(self.debit_balance)
+        self.balance = b
+        self.save()
 
 class Person(Node, UserMixin, BalanceMixin):
     element_type = 'person'
