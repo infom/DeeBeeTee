@@ -71,7 +71,7 @@ def getBalanceDetails(username):
 
     for tx in in_tx:
         b_in += tx.tx
-        details[ttx.outV().name]["in"] = b_in
+        details[tx.outV().name]["in"] = b_in
         print(node.name, "-----> ", tx.outV().name, "----->", b_in)
 
     b_out = 0
