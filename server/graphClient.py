@@ -63,7 +63,7 @@ def getBalanceDetails(username):
     details = collections.defaultdict(dict)
 
     for tx in out_tx:
-        print(tx.outV().name, '-->', tx.inV().name, '-->' tx.tx)
+        print(tx.outV().name, '-->', tx.inV().name, '-->', tx.tx)
 
     for tx in in_tx:
         print(tx.inV(), "--> ", tx.outV().name, "-->", tx.tx)
