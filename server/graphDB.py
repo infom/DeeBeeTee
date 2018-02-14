@@ -24,11 +24,11 @@ class Person(Node):
     debit_balance = Float(default=0.0, indexed=True)
     balance = Float(default=0.0, indexed=True)
 
-graph.create_all(Node.registry)
-graph.create_all(Relationship.registry)
+#graph.create_all(Node.registry)
+#graph.create_all(Relationship.registry)
 # Bind Schema
-#graph.include(Node.registry)
-#graph.include(Relationship.registry)
+graph.include(Node.registry)
+graph.include(Relationship.registry)
 
 def createNewNode(uid, username):
     graph.create_vertex(Person, name=username, uid=uid, credit_balance=0.0, debit_balance=0.0, balance=0.0)
