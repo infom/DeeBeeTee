@@ -1,3 +1,4 @@
+import json
 import pyorient
 from ogm import graph, Person, TransactionsRel
 
@@ -49,5 +50,8 @@ def createNewTransaction(data):
 
 def getBalanceDetails(username):
     pass
+
 def getUserBalance(username):
-    pass
+    balance = client.query('select balance from Person where name='+repr(username))[0]
+
+    return balance 
