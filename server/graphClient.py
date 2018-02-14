@@ -1,6 +1,6 @@
 import json
 import pyorient
-import collections
+from collections import Counter
 from ogm import graph, Person, TransactionsRel
 
 client = pyorient.OrientDB("localhost", 2424)  # host, port
@@ -61,13 +61,29 @@ def getBalanceDetails(username):
     out_tx = node.outE('transactionsrel')
     in_tx = node.inE('transactionsrel')
 
-    details = collections.defaultdict(dict)
+    if out_tx != None:
+        outSum = convertToArrayAndSum(out_tx)
+    if in_tx != None:
+        inSum = convertToArrayAndSum(out_tx)
 
-    for key, tx in out_tx:
-        print(key)
-        print(tx.outV().name, '-->', tx.inV().name, '-->', tx.tx)
+    print(outSum)
+    return json.dumps({'status':'ok'})
 
-    for tx in in_tx:
-        print(tx.outV().name, "--> ", tx.inV().name, "-->", tx.tx)
+def convertToArrayAndSum(arrayOfEdge, edgeType):
 
-    return json.dumps(dict(details))
+    counter = Counter()
+    array = []
+
+    if edgeType == outE:
+        for edge in arrayOfEdge:
+            array.append((edge.inV().name, edge.tx))
+        for key, value in array:
+            counter[key] += value
+
+    if edgeType == inE:
+        for edge in arrayOfEdge:
+            array.append((edge.outV().name, edge.tx))
+        for key, value in array:
+            counter[key] += value
+
+    return dict(counter)
