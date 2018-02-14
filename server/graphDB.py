@@ -4,7 +4,7 @@ from pyorient.ogm.declarative import declarative_node, declarative_relationship
 graph = Graph(Config.from_url('localhost:2424/DeeBeeTee', 'deebeetee', 'deebeetee'))
 
 Node = declarative_node()
-Relationship = delcarative_relationship()
+Relationship = declarative_relationship()
 
 # Retrive Schema from OrientDB
 classes_from_schema = graph.build_mapping(Node, Relationship, auto_plural = True)
@@ -46,3 +46,8 @@ def createNewNode(uid, username):
 
 def createNewTransaction(data):
     pass
+
+def getBalanceDetails(username):
+    pass
+def getUserBalance(username):
+    pass 
