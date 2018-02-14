@@ -51,7 +51,7 @@ def createNewTransaction(data):
     start_node.balance = float(start_node.debit_balance) - float(start_node.credit_balance)
 
     cb = float(end_node.credit_balance) + tx
-    print(end_node.create(credit_balance=cb))
+    print(end_node(credit_balance=cb)
     end_node.balance = float(end_node.debit_balance) - float(end_node.credit_balance)
 
     print('Create new transaction')
