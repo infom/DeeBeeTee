@@ -70,7 +70,6 @@ def getBalanceDetails(username):
     else:
         outSum = {}
 
-    details =
     return json.dumps({'status':'ok'})
 
 def convertToArrayAndSum(arrayOfEdge, edgeType):
