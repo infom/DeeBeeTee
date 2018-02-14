@@ -52,9 +52,9 @@ def createNewTransaction(data):
 
     start_node = Person.objects.query(uid=from_uid).one()
     #SPerson.objects.query(uid=from_uid).one
-    end_node = Person.objects.query(uid=to_uid).one()
-    TransactionsRel.create(start_node._id, end_node._id, since=since, tx=tx)
-    graph.create_edge(TransactionsRel, start_node._id, end_node._id, since=since, tx=tx)
+    end_node = Person.objects.query(uid=to_uid, _id).one()
+    TransactionsRel.create(start_node, end_node, since=since, tx=tx)
+    graph.create_edge(TransactionsRel, start_node, end_node, since=since, tx=tx)
 
     start_node.debit_account(tx)
     end_node.credit_account(tx)
