@@ -46,8 +46,8 @@ def createNewTransaction(data):
     since=data['date']
     tx=data['amount']
 
-    start_node = graph.Person.query(uid=from_uid)
-    end_node = graph.person.query(uid=to_uid)
+    start_node = graph.query(Person.uid=from_uid)
+    end_node = graph.query(uid=to_uid)
 
     graph.create_edge(TransactionsRel, start_node, end_node, since=since, tx=tx)
 
