@@ -26,8 +26,8 @@ class Person(Node):
     debit_balance = Float(default=0.0, indexed=True)
     balance = Float(default=0.0, indexed=True)
 
-#graph.create_all(Node.registry)
-#graph.create_all(Relationship.registry)
+graph.create_all(Node.registry)
+graph.create_all(Relationship.registry)
 # Bind Schema
 graph.include(Node.registry)
 graph.include(Relationship.registry)
