@@ -66,6 +66,6 @@ def getBalanceDetails(username):
         print(tx.outV().name, '-->', tx.inV().name, '-->', tx.tx)
 
     for tx in in_tx:
-        print(tx.inV().name, "--> ", tx.outV().name, "-->", tx.tx)
+        print(tx.outV().name, "--> ", tx.inV().name, "-->", tx.tx)
 
     return json.dumps(dict(details))
