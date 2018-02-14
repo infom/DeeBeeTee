@@ -7,10 +7,6 @@ graph = Graph(Config.from_url('localhost:2424/DeeBeeTee', 'deebeetee', 'deebeete
 Node = declarative_node()
 Relationship = declarative_relationship()
 
-# Initialize Schema
-graph.create_all(Node.registry)
-graph.create_all(Relationship.registry)
-
 # Bind Schema
 graph.include(Node.registry)
 graph.include(Relationship.registry)
@@ -54,6 +50,7 @@ def createNewTransaction(data):
     since=data['date']
     tx=data['amount']
 
+    start_node = Person.objects.query(uid=from_uid)
     start_node = graph.command("select from Person where uid="+from_uid)
     end_node = graph.command("select from Person where uid="+to_uid)
 
