@@ -47,8 +47,10 @@ def getBalanceDetails(username):
 def getUserBalance(username):
     pass
 
-# Retrive Schema from OrientDB
-classes_from_schema = graph.build_mapping(Node, Relationship, auto_plural = True)
+# Initialize Schema
+graph.create_all(Node.registry)
+graph.create_all(Relationship.registry)
 
-# Initialize Schema in PyOrient
-graph.include(classes_from_schema)
+# Bind Schema
+graph.include(Node.registry)
+graph.include(Relationship.registry)
