@@ -1,0 +1,103 @@
+[
+  {
+"http http://10.8.0.1:5001/v1/users username="Ivan" assign_date="2017-12-25T09:53:23.457""
+    "uid": "5a85d3806e95527fdfcd90df",
+    "user": "Ivan",
+    "assign_date": "2017-12-25T09:53:23.457",
+    "limit": 10000
+  },
+  {
+"http http://10.8.0.1:5001/v1/users username="Boris" assign_date="2017-12-25T09:53:37.677""
+    "uid": "5a85d3e16e95527fdfcd90e0",
+    "user": "Boris",
+    "assign_date": "2017-12-25T09:53:37.677",
+    "limit": 8000
+  },
+  {
+"http http://10.8.0.1:5001/v1/users username="Petr" assign_date="2017-12-25T14:57:46.050""
+    "uid": "5a85d4166e95527fdfcd90e1",
+    "user": "Petr",
+    "assign_date": "2017-12-25T14:57:46.050",
+    "limit": 800
+  },
+  {
+"http http://10.8.0.1:5001/v1/users username="Infom" assign_date="2017-12-26T13:11:13.097" user_id=2730927"
+    "uid": "5a85d45d6e95527fdfcd90e2",
+    "user": "Infom",
+    "assign_date": "2017-12-26T13:11:13.097",
+    "limit": 1000,
+    "user_id": 2730927
+  },
+  {
+"http http://10.8.0.1:5001/v1/users username="Sergeiaf" assign_date="2017-12-26T13:20:41.580" user_id=459569"
+    "uid": "5a85d4a96e95527fdfcd90e3",
+    "user": "Sergeiaf",
+    "assign_date": "2017-12-26T13:20:41.580",
+    "limit": 1000,
+    "user_id": 459569
+  },
+  {
+"http http://10.8.0.1:5001/v1/users username="TretyakRoman" assign_date="2017-12-27T06:08:47.853" user_id=288805897"
+    "uid": "5a85d4f56e95527fdfcd90e4",
+    "user": "TretyakRoman",
+    "assign_date": "2017-12-27T06:08:47.853",
+    "limit": 1000,
+    "user_id": 288805897
+  },
+  {
+"http http://10.8.0.1:5001/v1/users username="Svetlana_Shulgina" assign_date="2018-01-11T11:30:19.777" user_id=52351856"
+    "uid": "5a85d5306e95527fdfcd90e5",
+    "user": "Svetlana_Shulgina",
+    "assign_date": "2018-01-11T11:30:19.777",
+    "limit": 1000,
+    "user_id": 52351856
+  },
+  {
+"http http://10.8.0.1:5001/v1/users username="Kasim_RI" assign_date="2018-01-16T12:33:58.323" user_id=77473985"
+    "uid": "5a85d56f6e95527fdfcd90e6",
+    "user": "Kasim_RI",
+    "assign_date": "2018-01-16T12:33:58.323",
+    "limit": 1000,
+    "user_id": 77473985
+  },
+  {
+"http http://10.8.0.1:5001/v1/users username="amarshalkin" assign_date="2018-01-23T06:16:09.073" user_id=58530031"
+    "uid": "5a85d5af6e95527fdfcd90e7",
+    "user": "amarshalkin",
+    "assign_date": "2018-01-23T06:16:09.073",
+    "limit": 1000,
+    "user_id": 58530031
+  },
+  {
+"http http://10.8.0.1:5001/v1/users username="Klimov_Alexander" assign_date="2018-02-06T17:37:28.860" user_id=69400583"
+    "uid": "5a85d5f26e95527fdfcd90e8",
+    "user": "Klimov_Alexander",
+    "assign_date": "2018-02-06T17:37:28.860",
+    "limit": 1000,
+    "user_id": 69400583
+  },
+  {
+"http http://10.8.0.1:5001/v1/users username="mif007" assign_date="2018-02-06T18:22:48.123" user_id=516923601"
+    "uid": "5a85d6376e95527fdfcd90e9",
+    "user": "mif007",
+    "assign_date": "2018-02-06T18:22:48.123",
+    "limit": 1000,
+    "user_id": 516923601
+  },
+  {
+"http http://10.8.0.1:5001/v1/users username="Superkinder" assign_date="2018-01-29T07:06:31.907" user_id=147141378"
+    "uid": "5a85d67a6e95527fdfcd90ea",
+    "user": "Superkinder",
+    "assign_date": "2018-01-29T07:06:31.907",
+    "limit": 1000,
+    "user_id": 147141378
+  },
+  {
+"http http://10.8.0.1:5001/v1/users username="Lepberg" assign_date="2018-02-06T18:12:04.623" user_id=141948766"
+    "uid": "5a85d6b06e95527fdfcd90eb",
+    "user": "Lepberg",
+    "assign_date": "2018-02-06T18:12:04.623",
+    "limit": 1000,
+    "user_id": 141948766
+  }
+]

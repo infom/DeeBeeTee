@@ -9,7 +9,7 @@ PUBLIC_ITEM_METHODS = ['GET', 'POST']
 
 API_VERSION = 'v1'
 
-DATE_FORMAT = "%m/%d/%y %H:%M:%S"
+DATE_FORMAT = "%Y-%m-%dT%H:%M:%S.%f"
 
 IF_MATCH = False
 
@@ -23,13 +23,7 @@ users = {
             # уникальное поле (индекс не создаётся, просто значение должно быть уникальным)
             'unique': True,
         },
-        'name':  {
-            'type': 'string',
-            #'required': True,
-            # уникальное поле (индекс не создаётся, просто значение должно быть уникальным)
-            #'unique': True,
-        },
-        'assing_date': {
+        'assign_date': {
             'type': 'datetime',
             #'required': True,
         },
@@ -79,7 +73,7 @@ transactions = {
         'description': {
             'type': 'string',
         },
-        'date': {
+        'operation_date': {
             'type': 'datetime',
             'required': True,
         },

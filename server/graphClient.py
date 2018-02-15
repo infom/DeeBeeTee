@@ -26,21 +26,21 @@ def createNewTransaction(data):
 
     from_uid=str(data['from_uid'])
     to_uid=str(data['to_uid'])
-    since=data['date']
+    since=data['operation_date']
     tx=float(data['amount'])
 
     start_node = Person.objects.query(uid=from_uid).one()
-    #SPerson.objects.query(uid=from_uid).one
+
     end_node = Person.objects.query(uid=to_uid).one()
     graph.create_edge(TransactionsRel, start_node, end_node, since=since, tx=tx)
 
     debitb = float(start_node.debit_balance) + tx
-    startb = float(start_node.debit_balance) - float(start_node.credit_balance)
+    startb = debitb - float(start_node.credit_balance)
 
     print('start node', debitb, startb)
 
     creditb = float(end_node.credit_balance) + tx
-    endb = float(end_node.debit_balance) - float(end_node.credit_balance)
+    endb = float(end_node.debit_balance) - creditb
 
     print('end node', creditb, endb)
     client.command('update Person set debit_balance='+repr(debitb)+', balance='+repr(startb)+' where uid='+repr(from_uid))
@@ -93,7 +93,7 @@ def getBalanceDetails(username):
         for i in in_uniq:
             if i != '_':
                 balance[i] = float(inSum[i])
-                
+
     balance['_'] = float(node.balance)
 
     return json.dumps(balance)
