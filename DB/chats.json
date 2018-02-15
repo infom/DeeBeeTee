@@ -1,0 +1,107 @@
+[
+  {
+    "chid": 1,
+    "chat_id": 123,
+    "type": "private",
+    "title": "none",
+    "username": "Infom"
+  },
+  {
+    "chid": 2,
+    "chat_id": 1232,
+    "type": "private",
+    "title": "none",
+    "username": "Infom"
+  },
+  {
+    "chid": 3,
+    "chat_id": 2730927,
+    "type": "private",
+    "title": "",
+    "username": "Infom"
+  },
+  {
+    "chid": 4,
+    "chat_id": -156558308,
+    "type": "group",
+    "title": "??????",
+    "username": "Sergeiaf"
+  },
+  {
+    "chid": 5,
+    "chat_id": -230606976,
+    "type": "group",
+    "title": "DeeBeeTeeBot Test Group",
+    "username": "Infom"
+  },
+  {
+    "chid": 6,
+    "chat_id": 459569,
+    "type": "private",
+    "title": "",
+    "username": "Sergeiaf"
+  },
+  {
+    "chid": 7,
+    "chat_id": 77473985,
+    "type": "private",
+    "title": "",
+    "username": "Kasim_RI"
+  },
+  {
+    "chid": 11,
+    "chat_id": 69400583,
+    "type": "private",
+    "title": "",
+    "username": "Klimov_Alexander"
+  },
+  {
+    "chid": 14,
+    "chat_id": -300306014,
+    "type": "group",
+    "title": "mzgb",
+    "username": "Infom"
+  },
+  {
+    "chid": 15,
+    "chat_id": -295657316,
+    "type": "group",
+    "title": "*????????* ??????",
+    "username": "Infom"
+  },
+  {
+    "chid": 8,
+    "chat_id": 58530031,
+    "type": "private",
+    "title": "",
+    "username": "amarshalkin"
+  },
+  {
+    "chid": 10,
+    "chat_id": -302255597,
+    "type": "group",
+    "title": "???????????????? ?????????",
+    "username": "Infom"
+  },
+  {
+    "chid": 12,
+    "chat_id": 141948766,
+    "type": "private",
+    "title": "",
+    "username": "Lepberg"
+  },
+  {
+    "chid": 13,
+    "chat_id": 516923601,
+    "type": "private",
+    "title": "",
+    "username": ""
+  },
+  {
+    "chid": 9,
+    "chat_id": 147141378,
+    "type": "private",
+    "title": "",
+    "username": "Superkinder"
+  }
+]
