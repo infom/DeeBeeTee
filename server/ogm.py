@@ -4,7 +4,6 @@ from pyorient.ogm.declarative import declarative_node, declarative_relationship
 # Initialize Graph Database
 
 graph = Graph(Config.from_url('plocal://localhost:2424//DeeBeeTee', 'deebeetee', 'deebeetee'))
-print(graph)
 
 Node = declarative_node()
 Relationship = declarative_relationship()
