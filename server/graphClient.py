@@ -60,16 +60,43 @@ def getBalanceDetails(username):
     out_tx = node.outE('transactionsrel')
     in_tx = node.inE('transactionsrel')
 
-    if out_tx != None:
+    balance = {}
+    if out_tx != []:
         outSum = convertToArrayAndSum(out_tx, edgeType='out')
     else:
-        outSum = {}
-    if in_tx != None:
+        outSum = {'_':0}
+    if in_tx != []:
         inSum = convertToArrayAndSum(in_tx, edgeType='in')
     else:
-        outSum = {}
+        inSum = {'_':0}
 
-    return json.dumps({'out':outSum, 'in':inSum})
+    # находим совпадения имен пользователей в словарях сумм входящих и исходящих транзакций
+    equal_name = outSum.keys() & inSum.keys()
+
+    # находим пользователей, которые есть только в исходящих транзакциях
+    out_uniq = outSum.keys() - inSum.keys()
+
+    # находим пользователей, которые есть только во входящих транзакциях
+    in_uniq = inSum.keys() - outSum.keys()
+
+    if len(equal_name) != 0:
+        for e in equal_name:
+            if e != '_':
+                balance[e] = float(outSum[e]) - float(inSum[e])
+
+    if len(out_uniq) != 0:
+        for o in out_uniq:
+            if o != '_':
+                balance[o] = 0.0 - float(outSum[o])
+
+    if len(in_uniq) != 0:
+        for i in in_uniq:
+            if i != '_':
+                balance[i] = float(inSum[i])
+                
+    balance['_'] = float(node.balance)
+
+    return json.dumps(balance)
 
 def convertToArrayAndSum(arrayOfEdge, edgeType):
 
