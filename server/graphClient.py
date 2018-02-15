@@ -15,7 +15,6 @@ client.connect("deebeetee", "deebeetee")
 client.db_open("DeeBeeTee", "deebeetee", "deebeetee")
 
 
-
 def createNewNode(uid, username):
 
     client.command('insert into Person set name='+repr(username)+', uid='+repr(uid))
@@ -70,7 +69,7 @@ def getBalanceDetails(username):
     else:
         outSum = {}
 
-    return json.dumps({'status':'ok'})
+    return json.dumps({'out':outSum, 'in':inSum})
 
 def convertToArrayAndSum(arrayOfEdge, edgeType):
 
