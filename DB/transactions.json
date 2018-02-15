@@ -1,0 +1,1126 @@
+[
+  {
+    "tid": 1,
+    "from_user": "Ivan",
+    "amount": 235,
+    "to_user": "Boris",
+    "operation_date": "2017-12-25T09:54:26.910"
+  },
+  {
+    "tid": 2,
+    "from_user": "Ivan",
+    "amount": 405,
+    "to_user": "Boris",
+    "operation_date": "2017-12-25T09:54:34.317"
+  },
+  {
+    "tid": 3,
+    "from_user": "Boris",
+    "amount": 448,
+    "to_user": "Ivan",
+    "operation_date": "2017-12-25T09:54:48.690"
+  },
+  {
+    "tid": 4,
+    "from_user": "Boris",
+    "amount": 56,
+    "to_user": "Ivan",
+    "operation_date": "2017-12-25T09:54:52.470"
+  },
+  {
+    "tid": 5,
+    "from_user": "Boris",
+    "amount": 335,
+    "to_user": "Petr",
+    "operation_date": "2017-12-25T15:10:25.810",
+    "oid": 0
+  },
+  {
+    "tid": 6,
+    "from_user": "Ivan",
+    "amount": 1234,
+    "to_user": "Petr",
+    "operation_date": "2017-12-26T14:19:53.183",
+    "oid": 0
+  },
+  {
+    "tid": 7,
+    "from_user": "Ivan",
+    "amount": 1234,
+    "to_user": "Petr",
+    "operation_date": "2017-12-26T14:20:04.607",
+    "oid": 0
+  },
+  {
+    "tid": 10,
+    "from_user": "Petr",
+    "amount": 120,
+    "to_user": "Ivan",
+    "operation_date": "2017-12-26T14:24:13.153",
+    "oid": 0
+  },
+  {
+    "tid": 11,
+    "from_user": "Ivan",
+    "amount": 1234,
+    "to_user": "Petr",
+    "operation_date": "2017-12-26T14:24:35.280",
+    "oid": 0
+  },
+  {
+    "tid": 12,
+    "from_user": "Sergeiaf",
+    "amount": 200,
+    "to_user": "Infom",
+    "operation_date": "2017-12-26T14:25:20.747",
+    "oid": 0
+  },
+  {
+    "tid": 16,
+    "from_user": "Infom",
+    "amount": 5,
+    "to_user": "TretyakRoman",
+    "operation_date": "2017-12-27T06:12:59.447",
+    "oid": 0
+  },
+  {
+    "tid": 17,
+    "from_user": "Infom",
+    "amount": 380,
+    "to_user": "Sergeiaf",
+    "operation_date": "2017-12-27T11:49:18.737",
+    "oid": 0
+  },
+  {
+    "tid": 25,
+    "from_user": "Sergeiaf",
+    "amount": 320,
+    "to_user": "Infom",
+    "operation_date": "2017-12-28T14:48:11.123",
+    "oid": 0
+  },
+  {
+    "tid": 26,
+    "from_user": "Sergeiaf",
+    "amount": 275,
+    "to_user": "TretyakRoman",
+    "operation_date": "2017-12-28T14:48:21.500",
+    "oid": 0
+  },
+  {
+    "tid": 27,
+    "from_user": "TretyakRoman",
+    "amount": 5,
+    "to_user": "Infom",
+    "operation_date": "2017-12-28T14:49:18.250",
+    "oid": 0
+  },
+  {
+    "tid": 28,
+    "from_user": "Ivan",
+    "amount": 4355,
+    "to_user": "Boris",
+    "operation_date": "2017-12-29T09:08:20.680",
+    "oid": 0
+  },
+  {
+    "tid": 31,
+    "from_user": "Ivan",
+    "amount": 45,
+    "to_user": "Boris",
+    "operation_date": "2017-12-29T11:29:26.180",
+    "oid": 0
+  },
+  {
+    "tid": 32,
+    "from_user": "Boris",
+    "amount": 2450,
+    "to_user": "Ivan",
+    "operation_date": "2017-12-29T11:29:41.697",
+    "oid": 0
+  },
+  {
+    "tid": 33,
+    "from_user": "Boris",
+    "amount": 2450,
+    "to_user": "Ivan",
+    "operation_date": "2017-12-29T11:30:04.400",
+    "oid": 0
+  },
+  {
+    "tid": 34,
+    "from_user": "Infom",
+    "amount": 200,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-09T08:02:19.720",
+    "oid": 0
+  },
+  {
+    "tid": 38,
+    "from_user": "Infom",
+    "amount": 236,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-10T11:33:13.613",
+    "oid": 0
+  },
+  {
+    "tid": 39,
+    "from_user": "Infom",
+    "amount": 335,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-01-10T11:33:34.053",
+    "oid": 0
+  },
+  {
+    "tid": 55,
+    "from_user": "Infom",
+    "amount": 40,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-01-11T11:58:27.073",
+    "oid": 0
+  },
+  {
+    "tid": 56,
+    "from_user": "Sergeiaf",
+    "amount": 350,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-01-12T14:06:30.897",
+    "oid": 0
+  },
+  {
+    "tid": 57,
+    "from_user": "Sergeiaf",
+    "amount": 410,
+    "to_user": "Infom",
+    "operation_date": "2018-01-12T14:06:58.820",
+    "oid": 0
+  },
+  {
+    "tid": 58,
+    "from_user": "Infom",
+    "amount": 180,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-15T14:40:08.993",
+    "oid": 0
+  },
+  {
+    "tid": 59,
+    "from_user": "Infom",
+    "amount": 190,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-01-15T14:40:20.290",
+    "oid": 0
+  },
+  {
+    "tid": 63,
+    "from_user": "Infom",
+    "amount": 3000,
+    "to_user": "Kasim_RI",
+    "operation_date": "2018-01-17T06:27:05.733",
+    "oid": 0
+  },
+  {
+    "tid": 64,
+    "from_user": "Kasim_RI",
+    "amount": 1100,
+    "to_user": "Infom",
+    "operation_date": "2018-01-17T06:39:34.550",
+    "oid": 0
+  },
+  {
+    "tid": 65,
+    "from_user": "Kasim_RI",
+    "amount": 1500,
+    "to_user": "Infom",
+    "operation_date": "2018-01-17T06:41:19.610",
+    "oid": 0
+  },
+  {
+    "tid": 68,
+    "from_user": "Sergeiaf",
+    "amount": 350,
+    "to_user": "Infom",
+    "operation_date": "2018-01-17T11:32:02.873",
+    "oid": 0
+  },
+  {
+    "tid": 69,
+    "from_user": "Sergeiaf",
+    "amount": 350,
+    "to_user": "Infom",
+    "operation_date": "2018-01-17T11:32:03.453",
+    "oid": 0
+  },
+  {
+    "tid": 70,
+    "from_user": "Sergeiaf",
+    "amount": 350,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-01-17T11:32:03.983",
+    "oid": 0
+  },
+  {
+    "tid": 71,
+    "from_user": "TretyakRoman",
+    "amount": 148,
+    "to_user": "Infom",
+    "operation_date": "2018-01-18T12:04:48.877",
+    "oid": 0
+  },
+  {
+    "tid": 72,
+    "from_user": "TretyakRoman",
+    "amount": 149,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-18T12:04:49.453",
+    "oid": 0
+  },
+  {
+    "tid": 73,
+    "from_user": "kasim_ri",
+    "amount": 391,
+    "to_user": "infom",
+    "operation_date": "2018-01-19T11:42:09.790",
+    "oid": 0
+  },
+  {
+    "tid": 74,
+    "from_user": "Sergeiaf",
+    "amount": 340,
+    "to_user": "Infom",
+    "operation_date": "2018-01-19T11:42:55.077",
+    "oid": 0
+  },
+  {
+    "tid": 78,
+    "from_user": "Infom",
+    "amount": 150,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-01-22T15:12:09.593",
+    "oid": 0
+  },
+  {
+    "tid": 79,
+    "from_user": "TretyakRoman",
+    "amount": 190,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-22T15:12:39.317",
+    "oid": 0
+  },
+  {
+    "tid": 80,
+    "from_user": "TretyakRoman",
+    "amount": 250,
+    "to_user": "Infom",
+    "operation_date": "2018-01-22T15:13:04.460",
+    "oid": 0
+  },
+  {
+    "tid": 81,
+    "from_user": "TretyakRoman",
+    "amount": 50,
+    "to_user": "Infom",
+    "operation_date": "2018-01-22T15:13:19.923",
+    "oid": 0
+  },
+  {
+    "tid": 82,
+    "from_user": "amarshalkin",
+    "amount": 128,
+    "to_user": "infom",
+    "operation_date": "2018-01-23T06:18:03.840",
+    "oid": 0
+  },
+  {
+    "tid": 85,
+    "from_user": "Infom",
+    "amount": 330,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-24T12:50:49.610",
+    "oid": 0
+  },
+  {
+    "tid": 86,
+    "from_user": "Infom",
+    "amount": 332,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-01-24T12:50:50.220",
+    "oid": 0
+  },
+  {
+    "tid": 87,
+    "from_user": "Infom",
+    "amount": 1000,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-24T13:01:50.793",
+    "oid": 0
+  },
+  {
+    "tid": 88,
+    "from_user": "infom",
+    "amount": 1000,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-24T13:01:52.293",
+    "oid": 0
+  },
+  {
+    "tid": 89,
+    "from_user": "Sergeiaf",
+    "amount": 1000,
+    "to_user": "Infom",
+    "operation_date": "2018-01-24T13:06:24.557",
+    "oid": 0
+  },
+  {
+    "tid": 90,
+    "from_user": "ivan",
+    "amount": 100,
+    "to_user": "boris",
+    "operation_date": "2018-01-24T14:04:26.410",
+    "oid": 0
+  },
+  {
+    "tid": 91,
+    "from_user": "ivan",
+    "amount": 100,
+    "to_user": "petr",
+    "operation_date": "2018-01-24T14:04:30.110",
+    "oid": 0
+  },
+  {
+    "tid": 92,
+    "from_user": "ivan",
+    "amount": 200,
+    "to_user": "boris",
+    "operation_date": "2018-01-24T14:12:03.333",
+    "oid": 0
+  },
+  {
+    "tid": 93,
+    "from_user": "ivan",
+    "amount": 100,
+    "to_user": "boris",
+    "operation_date": "2018-01-24T14:12:45.220",
+    "oid": 0
+  },
+  {
+    "tid": 94,
+    "from_user": "ivan",
+    "amount": 100,
+    "to_user": "petr",
+    "operation_date": "2018-01-24T14:12:45.783",
+    "oid": 0
+  },
+  {
+    "tid": 100,
+    "from_user": "TretyakRoman",
+    "amount": 300,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-26T11:24:24.547",
+    "oid": 0
+  },
+  {
+    "tid": 101,
+    "from_user": "TretyakRoman",
+    "amount": 300,
+    "to_user": "Infom",
+    "operation_date": "2018-01-26T11:24:25.080",
+    "oid": 0
+  },
+  {
+    "tid": 102,
+    "from_user": "TretyakRoman",
+    "amount": 300,
+    "to_user": "Infom",
+    "operation_date": "2018-01-26T11:24:25.780",
+    "oid": 0
+  },
+  {
+    "tid": 103,
+    "from_user": "Infom",
+    "amount": 515,
+    "to_user": "infom",
+    "operation_date": "2018-01-29T07:08:07.050",
+    "oid": 0
+  },
+  {
+    "tid": 104,
+    "from_user": "Infom",
+    "amount": 515,
+    "to_user": "superkinder",
+    "operation_date": "2018-01-29T07:08:07.640",
+    "oid": 0
+  },
+  {
+    "tid": 105,
+    "from_user": "superkinder",
+    "amount": 485,
+    "to_user": "infom",
+    "operation_date": "2018-01-29T07:10:15.697",
+    "oid": 0
+  },
+  {
+    "tid": 106,
+    "from_user": "superkinder",
+    "amount": 485,
+    "to_user": "tretyakroman",
+    "operation_date": "2018-01-29T07:10:16.227",
+    "oid": 0
+  },
+  {
+    "tid": 107,
+    "from_user": "superkinder",
+    "amount": 485,
+    "to_user": "sergeiaf",
+    "operation_date": "2018-01-29T07:10:16.757",
+    "oid": 0
+  },
+  {
+    "tid": 108,
+    "from_user": "Infom",
+    "amount": 70,
+    "to_user": "superkinder",
+    "operation_date": "2018-01-29T07:11:42.730",
+    "oid": 0
+  },
+  {
+    "tid": 109,
+    "from_user": "Infom",
+    "amount": 70,
+    "to_user": "infom",
+    "operation_date": "2018-01-29T07:11:43.263",
+    "oid": 0
+  },
+  {
+    "tid": 110,
+    "from_user": "Infom",
+    "amount": 71,
+    "to_user": "sergeiaf",
+    "operation_date": "2018-01-29T07:11:43.810",
+    "oid": 0
+  },
+  {
+    "tid": 116,
+    "from_user": "Sergeiaf",
+    "amount": 415,
+    "to_user": "Infom",
+    "operation_date": "2018-02-01T11:07:51.820",
+    "oid": 0
+  },
+  {
+    "tid": 117,
+    "from_user": "Sergeiaf",
+    "amount": 365,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-02-01T11:07:53.307",
+    "oid": 0
+  },
+  {
+    "tid": 118,
+    "from_user": "Infom",
+    "amount": 1010,
+    "to_user": "infom",
+    "operation_date": "2018-02-01T19:28:37.217",
+    "oid": 0
+  },
+  {
+    "tid": 119,
+    "from_user": "Infom",
+    "amount": 1010,
+    "to_user": "superkinder",
+    "operation_date": "2018-02-01T19:28:37.750",
+    "oid": 0
+  },
+  {
+    "tid": 120,
+    "from_user": "superkinder",
+    "amount": 150,
+    "to_user": "infom",
+    "operation_date": "2018-02-01T19:29:30.983",
+    "oid": 0
+  },
+  {
+    "tid": 121,
+    "from_user": "superkinder",
+    "amount": 150,
+    "to_user": "sergeiaf",
+    "operation_date": "2018-02-01T19:29:31.467",
+    "oid": 0
+  },
+  {
+    "tid": 122,
+    "from_user": "Sergeiaf",
+    "amount": 300,
+    "to_user": "infom",
+    "operation_date": "2018-02-01T20:20:39.727",
+    "oid": 0
+  },
+  {
+    "tid": 123,
+    "from_user": "Sergeiaf",
+    "amount": 300,
+    "to_user": "superkinder",
+    "operation_date": "2018-02-01T20:20:41.290",
+    "oid": 0
+  },
+  {
+    "tid": 126,
+    "from_user": "Infom",
+    "amount": 225,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-02-02T11:23:04.517",
+    "oid": 0
+  },
+  {
+    "tid": 127,
+    "from_user": "Infom",
+    "amount": 225,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-02-02T11:23:05.140",
+    "oid": 0
+  },
+  {
+    "tid": 128,
+    "from_user": "amarshalkin",
+    "amount": 255,
+    "to_user": "infom",
+    "operation_date": "2018-02-05T17:03:19.793",
+    "oid": 0
+  },
+  {
+    "tid": 129,
+    "from_user": "Infom",
+    "amount": 385,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-02-06T10:23:06.727",
+    "oid": 0
+  },
+  {
+    "tid": 131,
+    "from_user": "amarshalkin",
+    "amount": 500,
+    "to_user": "Klimov_Alexander",
+    "operation_date": "2018-02-06T18:16:47.607",
+    "oid": 0
+  },
+  {
+    "tid": 146,
+    "from_user": "amarshalkin",
+    "amount": 86,
+    "to_user": "Klimov_Alexander",
+    "operation_date": "2018-02-06T20:09:02.210",
+    "oid": 0
+  },
+  {
+    "tid": 147,
+    "from_user": "amarshalkin",
+    "amount": 86,
+    "to_user": "mif007",
+    "operation_date": "2018-02-06T20:09:02.913",
+    "oid": 0
+  },
+  {
+    "tid": 148,
+    "from_user": "mif007",
+    "amount": 240,
+    "to_user": "klimov_alexander",
+    "operation_date": "2018-02-06T20:16:24.697",
+    "oid": 0
+  },
+  {
+    "tid": 155,
+    "from_user": "Kasim_RI",
+    "amount": 2200,
+    "to_user": "infom",
+    "operation_date": "2018-02-12T13:42:33.497",
+    "oid": 0
+  },
+  {
+    "tid": 156,
+    "from_user": "Kasim_RI",
+    "amount": 2200,
+    "to_user": "infom",
+    "operation_date": "2018-02-12T13:42:49.433",
+    "oid": 0
+  },
+  {
+    "tid": 157,
+    "from_user": "Kasim_RI",
+    "amount": 1500,
+    "to_user": "infom",
+    "operation_date": "2018-02-12T13:43:37.387",
+    "oid": 0
+  },
+  {
+    "tid": 158,
+    "from_user": "kasim_ri",
+    "amount": 2590,
+    "to_user": "Infom",
+    "operation_date": "2018-02-12T16:17:28.183",
+    "oid": 0
+  },
+  {
+    "tid": 8,
+    "from_user": "Ivan",
+    "amount": 1234,
+    "to_user": "Petr",
+    "operation_date": "2017-12-26T14:22:29.340",
+    "oid": 0
+  },
+  {
+    "tid": 9,
+    "from_user": "Petr",
+    "amount": 120,
+    "to_user": "Ivan",
+    "operation_date": "2017-12-26T14:23:09.683",
+    "oid": 0
+  },
+  {
+    "tid": 13,
+    "from_user": "Sergeiaf",
+    "amount": -200,
+    "to_user": "Infom",
+    "operation_date": "2017-12-26T14:27:59.200",
+    "oid": 0
+  },
+  {
+    "tid": 35,
+    "from_user": "TretyakRoman",
+    "amount": 300,
+    "to_user": "Infom",
+    "operation_date": "2018-01-09T11:16:38.153",
+    "oid": 0
+  },
+  {
+    "tid": 36,
+    "from_user": "TretyakRoman",
+    "amount": 300,
+    "to_user": "Infom",
+    "operation_date": "2018-01-09T11:16:39.030",
+    "oid": 0
+  },
+  {
+    "tid": 37,
+    "from_user": "TretyakRoman",
+    "amount": 300,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-09T11:16:44.263",
+    "oid": 0
+  },
+  {
+    "tid": 130,
+    "from_user": "Infom",
+    "amount": 355,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-02-06T10:23:25.477",
+    "oid": 0
+  },
+  {
+    "tid": 14,
+    "from_user": "Sergeiaf",
+    "amount": 200,
+    "to_user": "Infom",
+    "operation_date": "2017-12-26T14:52:00.477",
+    "oid": 0
+  },
+  {
+    "tid": 15,
+    "from_user": "Sergeiaf",
+    "amount": 285,
+    "to_user": "Infom",
+    "operation_date": "2017-12-26T14:56:43.557",
+    "oid": 0
+  },
+  {
+    "tid": 29,
+    "from_user": "TretyakRoman",
+    "amount": 540,
+    "to_user": "Infom",
+    "operation_date": "2017-12-29T11:25:35.430",
+    "oid": 0
+  },
+  {
+    "tid": 30,
+    "from_user": "TretyakRoman",
+    "amount": 320,
+    "to_user": "Sergeiaf",
+    "operation_date": "2017-12-29T11:26:34.057",
+    "oid": 0
+  },
+  {
+    "tid": 111,
+    "from_user": "Sergeiaf",
+    "amount": 300,
+    "to_user": "Infom",
+    "operation_date": "2018-01-29T11:33:59.220",
+    "oid": 0
+  },
+  {
+    "tid": 112,
+    "from_user": "Sergeiaf",
+    "amount": 300,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-01-29T11:33:59.860",
+    "oid": 0
+  },
+  {
+    "tid": 151,
+    "from_user": "Sergeiaf",
+    "amount": 225,
+    "to_user": "Infom",
+    "operation_date": "2018-02-09T10:08:50.327",
+    "oid": 0
+  },
+  {
+    "tid": 159,
+    "from_user": "amarshalkin",
+    "amount": 349,
+    "to_user": "Klimov_Alexander",
+    "operation_date": "2018-02-13T09:54:38.503",
+    "oid": 0
+  },
+  {
+    "tid": 46,
+    "from_user": "Ivan",
+    "amount": 201,
+    "to_user": "Boris",
+    "operation_date": "2018-01-11T09:27:34.823",
+    "oid": 0
+  },
+  {
+    "tid": 47,
+    "from_user": "Ivan",
+    "amount": 201,
+    "to_user": "Petr",
+    "operation_date": "2018-01-11T09:27:35.137",
+    "oid": 0
+  },
+  {
+    "tid": 48,
+    "from_user": "Ivan",
+    "amount": 233,
+    "to_user": "Boris",
+    "operation_date": "2018-01-11T09:28:32.167",
+    "oid": 0
+  },
+  {
+    "tid": 49,
+    "from_user": "Ivan",
+    "amount": 235,
+    "to_user": "Petr",
+    "operation_date": "2018-01-11T09:28:32.450",
+    "oid": 0
+  },
+  {
+    "tid": 61,
+    "from_user": "Infom",
+    "amount": 330,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-01-16T12:48:32.527",
+    "oid": 0
+  },
+  {
+    "tid": 62,
+    "from_user": "Infom",
+    "amount": 332,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-16T12:48:32.810",
+    "oid": 0
+  },
+  {
+    "tid": 75,
+    "from_user": "Infom",
+    "amount": 200,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-22T09:55:34.877",
+    "oid": 0
+  },
+  {
+    "tid": 76,
+    "from_user": "Infom",
+    "amount": 150,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-22T09:56:14.347",
+    "oid": 0
+  },
+  {
+    "tid": 77,
+    "from_user": "Kasim_RI",
+    "amount": 1100,
+    "to_user": "Infom",
+    "operation_date": "2018-01-22T09:57:02.673",
+    "oid": 0
+  },
+  {
+    "tid": 95,
+    "from_user": "Infom",
+    "amount": 200,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-25T11:22:45.017",
+    "oid": 0
+  },
+  {
+    "tid": 96,
+    "from_user": "Infom",
+    "amount": 200,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-01-25T11:22:45.627",
+    "oid": 0
+  },
+  {
+    "tid": 113,
+    "from_user": "infom",
+    "amount": 128,
+    "to_user": "amarshalkin",
+    "operation_date": "2018-01-31T06:44:03.183",
+    "oid": 0
+  },
+  {
+    "tid": 114,
+    "from_user": "TretyakRoman",
+    "amount": 320,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-31T13:22:04.437",
+    "oid": 0
+  },
+  {
+    "tid": 115,
+    "from_user": "TretyakRoman",
+    "amount": 190,
+    "to_user": "Infom",
+    "operation_date": "2018-01-31T13:22:06.563",
+    "oid": 0
+  },
+  {
+    "tid": 50,
+    "from_user": "Infom",
+    "amount": 268,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-11T11:31:43.743",
+    "oid": 0
+  },
+  {
+    "tid": 51,
+    "from_user": "Infom",
+    "amount": 268,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-01-11T11:31:44.040",
+    "oid": 0
+  },
+  {
+    "tid": 52,
+    "from_user": "Infom",
+    "amount": 271,
+    "to_user": "Svetlana_Shulgina",
+    "operation_date": "2018-01-11T11:31:44.353",
+    "oid": 0
+  },
+  {
+    "tid": 53,
+    "from_user": "Infom",
+    "amount": 150,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-01-11T11:37:44.523",
+    "oid": 0
+  },
+  {
+    "tid": 54,
+    "from_user": "Svetlana_Shulgina",
+    "amount": 271,
+    "to_user": "Infom",
+    "operation_date": "2018-01-11T11:38:25.213",
+    "oid": 0
+  },
+  {
+    "tid": 60,
+    "from_user": "Infom",
+    "amount": 330,
+    "to_user": "Kasim_RI",
+    "operation_date": "2018-01-16T12:35:02.917",
+    "oid": 0
+  },
+  {
+    "tid": 149,
+    "from_user": "TretyakRoman",
+    "amount": 318,
+    "to_user": "Infom",
+    "operation_date": "2018-02-08T11:29:16.737",
+    "oid": 0
+  },
+  {
+    "tid": 150,
+    "from_user": "TretyakRoman",
+    "amount": 320,
+    "to_user": "Sergeiaf",
+    "operation_date": "2018-02-08T11:29:17.237",
+    "oid": 0
+  },
+  {
+    "tid": 152,
+    "from_user": "Klimov_Alexander",
+    "amount": 259,
+    "to_user": "infom",
+    "operation_date": "2018-02-09T11:49:21.977",
+    "oid": 0
+  },
+  {
+    "tid": 153,
+    "from_user": "Klimov_Alexander",
+    "amount": 346,
+    "to_user": "amarshalkin",
+    "operation_date": "2018-02-09T11:51:33.743",
+    "oid": 0
+  },
+  {
+    "tid": 83,
+    "from_user": "Sergeiaf",
+    "amount": 1290,
+    "to_user": "Infom",
+    "operation_date": "2018-01-23T11:24:18.820",
+    "oid": 0
+  },
+  {
+    "tid": 84,
+    "from_user": "Sergeiaf",
+    "amount": 140,
+    "to_user": "TretyakRoman",
+    "operation_date": "2018-01-23T11:25:37.843",
+    "oid": 0
+  },
+  {
+    "tid": 132,
+    "from_user": "mif007",
+    "amount": 300,
+    "to_user": "infom",
+    "operation_date": "2018-02-06T18:23:44.467",
+    "oid": 0
+  },
+  {
+    "tid": 133,
+    "from_user": "mif007",
+    "amount": 300,
+    "to_user": "amarshalkin",
+    "operation_date": "2018-02-06T18:23:44.950",
+    "oid": 0
+  },
+  {
+    "tid": 134,
+    "from_user": "mif007",
+    "amount": 300,
+    "to_user": "klimov_alexander",
+    "operation_date": "2018-02-06T18:23:45.433",
+    "oid": 0
+  },
+  {
+    "tid": 135,
+    "from_user": "mif007",
+    "amount": 300,
+    "to_user": "lepberg",
+    "operation_date": "2018-02-06T18:23:45.920",
+    "oid": 0
+  },
+  {
+    "tid": 136,
+    "from_user": "Infom",
+    "amount": 500,
+    "to_user": "mif007",
+    "operation_date": "2018-02-06T18:25:05.327",
+    "oid": 0
+  },
+  {
+    "tid": 137,
+    "from_user": "Infom",
+    "amount": 500,
+    "to_user": "amarshalkin",
+    "operation_date": "2018-02-06T18:25:05.810",
+    "oid": 0
+  },
+  {
+    "tid": 138,
+    "from_user": "Infom",
+    "amount": 500,
+    "to_user": "klimov_alexander",
+    "operation_date": "2018-02-06T18:25:06.293",
+    "oid": 0
+  },
+  {
+    "tid": 139,
+    "from_user": "Infom",
+    "amount": 500,
+    "to_user": "lepberg",
+    "operation_date": "2018-02-06T18:25:06.780",
+    "oid": 0
+  },
+  {
+    "tid": 140,
+    "from_user": "lepberg",
+    "amount": 300,
+    "to_user": "mif007",
+    "operation_date": "2018-02-06T18:32:04.437",
+    "oid": 0
+  },
+  {
+    "tid": 141,
+    "from_user": "lepberg",
+    "amount": 500,
+    "to_user": "Infom",
+    "operation_date": "2018-02-06T18:33:21.560",
+    "oid": 0
+  },
+  {
+    "tid": 142,
+    "from_user": "klimov_alexander",
+    "amount": 300,
+    "to_user": "mif007",
+    "operation_date": "2018-02-06T18:36:02.843",
+    "oid": 0
+  },
+  {
+    "tid": 161,
+    "from_user": "Infom",
+    "amount": 9251,
+    "to_user": "Kasim_RI",
+    "operation_date": "2018-02-14T13:57:18.470",
+    "oid": 0
+  },
+  {
+    "tid": 143,
+    "from_user": "klimov_alexander",
+    "amount": 240,
+    "to_user": "Infom",
+    "operation_date": "2018-02-06T19:58:48.053",
+    "oid": 0
+  },
+  {
+    "tid": 144,
+    "from_user": "klimov_alexander",
+    "amount": 240,
+    "to_user": "amarshalkin",
+    "operation_date": "2018-02-06T19:58:49.270",
+    "oid": 0
+  },
+  {
+    "tid": 145,
+    "from_user": "klimov_alexander",
+    "amount": 240,
+    "to_user": "mif007",
+    "operation_date": "2018-02-06T19:58:49.743",
+    "oid": 0
+  },
+  {
+    "tid": 160,
+    "from_user": "Sergeiaf",
+    "amount": 95,
+    "to_user": "amarshalkin",
+    "operation_date": "2018-02-14T11:34:19.110",
+    "oid": 0
+  },
+  {
+    "tid": 154,
+    "from_user": "Klimov_Alexander",
+    "amount": 1,
+    "to_user": "infom",
+    "operation_date": "2018-02-09T11:55:04.370",
+    "oid": 0
+  }
+]

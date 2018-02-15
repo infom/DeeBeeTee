@@ -1,0 +1,90 @@
+[
+  {
+    "uid": 1,
+    "user": "Ivan",
+    "assign_date": "2017-12-25T09:53:23.457",
+    "limit": 10000
+  },
+  {
+    "uid": 2,
+    "user": "Boris",
+    "assign_date": "2017-12-25T09:53:37.677",
+    "limit": 8000
+  },
+  {
+    "uid": 3,
+    "user": "Petr",
+    "assign_date": "2017-12-25T14:57:46.050",
+    "limit": 800
+  },
+  {
+    "uid": 4,
+    "user": "Infom",
+    "assign_date": "2017-12-26T13:11:13.097",
+    "limit": 1000,
+    "user_id": 2730927
+  },
+  {
+    "uid": 5,
+    "user": "Sergeiaf",
+    "assign_date": "2017-12-26T13:20:41.580",
+    "limit": 1000,
+    "user_id": 459569
+  },
+  {
+    "uid": 6,
+    "user": "TretyakRoman",
+    "assign_date": "2017-12-27T06:08:47.853",
+    "limit": 1000,
+    "user_id": 288805897
+  },
+  {
+    "uid": 7,
+    "user": "Svetlana_Shulgina",
+    "assign_date": "2018-01-11T11:30:19.777",
+    "limit": 1000,
+    "user_id": 52351856
+  },
+  {
+    "uid": 8,
+    "user": "Kasim_RI",
+    "assign_date": "2018-01-16T12:33:58.323",
+    "limit": 1000,
+    "user_id": 77473985
+  },
+  {
+    "uid": 9,
+    "user": "amarshalkin",
+    "assign_date": "2018-01-23T06:16:09.073",
+    "limit": 1000,
+    "user_id": 58530031
+  },
+  {
+    "uid": 11,
+    "user": "Klimov_Alexander",
+    "assign_date": "2018-02-06T17:37:28.860",
+    "limit": 1000,
+    "user_id": 69400583
+  },
+  {
+    "uid": 13,
+    "user": "mif007",
+    "assign_date": "2018-02-06T18:22:48.123",
+    "limit": 1000,
+    "user_id": 516923601
+  },
+  {
+    "uid": 10,
+    "user": "Superkinder",
+    "assign_date": "2018-01-29T07:06:31.907",
+    "limit": 1000,
+    "user_id": 147141378
+  },
+  {
+    "uid": 12,
+    "user": "Lepberg",
+    "assign_date": "2018-02-06T18:12:04.623",
+    "limit": 1000,
+    "user_id": 141948766
+  }
+]
