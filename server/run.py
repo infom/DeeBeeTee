@@ -10,6 +10,11 @@ from graphClient import getBalanceDetails, getUserBalance, createNewNode, create
 #from py2neo import Node, NodeSelector, Graph
 #import collections
 
+def befor_insert_users(items):
+    print(items)
+    for i in items:
+        i['username'] = i['username'].lower()
+        print(i['username'])
 
 def after_insert_users(items):
     users = app.data.driver.db['users']
@@ -23,6 +28,7 @@ def after_insert_transactions(items):
 
 app = Eve(settings='settings.py')
 
+app.on_insert_users += befor_insert_users
 app.on_inserted_users += after_insert_users
 app.on_inserted_transactions += after_insert_transactions
 
