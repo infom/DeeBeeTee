@@ -38,6 +38,22 @@ loader = jinja2.ChoiceLoader([
 ])
 app.jinja_loader = loader
 
+app.register_blueprint(swagger)
+
+app.config['SWAGGER_INFO'] = {
+    'title': 'DeeBeeTee API',
+    'version': '1.0',
+    'description': 'This is DeeBeeTee API Specification',
+    'termsOfService': 'http://swagger.io/terms/',
+    'contact': {
+        'email': 'infominfom@gmail.com',
+    },
+    'license': {
+        'name': 'Apache 2.0',
+        'url': 'http://www.apache.org/licenses/LICENSE-2.0.html',
+    },
+    'schemes': ['http', 'https'],
+}
 
 @app.route('/v1/users/<path:username>/getBalance')
 def getBalance(username):
